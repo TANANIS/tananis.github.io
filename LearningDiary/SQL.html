@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL 學習內容</title>
+    <link rel="stylesheet" href="LearningDiary\LDstyle.css"> <!-- 使用 SQL 專屬樣式表 -->
+    <script src="LearningDiary/scripts.js"></script> <!-- 使用主腳本 -->
+</head>
+
+<body>
+    <nav>
+        <img src="LearningDiary\BACKBTN-01-01.png" alt="backBTN" class="backBTN">
+        <h1>學習資源推薦</h1>
+        <ul>
+            <li><a href="javascript:void(0)" onclick="window.history.back()">返回上一頁</a></li>
+            <li><a href="SQL.html">SQL</a></li>
+            <li><a href="HTML.html">HTML</a></li>
+            <li><a href="Python.html">Python</a></li>
+            <li><a href="unity.html">Unity</a></li>
+            <li><a href="csharp.html">c#</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- 主題圖片區域 -->
+        <section id="theme-image">
+            <img src="img/background.png" alt="學習資源主題圖片">
+        </section>
+
+        <!-- SQL 內容區域 -->
+        <section id="intro">
+            <h1>SQL 簡易介紹</h1>
+            <p>SQL（Structured Query Language）是一種專門用於操作關聯式數據庫的標準語言。它提供了一種方式來查詢、插入、更新和刪除數據。</p>
+        </section>
+        <h1>章節一</h1>
+        <section id="paragraph1">
+            <h2>HyperV創立與SQL/SSMS安裝</h2>
+            <h3>基礎虛擬機架設(Hyper-V)</h3>
+            <p>資料庫存在虛擬機中最佳。先學架虛擬機以適應各種平台的基礎相容。</p>
+            <p>這邊使用WINDOWS內建的Hyper-V功能。</p>
+            <p><a href="https://blog.hungwin.com.tw/windows-home-hyper-v/" target="_blank">安裝教學</a></p>
+            <p>安裝完成後便會出現Hype-V管理員即可進入設定。</p>
+        </section>
+        <section id="paragraph2">
+            <h3>HyperV設定頁面</h3>
+            <p>Hyper-V管理員內需先調整基本設定。設定 > 將預設位置更改為指定資料夾（左至右），減少使用預設位置。</p>
+            <p>詳細設定位置：Hyper-V管理員 > 動作 > Hyper-V設定 > 虛擬硬碟與虛擬機器</p>
+            <img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/074362f1-06f7-44d7-a749-12de29fd1856/67bb1de2-bef5-4537-b4bc-73dcf79e3741/Untitled.png"
+                alt="詳細設定位置" style="width:100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
+            <p>接下來，需要提前建立好虛擬機的資料夾，並放置 Windows Server/虛擬硬碟或者 ISO 安裝檔在指定資料夾之中，以便後續的虛擬機建立：</p>
+            <img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/074362f1-06f7-44d7-a749-12de29fd1856/175e1338-fb40-490f-b7e6-f63bcbc06318/Untitled.png"
+                alt="範例位置" style="width:100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
+            <p><strong>註釋1：</strong>這邊使用 Windows Server，也可使用家用版 WIN 映像檔（ISO）。</p>
+        </section>
+        <section id="paragraph3">
+            <h3>補充：建立虛擬網路交換器（橋接器）</h3>
+            <p>為了確保 SQL 伺服器能夠在虛擬機之間進行有效的連線，必須先在 Hyper-V 中建立虛擬網路交換器（橋接器）。</p>
+            <p><strong>建立虛擬交換器的步驟：</strong></p>
+            <ol>
+                <li><strong>開啟 Hyper-V 管理員：</strong>
+                    <p>在 Windows 搜尋欄中輸入 “Hyper-V 管理員” 並開啟應用程式。</p>
+                </li>
+                <li><strong>建立虛擬交換器：</strong>
+                    <p>在 Hyper-V 管理員的右側面板中，選擇 “虛擬交換器管理員”。</p>
+                    <p>點擊 “新建虛擬交換器” 按鈕，並選擇 “外部” 類型的交換器。</p>
+                </li>
+                <li><strong>配置虛擬交換器：</strong>
+                    <p>為虛擬交換器指定一個名稱，例如 “BridgeSwitch”。</p>
+                    <p>在 “連線類型” 中，選擇您的實體網路介面卡（NIC），這樣虛擬機器才能與外部網絡通信。</p>
+                    <p>勾選 “允許管理作業系統共用此網路介面卡” 以便主機和虛擬機器共用網路連線。</p>
+                    <p>完成配置後，點擊 “確定” 以保存設定。</p>
+                </li>
+            </ol>
+            <p><strong>補充說明：</strong>WAN（廣域網路）是指在地理上分散的網路系統，用於連接不同地點的網路設備。</p>
+        </section>
+        <section id="paragraph1">
+            <h2>第一步：建立</h2>
+            <ol>
+                <li>在 HyperV 管理員右邊選擇 >>>
+                    <blockquote>主機名稱 > 新增 >> 虛擬機器</blockquote>
+                </li>
+                <li>進入虛擬機器精靈建立分頁 >>
+                    <blockquote>設定虛擬機名稱 > 選擇虛擬機儲存位置</blockquote>
+                </li>
+            </ol>
+            <img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/074362f1-06f7-44d7-a749-12de29fd1856/f86005f2-0406-42f4-88d6-6e6fed187c78/Untitled.png"
+                alt="建立虛擬機畫面">
+            <p>補充：請記得勾選 ✅ 將虛擬機器儲存在不同位置，並指定為註釋1的位置。</p>
+        </section>
+
+        <section id="paragraph2">
+            <h2>第二步：虛擬機世代</h2>
+            <p>接下來選擇虛擬機的世代，世代基本以 Windows 支援版本決定：</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>特性</th>
+                        <th>第 1 代虛擬機器</th>
+                        <th>第 2 代虛擬機器</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>支援作業系統</td>
+                        <td>較舊的作業系統：例如 Windows 7、Windows Server 2008 等。</td>
+                        <td>較新的作業系統：例如 Windows 10、Windows Server 2016 及更新版本。</td>
+                    </tr>
+                    <tr>
+                        <td>開機方式</td>
+                        <td>使用 BIOS 開機：適合不支援 UEFI 的作業系統。</td>
+                        <td>使用 UEFI 開機：提供安全開機功能，防止未經授權的韌體、操作系統或 UEFI 驅動程式在開機時執行。</td>
+                    </tr>
+                    <tr>
+                        <td>開機磁碟區</td>
+                        <td>-</td>
+                        <td>最大開機磁碟區為 64 TB。</td>
+                    </tr>
+                    <tr>
+                        <td>硬體支援</td>
+                        <td>支援舊版硬體：例如舊版的網路設備。</td>
+                        <td>較高的效能：支援更多的虛擬 RAM 和虛擬 CPU。</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>//基本都以第二代為主。</p>
+        </section>
+
+        <section id="paragraph3">
+            <h2>第三步：指派虛擬機記憶體</h2>
+            <p>指派記憶體：</p>
+            <p>下一步會看見可指派記憶體，以自己電腦做衡量，預設給到 4G，</p>
+            <p>假如 CPU 效能足夠可開啟動態記憶體，動態記憶體需要 CPU 的實質監測，速度也會較慢。</p>
+            <img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/074362f1-06f7-44d7-a749-12de29fd1856/95923608-f5d5-4905-99b8-9e54065c6e34/Untitled.png"
+                alt="指派記憶體畫面">
+        </section>
+
+        <section id="paragraph4">
+            <h2>第四步：設定網路功能</h2>
+            <p>這一步驟非常重要，前面建立的虛擬網路交換器（橋接器）就在此處用到，假如此處設定為預設 SWITCH 或未設定，<strong>可能會使虛擬機之間無法連線！！</strong></p>
+            <img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/074362f1-06f7-44d7-a749-12de29fd1856/8ae1fd20-0cf0-4d24-8204-6a66c4e9a774/Untitled.png"
+                alt="設定網路功能畫面">
+            <p>這邊選擇剛剛建立的虛擬橋接</p>
+            <p>建立方法請看前面橋接器建立教學。</p>
+        </section>
+
+        <section id="paragraph5">
+            <h2>第五步：連接/建立虛擬硬碟</h2>
+            <p>這邊以自己需求為主，可以自行建立也可掛載提前設定好的虛擬硬碟。</p>
+        </section>
+        <section id="paragraph6">
+            <h2>補充：虛擬硬碟 (VHD/VHDX)</h2>
+            <p>虛擬硬碟 (VHD) 是一種磁碟映像檔案格式，具有與實體硬碟類似的功能，主要設計用於虛擬機器。它可以在一個實體硬碟上模擬多個虛擬硬碟，基本用來安裝作業系統或存儲資料
+                ([微軟介紹)](https://learn.microsoft.com/zh-tw/windows-server/storage/disk-management/manage-virtual-hard-disks))。
+            </p>
+
+            <h3>如何建立虛擬硬碟？</h3>
+            <ol>
+                <li><strong>開啟磁碟管理</strong>：
+                    <ul>
+                        <li>在 Windows 搜尋欄中輸入 “電腦管理” 並開啟它。</li>
+                        <li>在左側選單中選擇 “磁碟管理”。</li>
+                    </ul>
+                </li>
+                <li><strong>建立虛擬硬碟 (VHD)</strong>：
+                    <ul>
+                        <li>在 “動作” 功能表上，選取 “建立 VHD”。</li>
+                        <li>在 “建立並連結虛擬硬碟” 對話方塊中，指定您想要在實體電腦上儲存 VHD 檔案的位置。</li>
+                        <li>在 “檔案名稱” 欄位中，輸入磁碟機的名稱。</li>
+                        <li>從 “另存新類型” 下拉式功能表中選取 “虛擬磁碟檔案 (*.vhd)”。</li>
+                        <li>選取 “儲存”。</li>
+                    </ul>
+                </li>
+                <li><strong>設定虛擬硬碟大小和類型</strong>：
+                    <ul>
+                        <li>在 “虛擬硬碟大小” 底下輸入檔案大小。</li>
+                        <li>在 “虛擬硬碟類型” 下，選取 “動態擴充” 或 “固定大小”。</li>
+                        <li>選取 “確定” 來完成。</li>
+                    </ul>
+                </li>
+                <li><strong>連接虛擬硬碟</strong>：
+                    <ul>
+                        <li>在 “磁碟管理” 中，選取 “連結 VHD”。</li>
+                        <li>在 “連結虛擬硬碟” 對話方塊中，選取 “瀏覽” 按鈕，然後尋找 .vhd 檔案。</li>
+                        <li>選取 “確定”。</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <section id="paragraph7">
+            <h2>設定虛擬核心</h2>
+            <p>這樣便完成基礎設定，但最好去設定虛擬核心數以免效能拖累。</p>
+            <p>位置：</p>
+            <ul>
+                <li>指定虛擬機 > 右鍵 > 設定 > 指定虛擬核心數 > 設定至當前 PC 上限</li>
+            </ul>
+            <p>⭐ 而假設有同時多台虛擬機，可以設定這台 PC 的 CPU 相對全數（利用率）。</p>
+            <img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/074362f1-06f7-44d7-a749-12de29fd1856/b65539f5-e0eb-4539-a210-57fe21f12cf4/Untitled.png"
+                alt="設定虛擬核心數畫面">
+            <p>這樣就算完成虛擬機建設了。</p>
+        </section>
+        <section id="paragraph8">
+            <h2>微軟複雜性密碼規範</h2>
+            <p>在進入伺服器之後首先會需要你創建密碼，而微軟的伺服器的設定必須符合微軟的複雜性需求。</p>
+            <p>微軟的密碼複雜性需求旨在提高密碼的安全性，防止未經授權的訪問。以下是主要的要求：</p>
+            <ul>
+                <li><a href="https://bing.com/search?q=%e5%be%ae%e8%bb%9f%e5%af%86%e7%a2%bc%e8%a4%87%e9%9b%9c%e6%80%a7%e9%9c%80%e6%b1%82"
+                        target="_blank">密碼長度：至少六個字元</a></li>
+                <li><a href="https://bing.com/search?q=%e5%be%ae%e8%bb%9f%e5%af%86%e7%a2%bc%e8%a4%87%e9%9b%9c%e6%80%a7%e9%9c%80%e6%b1%82"
+                        target="_blank">字元類型：密碼必須包含以下四類字元中的至少三種</a>：
+                    <ul>
+                        <li>英文大寫字母 (A 到 Z)</li>
+                        <li>英文小寫字母 (a 到 z)</li>
+                        <li>基底 10 個數字 (0 到 9)</li>
+                        <li>非英數字元 (例如 !、$、#、%)</li>
+                    </ul>
+                </li>
+                <li><a href="https://bing.com/search?q=%e5%be%ae%e8%bb%9f%e5%af%86%e7%a2%bc%e8%a4%87%e9%9b%9c%e6%80%a7%e9%9c%80%e6%b1%82"
+                        target="_blank">帳戶名限制：密碼不得包含三個或三個以上來自使用者帳戶名中的字元</a></li>
+            </ul>
+            <p>這邊使用舉例：!qaz@WSX</p>
+        </section>
+
+        <section id="paragraph9">
+            <h2>虛擬機儀表板-操作介面介紹</h2>
+            <p>開啟之後上方會有一些實體 PC 會有的功能，</p>
+            <p>開啟介面：開始 > 伺服器管理員 > 儀表板</p>
+            <img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/074362f1-06f7-44d7-a749-12de29fd1856/36016bdd-28d3-4ca1-b5af-c58bab8a4c72/Untitled.png"
+                alt="伺服器管理員儀表板">
+
+            <h3>虛擬機動作內的行動介紹：</h3>
+            <ul>
+                <li><strong>關閉：</strong>長按關機</li>
+                <li><strong>關機：</strong>短按一秒電源鍵關機 (正常關機)</li>
+                <li><strong>儲存：</strong>鎖定儲存</li>
+                <li><strong>暫停：</strong>暫停使用增加電腦效能</li>
+                <li><strong>檢查點：</strong>SUTOSAFE 功能回復 (可自行設定)</li>
+            </ul>
+
+            <p>最後：虛擬機內部記得改名</p>
+            <p>伺服器管理員的初始位置在：開始 > 伺服器管理員內</p>
+            <img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/074362f1-06f7-44d7-a749-12de29fd1856/96b74d5a-e173-436c-8edf-5e7b2c27df3f/Untitled.png"
+                alt="伺服器管理員介面">
+
+            <p>以上基礎設定完成</p>
+            <p>完整電子書：<a
+                    href="https://prod-files-secure.s3.us-west-2.amazonaws.com/074362f1-06f7-44d7-a749-12de29fd1856/21d75192-8d8d-4343-be58-6853e5523074/%E9%99%84%E9%8C%84A.pdf"
+                    target="_blank">附錄A.pdf</a></p>
+        </section>
+        <section id="paragraph10">
+            <h2>安裝 SQL Server</h2>
+
+            <h3>SQL 安裝中心</h3>
+            <p>微軟 SQL Server 安裝工具連結：<a href="https://www.microsoft.com/zh-tw/sql-server/sql-server-downloads"
+                    target="_blank">微軟 SQL Server 下載頁面</a></p>
+            <p>選擇 Developer 版本安裝，安裝在虛擬機位置，下載完成後安裝中心畫面如下圖。</p>
+            <img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/074362f1-06f7-44d7-a749-12de29fd1856/43fc34f1-5707-45b4-a3b1-77a570b162e7/Untitled.png"
+                alt="SQL Server 安裝中心">
+
+            <aside>
+                <p>⭐ 補充，虛擬機掛載光碟機的方法：</p>
+                <p>伺服器管理員 > 設定 > scsi 設定 > 掛載 DVD 光碟機 > 新增 插入磁碟</p>
+                <img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/074362f1-06f7-44d7-a749-12de29fd1856/6bfa05b6-a0db-4cc5-82c0-b7bed4cf983a/Untitled.png"
+                    alt="虛擬機掛載光碟機">
+                <p>掛載後開啟光碟顯示介面如上圖，此處也可新增虛擬硬碟/變更網路介面等</p>
+            </aside>
+
+            <p>最好重複確認是否環境正確</p>
+            <img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/074362f1-06f7-44d7-a749-12de29fd1856/8232eb77-c4df-4425-b650-de9ed306a0d1/Untitled.png"
+                alt="確認環境設定">
+
+            <h3>執行個體功能與共用功能</h3>
+            <p>在一台作業系統環境中最多可以安裝 16 套 SQL Server，這時每套單獨的 SQL 就是個體功能。</p>
+            <p>課程時只會用到資料庫引擎功能，即打勾。</p>
+            <img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/074362f1-06f7-44d7-a749-12de29fd1856/ce4c871a-5911-4420-823f-3cfaa9731473/Untitled.png"
+                alt="SQL Server 核心功能">
+
+            <img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/074362f1-06f7-44d7-a749-12de29fd1856/938c1a8f-bc56-4063-9c25-40b0c33ad50b/Untitled.png"
+                alt="安裝完成後核心功能">
+
+            <h3>服務介紹</h3>
+            <ul>
+                <li><strong>SQL Server agent：</strong>排程服務</li>
+                <li><strong>database engine：</strong>伺服器引擎</li>
+                <li><strong>Server Browser：</strong>當有多個 SQL 時檢索用</li>
+            </ul>
+
+            <p>這邊的預設路徑可以看出版本：2022版=16 /2021版=15</p>
+            <img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/074362f1-06f7-44d7-a749-12de29fd1856/139fdfed-f342-4863-a522-b9bea948b7c4/Untitled.png"
+                alt="SQL Server 版本路徑">
+
+            <aside>
+                <p>⭐ 補充：假設是具名執行個體到時候位置會加斜線，舉例：SQL1/VM2 << 預設名稱/2號 SQL</p>
+            </aside>
+
+            <p>‼️‼️ 建議創建的帳戶名稱都不要動 >>> 原因 > 服務帳號預設會定期更新密碼</p>
+            <p>在創建時會出現是否允許 SQL 的【磁碟區維護工作】權限，如下圖，不要打勾，會允許虛擬機 SQL 擁有變更外部磁碟的權限</p>
+        </section>
+        <section id="paragraph8">
+            <h2>定序介紹</h2>
+            <p>
+                <strong>定序</strong> 指的是排序的方式。在資料庫或其他系統中，定序會影響資料的排列順序。常見的定序包括：
+            </p>
+            <ul>
+                <li>英文定序：A~Z</li>
+                <li>數字定序：1~10</li>
+            </ul>
+            <p>
+                在安裝過程中，通常可以選擇預設的定序值。資料庫中可以根據需要自定義定序。例如，使用筆畫數（Stroke）來進行排序。
+            </p>
+            <p>
+                <strong>注意：</strong>如果選擇勾選「區分大小寫」，則小寫字母 a 與大寫字母 A 會被視為不同的字符。類似地，中文全形和半形字符也會被區分對待。
+            </p>
+            <p>
+                定序的選擇會影響到資料的排序和比較方式，因此在設定時需要根據實際需求進行選擇。
+            </p>
+        </section>
+
+
+
+
+
+
+
+
+
+
+        <section id="chapter3">
+            <h1>等待更新</h1>
+            <section id="paragraph3-1">
+                <h2>等待更新中</h2>
+                <p>等待更新中，請耐心等候。或者前往我的Notion提前觀看。</p>
+                <section id="paragraph3-2">
+                    <h2>等待更新中</h2>
+                    <p>等待更新中，請耐心等候。或者前往我的Notion提前觀看。</p>
+                </section>
+            </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 版權所有.</p>
+    </footer>
+</body>
+
+</html>

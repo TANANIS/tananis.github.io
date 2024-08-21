@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社交媒體平台</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            /* 深色背景 */
+            color: #e0e0e0;
+            /* 淺灰色文字 */
+        }
+
+        header {
+            background: #1f1f1f;
+            /* 深色背景 */
+            color: #ffffff;
+            /* 白色文字 */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #bb86fc;
+            /* 紫色 */
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff79c6;
+            /* 粉紅色 */
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .post-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .post {
+            background: #1e1e1e;
+            /* 更深色的背景 */
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .profile-pic {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        .user-info h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .user-info p {
+            margin: 0;
+            color: #888;
+        }
+
+        .post-content {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .post-actions button {
+            background-color: #bb86fc;
+            /* 紫色按鈕 */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-right: 10px;
+        }
+
+        .post-actions button:hover {
+            background-color: #9b59b6;
+            /* 深紫色 */
+            transform: scale(1.05);
+        }
+
+        .profile-card {
+            background: #1e1e1e;
+            /* 深色背景 */
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-pic-large {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .message-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            display: flex;
+            align-items: center;
+            background: #1e1e1e;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-pic-small {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        .message-content {
+            flex: 1;
+        }
+
+        .message-form {
+            margin-top: 20px;
+        }
+
+        .message-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background: #121212;
+            /* 深色背景 */
+            color: #e0e0e0;
+            box-sizing: border-box;
+        }
+
+        .message-form button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #bb86fc;
+            /* 紫色按鈕 */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .message-form button:hover {
+            background-color: #9b59b6;
+            /* 深紫色 */
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #1f1f1f;
+            /* 深色背景 */
+            color: #ffffff;
+            /* 白色文字 */
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>社交媒體平台</h1>
+        <nav>
+            <a href="#home">首頁</a>
+            <a href="#profile">用戶頁面</a>
+            <a href="#messages">消息</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>最新動態</h2>
+            <div class="post-list">
+                <!-- 範例帖子 -->
+                <div class="post">
+                    <div class="post-header">
+                        <img src="SAMPLE.jpg" alt="用戶頭像" class="profile-pic">
+                        <div class="user-info">
+                            <h3>用戶名稱</h3>
+                            <p>@用戶帳號</p>
+                        </div>
+                    </div>
+                    <p class="post-content">這是一條範例文章內容。內容可以很長，並且包含各種有趣的資訊。</p>
+                    <div class="post-actions">
+                        <button onclick="likePost()">喜歡</button>
+                        <button onclick="commentPost()">評論</button>
+                        <button onclick="sharePost()">分享</button>
+                    </div>
+                </div>
+                <!-- 其他文章可以按需添加 -->
+            </div>
+        </section>
+
+        <section id="profile">
+            <h2>用戶頁面</h2>
+            <div class="profile-card">
+                <img src="SAMPLE.jpg" alt="用戶頭像" class="profile-pic-large">
+                <h3>用戶名稱</h3>
+                <p>@用戶帳號</p>
+                <button onclick="editProfile()">編輯個人資料</button>
+            </div>
+        </section>
+
+        <section id="messages">
+            <h2>消息</h2>
+            <div class="message-list">
+                <!-- 範例消息 -->
+                <div class="message">
+                    <img src="SAMPLE.jpg" alt="用戶頭像" class="profile-pic-small">
+                    <div class="message-content">
+                        <strong>用戶名稱:</strong> 這是一條範例消息內容。
+                    </div>
+                </div>
+                <!-- 其他消息可以按需添加 -->
+            </div>
+            <div class="message-form">
+                <textarea placeholder="寫下你的消息..."></textarea>
+                <button onclick="sendMessage()">發送消息</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 社交媒體平台. 版權所有。</p>
+    </footer>
+
+    <script>
+        // scripts.js
+
+        function likePost() {
+            alert('您喜歡了這條帖子！');
+        }
+
+        function commentPost() {
+            alert('您可以在評論區留言！');
+        }
+
+        function sharePost() {
+            alert('您分享了這條帖子！');
+        }
+
+        function editProfile() {
+            alert('編輯個人資料功能尚未實現！');
+        }
+
+        function sendMessage() {
+            alert('消息發送功能尚未實現！');
+        }
+
+    </script>
+</body>
+
+</html>

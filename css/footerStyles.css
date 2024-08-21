@@ -1,0 +1,40 @@
+  /* Footer 背景和內邊距設定 */
+.footerBG {
+    background-color: #1f2833;
+    padding: 1.3%;
+    position: fixed;
+    width: calc(100% - 70px); /* 避免與導航欄重疊 */
+    bottom: 0;
+    left: 70px; /* 導航欄寬度 */
+    z-index: 1;
+    display: flex;
+    justify-content: center; /* 使內容水平居中 */
+    align-items: center; /* 使內容垂直居中 */
+    gap: 10px; /* 文字和按鈕之間的間距 */
+  }
+  
+
+  /* 文字樣式和對齊設定 */
+  .footer-text {
+    color: #c5c6c7;
+    margin: 0; /* 去除 p 標籤的默認外邊距 */
+  }
+  
+  /* 慶祝按鈕 */
+  .celebrate-container {
+    position: absolute;
+    left: 82%;
+    bottom: 5%;
+  }
+  
+  .celebrate-btn {
+    margin-left: 80%; /* 距離左邊緣 10px */
+    font-size: 1.8em; /* 字體大小是父容器的 1.5 倍 */
+    padding: 0 0.3em; /* 內邊距是字體大小的倍數 */
+    border: none;
+    background-color: #4b4b4b;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+  }
+  

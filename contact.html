@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聯絡</title>
+    <link id="body-main-stylesheet" rel="stylesheet" href="css/bodyMain.css">
+    <link id="welcome-featured-profile-highlight-stylesheet" rel="stylesheet" href="css/welcomeFeatured.css">
+    <link id="nav-stylesheet" rel="stylesheet" href="css/navStyles.css">
+    <link id="news-stylesheet" rel="stylesheet" href="css/newsStyles.css">
+    <link id="register-auth-modal-stylesheet" rel="stylesheet" href="css/registerModal.css">
+    <link id="card-display-stylesheet" rel="stylesheet" href="css/card.css">
+    <link id="footer-celebrate-btn-stylesheet" rel="stylesheet" href="css/footerStyles.css">
+
+    <script src="JS\main.js" defer></script>
+</head>
+
+<body>
+    <!-- 懸浮視窗的 HTML 結構 -->
+    <div id="authModal" class="modal">
+        <div class="modalContent">
+            <span class="closeBtn" onclick="closeModal()">&times;</span>
+            <h2>welcome！</h2>
+            <div id="authForm">
+                <div id="loginForm">
+                    <h3>好久不見！</h3>
+                    <form>
+                        <label for="loginEmail">電子郵件：</label>
+                        <input type="email" id="loginEmail" name="loginEmail" required>
+                        <label for="loginPassword">密碼：</label>
+                        <input type="password" id="loginPassword" name="loginPassword" required>
+                        <button type="submit" class="submitBtn">登入</button>
+                    </form>
+                    <p>還沒有帳號？ <button class="toggleFormBtn" onclick="showRegisterForm()">註冊</button></p>
+                </div>
+                <div id="registerForm" style="display:none;">
+                    <h3>你好啊，新朋友！</h3>
+                    <form>
+                        <label for="registerEmail">電子郵件：</label>
+                        <input type="email" id="registerEmail" name="registerEmail" required>
+                        <label for="registerPassword">密碼：</label>
+                        <input type="password" id="registerPassword" name="registerPassword" required>
+                        <button type="submit" class="submitBtn">註冊</button>
+                    </form>
+                    <p>已有帳號？ <button class="toggleFormBtn" onclick="showLoginForm()">登入</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 導航列 -->
+    <nav>
+        <img src="img\BACKBTN-01-01.png" alt="backBTN" class="backBTN">
+        <h1>聯絡資訊</h1>
+        <ul>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="portfolio.html">過去作品</a></li>
+            <li><a href="LearningDiary.html">學習日誌</a></li>
+            <li><a href="viewport.html">學習資源推薦</a></li>
+            <li><a href="mini-games.html">迷你遊戲</a></li>
+            <li><a href="contact.html">聯絡</a></li>
+        </ul>
+        <!-- 顯示懸浮視窗的按鈕 -->
+        <button id="openModalBtn" class="openModalBtn">註冊 | 登入</button>
+
+    </nav>
+    <!-- - 提供網站的主要導航連結
+    - 包含返回按鈕、標題和不同的頁面連結 -->
+
+    <main>
+        <section id="contact">
+            <h2>聯絡方式</h2>
+            <div class="highlight">
+                <article>
+                    <img src="img/CONCACT/PIXIV.png" alt="PIXIV" class="welcome-image">
+                    <h3>加入PIXIV看更多作品</h3>
+                    <a href="https://www.pixiv.net/users/19414207" target="_blank" class="profile-button">前往網站</a>
+                </article>
+                <article>
+                    <img src="img/CONCACT/X.jpg" alt="社群2" class="welcome-image">
+                    <h3>追蹤我的X看個人社群</h3>
+                    <a href="https://x.com/LIANG_TANA" target="_blank" class="profile-button">前往網站</a>
+                </article>
+                <article>
+                    <img src="img/CONCACT/DISCORD.png" alt="社群3" class="welcome-image">
+                    <h3>進入Discord結交更多朋友</h3>
+                    <a href="https://discord.gg/e87RXSXhjJ" target="_blank" class="profile-button">前往網站</a>
+                </article>
+                <article>
+                    <img src="img/CONCACT/PODCAST.jpg" alt="社群4" class="welcome-image">
+                    <h3>聽我們聊聊遊戲</h3>
+                    <a href="https://open.firstory.me/user/gamestreet" target="_blank" class="profile-button">前往網站</a>
+                </article>
+                <!-- 可以添加更多社群按鈕 -->
+            </div>
+
+            <div class="contact-info">
+                <p class="profile-button"><strong>電子郵件：</strong><a href="zhitai012@gmail.com">zhitai012@gmail.com</a>
+                </p>
+                <p class="profile-button"><strong>電話：</strong>0912-345-678</p>
+            </div>
+            <!-- 留言評論專區 -->
+            <section id="comments">
+                <h2>留言區</h2>
+                <div class="comment-form">
+                    <input type="text" id="commentName" placeholder="你的名字">
+                    <textarea id="commentText" placeholder="留言內容..."></textarea>
+                    <button onclick="postComment()" class="post-button">發佈留言</button>
+                </div>
+                <div class="comment-list">
+                    <!-- 留言卡片將會插入在這裡 -->
+                </div>
+            </section>
+    </main>
+
+    <footer class="footerBG">
+        <p class="footer-text">&copy; 2024 版權所有.</p>
+    </footer>
+</body>
+
+</html>

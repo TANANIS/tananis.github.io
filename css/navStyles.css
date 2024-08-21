@@ -1,0 +1,56 @@
+
+/* 左側導航欄 */
+h1 {
+    font-size: 36px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav {
+    background-color: #1f2833; /* 深灰藍色 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70px; /* 縮回的寬度 */
+    height: 100%;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    overflow: hidden; /* 隱藏超出容器的內容 */
+    transition: width 0.3s, padding 0.3s; /* 使展開和收起過渡效果更平滑 */
+    z-index: 1000; /* 確保導航欄在其他內容之上 */
+  }
+  
+  
+  nav.expanded {
+    width: 250px; /* 展開的寬度 */
+    padding: 20px; /* 展開時的內邊距 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    opacity: 0; /* 隱藏文字 */
+    transition: opacity 0.3s; /* 文字顯示/隱藏過渡效果 */
+  }
+  
+  nav.expanded ul {
+    opacity: 1; /* 展開時顯示文字 */
+  }
+  
+  nav ul li {
+    margin: 20px 0;
+  }
+  
+  nav ul li a {
+    color: #82e0da; /* 藍綠色文字 */
+    text-decoration: none;
+    font-weight: bold;
+    display: block; /* 確保鏈接占據整個區域 */
+  }
+  
+  nav ul li a:hover {
+    color: #45a29e; /* 略深的藍綠色 */
+  }
+  

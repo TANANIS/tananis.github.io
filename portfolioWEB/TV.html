@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background: linear-gradient(to right, #505050, #333333); /* 背景漸層色 */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            height: 100vh; /* 佔滿視口高度 */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #ff007f, #8a2be2, #ffff00); /* 漸層背景 */
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* 增強陰影效果 */
+            max-width: 500px;
+            width: 100%;
+        }
+        .label {
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff8c00, #ff69b4); /* 漸層背景 */
+            color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            font-size: 18px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+        .input {
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 18px;
+            background: #e0f7fa; /* 淺藍色背景 */
+            color: #333;
+            transition: background-color 0.3s;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .input:focus {
+            background-color: #b2ebf2; /* 焦點背景顏色 */
+            outline: none;
+        }
+        .label2 {
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #4682b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* 增強陰影效果 */
+            width: 100%;
+            max-width: 400px; /* 最大寬度 */
+            height: auto; /* 自動高度 */
+            overflow: auto;
+            text-align: center;
+            margin: 0 auto;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid #fff; /* 增加白色邊框 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="SAMPLE.jpg" alt="logo" width="500">
+
+        <div class="form">
+            <label for="channel" class="label">請輸入頻道代碼:</label>
+            <input type="text" id="channel" value="請輸入代碼" class="input">
+            <button onclick="showChannelName()" class="btn">確定</button>
+            <div id="result" class="label2">
+                <p id="channelName"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showChannelName() {
+            var channel = document.getElementById("channel").value.trim();
+            var channelName;
+
+            switch (channel) {
+                case "20":
+                    channelName = "TLC 旅遊生活頻道";
+                    break;
+                case "65":
+                    channelName = "HBO";
+                    break;
+                case "66":
+                    channelName = "東森洋片台";
+                    break;
+                default:
+                    channelName = "未知頻道";
+                    break;
+            }
+
+            document.getElementById("channelName").innerHTML = channelName;
+        }
+    </script>
+</body>
+
+</html>

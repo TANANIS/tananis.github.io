@@ -1,0 +1,118 @@
+/* 懸浮視窗的樣式 */
+.modal {
+    display: none; /* 預設隱藏 */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+  }
+  
+  .modalContent {
+    background-color: #3b333d; /* 背景顏色 */
+    padding: 20px;
+    border: 1px solid #292424; /* 邊框顏色 */
+    width: 80%; /* 視窗寬度 */
+    max-width: 500px; /* 最大寬度 */
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 垂直和水平居中 */
+    overflow: hidden; /* 隱藏超出範圍的內容 */
+    animation: slideIn 0.5s ease-out; /* 添加動畫效果 */
+  }
+  
+  /* 開啟動畫 */
+  @keyframes slideIn {
+    from {
+      width: 0;
+      height: 0;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+    }
+    to {
+      width: 80%;
+      height: auto;
+      padding: 20px;
+      border: 1px solid #292424; /* 邊框顏色 */
+      border-radius: 10px;
+    }
+  }
+  
+  .closeBtn, .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .closeBtn:hover, .close-btn:hover {
+    color: #ff5c5c; /* 鼠標懸停顏色 */
+  }
+  
+  /* 按鈕樣式 */
+  .openModalBtn, .submitBtn, .toggleFormBtn {
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .openModalBtn {
+    background-color: #847286; /* 按鈕顏色 */
+    font-size: 12px;
+    position: fixed; /* 固定定位 */
+    bottom: 10px; /* 距離底部 10px */
+    right: 10px; /* 距離右邊 10px */
+  }
+  
+  .openModalBtn:hover {
+    background-color: #6c45a0; /* 懸停顏色 */
+  }
+  
+  .submitBtn {
+    background-color: #7857c5; /* 按鈕顏色 */
+    font-size: 16px;
+  }
+  
+  .submitBtn:hover {
+    background-color: #d676d1; /* 懸停顏色 */
+  }
+  
+  /* 表單樣式 */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form label {
+    margin: 10px 0 5px;
+  }
+  
+  form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #583f3f; /* 邊框顏色 */
+    border-radius: 5px;
+  }
+  
+  .toggleFormBtn {
+    background-color: #d1a7d6; /* 按鈕顏色 */
+    color: rgb(43, 43, 43);
+    font-size: 12px;
+  }
+  
+  .toggleFormBtn:hover {
+    background-color: #a04545; /* 懸停顏色 */
+  }

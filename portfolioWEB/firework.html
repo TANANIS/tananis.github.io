@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>慶祝動畫</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .celebrate-btn {
+            font-size: 2rem;
+            padding: 1rem 2rem;
+            border: none;
+            background-color: #ffffff;
+            border-radius: 10px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff0;
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button id="celebrate-btn" class="celebrate-btn">🎉</button>
+    </div>
+
+    <div id="confetti" class="confetti"></div>
+
+    <script>
+        document.getElementById('celebrate-btn').addEventListener('click', (event) => { // 點擊按鈕後執行
+            const confettiContainer = document.getElementById('confetti'); // 取得紙雪容器
+            const numConfetti = 500; // 控制紙雪數量
+
+            const buttonRect = event.target.getBoundingClientRect(); // 按鈕的位置信息
+            const buttonCenterX = buttonRect.left + buttonRect.width / 2; // 按鈕中心位置
+            const buttonCenterY = buttonRect.top + buttonRect.height / 2; // 按鈕中心位置
+
+            for (let i = 0; i < numConfetti; i++) {  // 建立紙雪
+                const confettiPiece = document.createElement('div');
+                confettiPiece.className = 'confetti-piece'; // 設定紙雪類別
+                confettiPiece.style.backgroundColor = getRandomColor();
+                confettiPiece.style.width = `${Math.random() * 10 + 5}px`; // 設定紙雪大小
+                confettiPiece.style.height = confettiPiece.style.width;
+                confettiPiece.style.position = 'absolute'; // 設定紙雪位置 = 絕對定位
+                confettiPiece.style.left = `${buttonCenterX}px`; // 設定紙雪位置 = 按鈕中心
+                confettiPiece.style.top = `${buttonCenterY}px`;
+                confettiPiece.style.transform = 'translate(-50%, -50%)'; // 初始位置對齊
+                confettiPiece.style.opacity = 0; // 初始不透明度 = 0
+
+                confettiContainer.appendChild(confettiPiece); // 將紙雪加入容器
+
+                // Animation
+                setTimeout(() => {
+                    const randomAngle = Math.random() * 360;
+                    const randomDistance = Math.random() * 800 + 400; // 擴大分佈範圍
+                    confettiPiece.style.transition = 'transform 3s ease-out, opacity 4s ease-out'; // 增加動畫持續時間
+                    confettiPiece.style.transform = `
+          translate(-50%, -50%) translate(${Math.cos(randomAngle) * randomDistance}px, ${Math.sin(randomAngle) * randomDistance}px)
+        `; // 紙雪移動
+                    confettiPiece.style.opacity = 1; // 紙雪透明度
+
+                    // Make it fall down
+                    setTimeout(() => {
+                        confettiPiece.style.transition = 'transform 4s ease-in, opacity 3s ease-in'; // 往下掉落的過渡
+                        confettiPiece.style.transform = `
+            translate(-50%, -50%) translate(${Math.cos(randomAngle) * randomDistance}px, ${Math.sin(randomAngle) * randomDistance}px)
+            translateY(${window.innerHeight}px)`; // 向下移動
+                    }, 2000);
+                }, 10);
+
+                // Remove piece after animation
+                setTimeout(() => {
+                    confettiPiece.style.opacity = 0; // Fade out effect
+                    setTimeout(() => {
+                        confettiPiece.remove();
+                    }, 3000); // 延長刪除延遲，以便完成動畫
+                }, 3000);
+            }
+        });
+
+        function getRandomColor() { // 取得隨機顏色
+            const letters = '0123456789ABCDEF'; // 十六進位字母
+            let color = '#';
+            for (let i = 0; i < 6; i++) { // 產生六位顏色碼
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+    </script>
+</body>
+
+</html>

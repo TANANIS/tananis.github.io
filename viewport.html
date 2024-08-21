@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人作品集與學習平台</title>
+
+    <link id="mobileStyle" rel="stylesheet" href="css/mobileStyle.css">
+
+    <link id="body-main-stylesheet" rel="stylesheet" href="css/bodyMain.css">
+    <link id="welcome-featured-profile-highlight-stylesheet" rel="stylesheet" href="css/welcomeFeatured.css">
+    <link id="nav-stylesheet" rel="stylesheet" href="css/navStyles.css">
+    <link id="news-stylesheet" rel="stylesheet" href="css/newsStyles.css">
+    <link id="register-auth-modal-stylesheet" rel="stylesheet" href="css/registerModal.css">
+    <link id="card-display-stylesheet" rel="stylesheet" href="css/card.css">
+    <link id="footer-celebrate-btn-stylesheet" rel="stylesheet" href="css/footerStyles.css">
+
+    <script src="JS/main.js" defer></script>
+</head>
+
+
+<body>
+    <!-- 懸浮視窗的 HTML 結構 -->
+    <div id="authModal" class="modal">
+        <div class="modalContent">
+            <span class="closeBtn" onclick="closeModal()">&times;</span>
+            <h2>welcome！</h2>
+            <div id="authForm">
+                <div id="loginForm">
+                    <h3>好久不見！</h3>
+                    <form>
+                        <label for="loginEmail">電子郵件：</label>
+                        <input type="email" id="loginEmail" name="loginEmail" required>
+                        <label for="loginPassword">密碼：</label>
+                        <input type="password" id="loginPassword" name="loginPassword" required>
+                        <button type="submit" class="submitBtn">登入</button>
+                    </form>
+                    <p>還沒有帳號？ <button class="toggleFormBtn" onclick="showRegisterForm()">註冊</button></p>
+                </div>
+                <div id="registerForm" style="display:none;">
+                    <h3>你好啊，新朋友！</h3>
+                    <form>
+                        <label for="registerEmail">電子郵件：</label>
+                        <input type="email" id="registerEmail" name="registerEmail" required>
+                        <label for="registerPassword">密碼：</label>
+                        <input type="password" id="registerPassword" name="registerPassword" required>
+                        <button type="submit" class="submitBtn">註冊</button>
+                    </form>
+                    <p>已有帳號？ <button class="toggleFormBtn" onclick="showLoginForm()">登入</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 導航列 -->
+    <nav>
+        <img src="img\BACKBTN-01-01.png" alt="backBTN" class="backBTN">
+        <h1>學習資源推薦</h1>
+        <ul>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="portfolio.html">過去作品</a></li>
+            <li><a href="LearningDiary.html">學習日誌</a></li>
+            <li><a href="viewport.html">學習資源推薦</a></li>
+            <li><a href="mini-games.html">迷你遊戲</a></li>
+            <li><a href="contact.html">聯絡</a></li>
+        </ul>
+        <!-- 顯示懸浮視窗的按鈕 -->
+        <button id="openModalBtn" class="openModalBtn">註冊 | 登入</button>
+
+    </nav>
+    <!-- - 提供網站的主要導航連結
+    - 包含返回按鈕、標題和不同的頁面連結 -->
+
+    <main>
+
+        <!-- 最新消息區域 -->
+        <section id="news" class="news-section visible">
+            <section id="theme-image">
+                <img src="img\background.png" alt="學習資源主題圖片">
+            </section>
+            <h2>學習資源推薦</h2>
+            <p class="description">在這裡，
+                <br>我將分享一些我在學習過程中發現的有用資源。
+                <br>這些網站和影片在我的學習過程中對我非常有幫助，
+                <br>並且都是我個人推薦的。
+            </p>
+            <article class="resource-item">
+                <div class="resource-image">
+                    <img src="img\viewLogo\Notion.png" alt="資源圖片 11">
+                </div>
+                <div>
+                    <h3><a href="https://cloud-gasosaurus-42a.notion.site/d3c712265e744507b0f4fcabd235b345"
+                            target="_blank">我的NOTION網站</a></h3>
+                    <p>關於本網頁的所有的學習內容/筆記。甚至是實體課程的紀錄都可以在這邊找到。</p>
+                </div>
+            </article>
+            <article class="resource-item">
+                <div class="resource-image">
+                    <img src="img\viewLogo\w3school.png" alt="資源圖片 1">
+                </div>
+                <div>
+                    <h3><a href="https://www.w3schools.com/" target="_blank">w3schools免費線上學習網</a></h3>
+                    <p>主流的Code基本知識、語法教學網站，包含HTML、CSS、JavaScript、jQuery、PHP、Python、SQL、Bootstrap等知識。</p>
+                </div>
+            </article>
+            <article class="resource-item">
+                <div class="resource-image">
+                    <img src="img\viewLogo\2.jpg" alt="資源圖片 2">
+                </div>
+                <div>
+                    <h3><a href="https://codelove.tw/@howtomakeaturn/course/Ja6JaO"
+                            target="_blank">自學網頁の嬰兒教材：HTML與CSS</a></h3>
+                    <p>來自於愛寫扣論壇的教材，教你如何用HTML、CSS建立網頁。內部除了有文章與討論區用於交流，還有學習歷程的紀錄與自學作業包，可以參考。</p>
+                </div>
+            </article>
+            <article class="resource-item">
+                <div class="resource-image">
+                    <img src="img\viewLogo\datacamp.png" alt="資源圖片 3">
+                </div>
+                <div>
+                    <h3><a href="https://campus.datacamp.com/courses/introduction-to-sql/relational-databases?ex=1"
+                            target="_blank">DataCamp-SQL免費課程</a></h3>
+                    <p>DataCamp的SQL免費課程，教你如何使用SQL語言操作資料庫。內容包含SQL語法、資料庫結構、SQL操作、SQL工具、SQL實務應用等。</p>
+                </div>
+            </article>
+            <article class="resource-item">
+                <div class="resource-image">
+                    <img src="img\viewLogo\3.jpg" alt="資源圖片 4">
+                </div>
+                <div>
+                    <h3><a href="https://www.youtube.com/watch?v=gvRXjsrpCHw" target="_blank">GrandmaCan - SQL
+                            3小時初學者教學</a></h3>
+                    <p>中文圈內簡單易懂的Youtube影片教學，不用吸收簡體中文的專有詞彙，解迅速簡潔扼要，適合初入SQL馬上進入狀況。</p>
+                </div>
+            </article>
+            <article class="resource-item">
+                <div class="resource-image">
+                    <img src="img\viewLogo\5.png" alt="資源圖片 5">
+                </div>
+                <div>
+                    <h3><a href="https://youtube.com/playlist?list=PLPV2KyIb3jR53Jce9hP7G5xC4O9AgnOuL&si=UcCPK716GkHpb97H"
+                            target="_blank">How to make a Video Game in Unity</a></h3>
+                    <p>知名Youtuber的影片教學影片系列，教你如何使用Unity建立自己的第一個遊戲。內容包含Unity的環境設定、物理引擎、角色控制器、遊戲物件、音效、場景等。非常值得一看。</p>
+                </div>
+            </article>
+            <article class="resource-item">
+                <div class="resource-image">
+                    <img src="img\viewLogo\6.jpg" alt="資源圖片 6">
+                </div>
+                <div>
+                    <h3><a href="https://youtu.be/QGDeafTx5ug?list=PLBIb_auVtBwBotxgdQXn2smO0Fvqqea4-"
+                            target="_blank">2D DOUBLE / TRIPLE JUMP PLATFORMER CONTROLLER</a></h3>
+                    <p>稍進階的2Dunity教學，由Blackthornprod製作，內容包含了動作控制、，Inspector與C#的邏輯與推薦的Unity Asset清單等</p>
+                </div>
+            </article>
+            <article class="resource-item">
+                <div class="resource-image">
+                    <img src="img\viewLogo\7.PNG" alt="資源圖片 7">
+                </div>
+                <div>
+                    <h3><a href="https://youtube.com/playlist?list=PLPV2KyIb3jR4CtEelGPsmPzlvP7ISPYzR&si=i_3KPNSKCUYjsqlV"
+                            target="_blank">HOW TO PROGRAM in C#</a></h3>
+                    <p>同樣來自Brackeys的影片教學影片系列，教你如何使用C#程式語言，內容包含C#的環境設定、基本語法、控制流程、類別與物件、陣列、函式、事件、檔案等。同樣大推。</p>
+                </div>
+            </article>
+            <article class="resource-item">
+                <div class="resource-image">
+                    <img src="img\viewLogo\8.png" alt="資源圖片 8">
+                </div>
+                <div>
+                    <h3><a href="https://play.google.com/store/books/details?id=hRPFEAAAQBAJ" target="_blank">C#
+                            最強入門邁向頂尖高手之路王者歸來</a></h3>
+                    <p>我的第一本C#敲門磚，內容非常完整，建議以基礎認識後可以搭配練功。從WINDOW到LINQ，再到OOP，最後還有C#的寫法/邏輯建立等內容。</p>
+                </div>
+            </article>
+            <article class="resource-item">
+                <div class="resource-image">
+                    <img src="img\viewLogo\9.png" alt="資源圖片 9">
+                </div>
+                <div>
+                    <h3><a href="https://www.youtube.com/watch?v=0QUgvfuKvWU" target="_blank">C# Fundamentals for
+                            Beginners</a></h3>
+                    <p>來自微軟與Bob Tabo的影片教學，內容詳盡，8個小時從C#是什麼一路教到迴圈、物件導向、.NET庫等，簡直比看書還賺。</p>
+                </div>
+            </article>
+            <article class="resource-item">
+                <div class="resource-image">
+                    <img src="img\viewLogo\10.png" alt="資源圖片 10">
+                </div>
+                <div>
+                    <h3><a href="https://youtu.be/d9CxM8TKyBw?list=PLLLaiNMw28S-pm8XZmXkKxe_a3XFXV2YN&t=2"
+                            target="_blank">0基礎探索Unity - 2D貪吃蛇</a></h3>
+                    <p>想接觸Unity會因為沒自信，教學困難等等狀況而卻步的人，優先推薦。此影片不多說先完整教你手把首座一 款出來，雖然內容可能較為粗淺，但對於累積成就感非常有幫助！</p>
+                </div>
+            </article>
+        </section>
+
+    </main>
+
+
+    <footer class="footerBG">
+        <p class="footer-text">&copy; 2024 版權所有.</p>
+    </footer>
+</body>
+
+</html>

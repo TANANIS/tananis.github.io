@@ -1,0 +1,327 @@
+/* 基本樣式 */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #0b0c10; /* 深藍黑色背景 */
+  color: #c5c6c7; /* 淡灰色文字 */
+  margin: 0;
+  padding: 0;
+}
+
+/* 歡迎區域 */
+#welcome {
+  display: flex;
+  flex-direction: column; /* 垂直排列 */
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px; /* 調整圖片與文字區域之間的間距 */
+  background-image: url("../img/background.png"); /* 背景圖片 */
+  background-size: cover;
+  color: #fff;
+  border-radius: 10px;
+  text-align: center; /* 文字居中 */
+}
+
+/* 卡片區域調整 */
+.card-container {
+  position: relative;
+  width: 80vw; /* 調整寬度以適應頁面 */
+  height: 60vh; /* 調整高度 */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 5px; /* 調整與其他區域的間距 */
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px; /* 新增圓角 */
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 修改顏色 */
+.card:nth-child(1) {
+  background: #3f6c9b;
+} /* 淺藍色 */
+.card:nth-child(2) {
+  background: #6d6e85;
+} /* 靜謐灰 */
+.card:nth-child(3) {
+  background: #212121;
+} /* 黑色 */
+.card:nth-child(4) {
+  background: #424242;
+} /* 深灰色 */
+
+/* 卡片內容區 */
+.card-content {
+  display: flex;
+  align-items: center; /* 垂直居中對齊 */
+  text-align: left; /* 文字左對齊 */
+  padding: 20px; /* 增加內邊距 */
+  height: 30%; /* 調整內容區域高度 */
+  overflow: hidden; /* 隱藏超出內容 */
+  position: relative; /* 使內部元素可以絕對定位 */
+  /* 橫向擺放元素 */
+  flex-direction: column; /* 垂直排列 */
+}
+
+/* 卡片圖片區 */
+.card-image {
+  width: 60%; /*調整圖片區域寬度 */
+
+  position: relative; /* 使內部元素可以絕對定位 */
+  overflow: hidden; /* 確保圖片不超出邊界 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #4d4453; /* 灰色外框 */
+  border-radius: 10px; /* 圓角 */
+  margin-right: 20px; /* 文字區域和圖片之間的間距 */
+  background-color: #4d4d4d; /* 背景顏色 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 添加陰影效果 */
+}
+
+/* 圖片樣式 */
+.card-image img {
+  width: 100%; /* 讓圖片完全填滿圖片區域 */
+  border-radius: 8px; /* 圓角效果 */
+}
+
+.card-text {
+  width: 100%; /* 文字區域寬度調整為100% */
+  display: flex;
+  flex-direction: column; /* 文字垂直排列 */
+  justify-content: center; /* 內容垂直居中 */
+  padding: 10px; /* 增加內邊距 */
+  font-size: 140%;
+}
+
+/* 標題和段落 */
+.card-text h2 {
+  margin: 10px 0;
+  color: #fff; /* 文字顏色 */
+  font-size: 1.1em; /* 調整標題字體大小 */
+}
+
+.card-text p {
+  color: #ddd; /* 文字顏色 */
+  line-height: 1.4;
+  margin: 5px 0;
+  font-size: 0.9em; /* 調整段落字體大小 */
+}
+
+/* 活躍狀態 */
+.card.active {
+  transform: rotateY(0deg);
+  width: 100%; /* 讓卡片寬度在手機上填滿 */
+}
+
+/* 不活躍狀態 */
+.card.inactive {
+  transform: rotateY(-90deg);
+}
+
+/* 左側導航欄 */
+h1 {
+  font-size: 36px;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #1f2833; /* 深灰藍色 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px; /* 縮小導航欄的寬度 */
+  height: 100%;
+  padding: 10px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden; /* 隱藏超出容器的內容 */
+  transition: width 0.3s, padding 0.3s; /* 使展開和收起過渡效果更平滑 */
+  z-index: 1000;
+}
+
+nav.expanded {
+  width: 200px; /* 展開時的寬度 */
+  padding: 10px; /* 展開時的內邊距 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* 導航欄切換按鈕 */
+nav .toggle-btn {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: #82e0da; /* 按鈕顏色 */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: background-color 0.3s;
+}
+
+nav .toggle-btn:hover {
+  background-color: #45a29e; /* 按鈕懸停顏色 */
+}
+
+/* 導航欄中的列表 */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  opacity: 0; /* 隱藏文字 */
+  transition: opacity 0.3s; /* 文字顯示/隱藏過渡效果 */
+}
+
+nav.expanded ul {
+  opacity: 1; /* 展開時顯示文字 */
+}
+
+nav ul li {
+  margin: 20px 0;
+}
+
+nav ul li a {
+  color: #82e0da; /* 藍綠色文字 */
+  text-decoration: none;
+  font-weight: bold;
+  display: block; /* 確保鏈接占據整個區域 */
+}
+
+nav ul li a:hover {
+  color: #45a29e; /* 略深的藍綠色 */
+}
+/* 主要內容區域 */
+main {
+  margin-left: 70px; /* 調整左側導航欄的寬度 */
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7); /* 更加明顯的背景色 */
+  border-radius: 10px;
+}
+
+/* 精選展示區域 */
+#featured {
+  margin-top: 50px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+#featured.visible {
+  opacity: 1;
+}
+
+.highlight {
+  display: flex;
+  flex-direction: column; /* 垂直排列 */
+  gap: 20px;
+}
+
+.highlight article {
+  background-color: #1f2833;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column; /* 文字在下方，圖片在上方 */
+  align-items: center; /* 使圖片和文字水平居中 */
+  width: 90%; /* 限制寬度為手機屏幕的90% */
+  max-width: 300px; /* 最大寬度設為300px */
+  margin: 0 auto; /* 確保卡片在容器中居中 */
+  overflow: hidden; /* 隱藏超出區域的內容 */
+}
+
+.highlight article img {
+  transition: transform 0.3s ease-in-out;
+  width: 100%; /* 使圖片寬度填滿卡片 */
+  height: auto; /* 高度自動調整 */
+  border-radius: 10px; /* 圓角效果 */
+  border: 2px solid #605368; /* 灰色外框 */
+  background-color: #4d4d4d; /* 背景顏色 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 添加陰影效果 */
+  margin-bottom: 10px; /* 圖片和文字區域之間的間距 */
+}
+
+.highlight article:hover img {
+  transform: scale(1.05);
+}
+
+.highlight article:hover {
+  transform: translateY(-10px);
+}
+
+.highlight .description {
+  margin-top: 10px;
+  color: #c5c6c7; /* 淡灰色文字 */
+  text-align: center; /* 文字居中對齊 */
+}
+
+.highlight a {
+  display: block; /* 使連結佔據整個區域 */
+  padding: 10px;
+  background-color: #8d8faa; /* 按鈕背景色 */
+  color: #fff; /* 按鈕文字顏色 */
+  text-decoration: none;
+  border-radius: 5px; /* 圓角效果 */
+  text-align: center; /* 按鈕文字置中對齊 */
+  width: 100%; /* 按鈕寬度為100% */
+  margin-top: 10px; /* 按鈕與內容之間的間距 */
+}
+
+.highlight a:hover {
+  background-color: #926ccf; /* 按鈕懸停背景色 */
+  color: #1f2833; /* 懸停文字顏色 */
+}
+
+/* 新增內容區域樣式示例 */
+#news {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #1f2833;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#news p {
+  margin: 0 0 10px; /* 調整段落間距 */
+  padding: 10px;
+  border-bottom: 1px solid #333; /* 底部邊框 */
+}
+
+#news a {
+  display: block; /* 讓每個超連結顯示為區塊，這樣可以讓它們獨立換行 */
+  margin: 0 0 10px; /* 調整超連結間距 */
+  color: #916caf; /* 連結顏色 */
+  text-decoration: none; /* 去掉下劃線 */
+}
+
+#news a:hover {
+  text-decoration: underline; /* 滑鼠懸停時顯示下劃線 */
+}
+
+#news h2 {
+  color: #66fcf1;
+}
+
+footer {
+  background-color: #1f2833;
+  color: #c5c6c7;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%; /* 跨越整個寬度 */
+  bottom: 0;
+  left: 0;
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迷你遊戲</title>
+    <link id="body-main-stylesheet" rel="stylesheet" href="css/bodyMain.css">
+    <link id="welcome-featured-profile-highlight-stylesheet" rel="stylesheet" href="css/welcomeFeatured.css">
+    <link id="nav-stylesheet" rel="stylesheet" href="css/navStyles.css">
+    <link id="news-stylesheet" rel="stylesheet" href="css/newsStyles.css">
+    <link id="register-auth-modal-stylesheet" rel="stylesheet" href="css/registerModal.css">
+    <link id="card-display-stylesheet" rel="stylesheet" href="css/card.css">
+    <link id="footer-celebrate-btn-stylesheet" rel="stylesheet" href="css/footerStyles.css">
+
+    <script src="JS/main.js" defer></script>
+</head>
+
+<body>
+    <!-- 懸浮視窗的 HTML 結構 -->
+    <div id="authModal" class="modal">
+        <div class="modalContent">
+            <span class="closeBtn" onclick="closeModal()">&times;</span>
+            <h2>welcome！</h2>
+            <div id="authForm">
+                <div id="loginForm">
+                    <h3>好久不見！</h3>
+                    <form>
+                        <label for="loginEmail">電子郵件：</label>
+                        <input type="email" id="loginEmail" name="loginEmail" required>
+                        <label for="loginPassword">密碼：</label>
+                        <input type="password" id="loginPassword" name="loginPassword" required>
+                        <button type="submit" class="submitBtn">登入</button>
+                    </form>
+                    <p>還沒有帳號？ <button class="toggleFormBtn" onclick="showRegisterForm()">註冊</button></p>
+                </div>
+                <div id="registerForm" style="display:none;">
+                    <h3>你好啊，新朋友！</h3>
+                    <form>
+                        <label for="registerEmail">電子郵件：</label>
+                        <input type="email" id="registerEmail" name="registerEmail" required>
+                        <label for="registerPassword">密碼：</label>
+                        <input type="password" id="registerPassword" name="registerPassword" required>
+                        <button type="submit" class="submitBtn">註冊</button>
+                    </form>
+                    <p>已有帳號？ <button class="toggleFormBtn" onclick="showLoginForm()">登入</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 導航列 -->
+    <nav>
+        <img src="img\BACKBTN-01-01.png" alt="backBTN" class="backBTN">
+        <h1>迷你遊戲</h1>
+        <ul>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="portfolio.html">過去作品</a></li>
+            <li><a href="LearningDiary.html">學習日誌</a></li>
+            <li><a href="viewport.html">學習資源推薦</a></li>
+            <li><a href="mini-games.html">迷你遊戲</a></li>
+            <li><a href="contact.html">聯絡</a></li>
+        </ul>
+        <!-- 顯示懸浮視窗的按鈕 -->
+        <button id="openModalBtn" class="openModalBtn">註冊 | 登入</button>
+
+    </nav>
+    <!-- - 提供網站的主要導航連結
+    - 包含返回按鈕、標題和不同的頁面連結 -->
+
+    <main>
+        <section id="welcome">
+            <div class="welcome-text">
+                <h2>迷你遊戲區</h2>
+                <p>歡迎來到迷你遊戲區！這裡展示了我創作的各種有趣迷你遊戲。希望你喜歡這些遊戲，並且能夠找到你喜愛的遊戲。</p>
+            </div>
+            <div class="welcome-image">
+                <img src="img\OIG4.jpg" alt="迷你遊戲區圖片">
+            </div>
+        </section>
+
+        <section id="featured">
+            <h2>精選遊戲</h2>
+            <div class="highlight">
+                <article>
+                    <h3>經典蛇蛇遊戲</h3>
+                    <img src="img\OIG2.jpg" alt="經典蛇蛇遊戲">
+                    <p>這是一款經典的蛇蛇遊戲，你需要控制蛇的移動，並吃掉食物來增加分數。</p>
+                    <a href="MGsnake.html">開始遊戲</a>
+                </article>
+                <article>
+                    <h3>迷宮挑戰</h3>
+                    <img src="img\WaitUpdate.png" alt="迷宮挑戰">
+                    <p>挑戰自己的迷宮遊戲，試著找到出口並解決迷宮中的謎題。</p>
+                    <a href="MGsnake.html">等待更新</a>
+                </article>
+                <article>
+                    <h3>數字猜謎</h3>
+                    <img src="img\WaitUpdate.png" alt="數字猜謎">
+                    <p>這是一款有趣的數字猜謎遊戲，挑戰你的數字直覺和猜謎技巧。</p>
+                    <a href="MGsnake.html">等待更新</a>
+                </article>
+                <article>
+                    <h3>小球彈跳</h3>
+                    <img src="img\WaitUpdate.png" alt="小球彈跳">
+                    <p>控制小球彈跳並收集分數，挑戰自己的反應能力和反應速度。</p>
+                    <a href="MGsnake.html">等待更新</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="news">
+            <h2>最新消息</h2>
+            <p>1. 2024年8月17日：新遊戲上線 - 小球彈跳</p>
+            <a href="main.html">查看更多</a>
+            <p>2. 2024年8月15日：迷宮挑戰更新 - 新迷宮關卡</p>
+            <a href="main.html">查看更多</a>
+            <p>3. 2024年8月10日：經典蛇蛇遊戲優化 - 增加排行榜</p>
+            <a href="main.html">查看更多</a>
+        </section>
+    </main>
+    <footer class="footerBG">
+        <p class="footer-text">&copy; 2024 版權所有.</p>
+    </footer>
+</body>
+
+</html>

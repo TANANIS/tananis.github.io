@@ -1,0 +1,191 @@
+/* 歡迎區域 */
+#welcome {
+  display: flex; /* 使用 flexbox 排版 */
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  padding: 160px;
+  background: url("../img/background.png") center/cover fixed; /* 合併背景屬性 */
+  color: #dddbdb;
+  font-weight: bold;
+  border-radius: 10px;
+  gap: 20px;
+  overflow: hidden;
+}
+
+/* 添加暗色遮罩 */
+#welcome::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* 黑色半透明遮罩 */
+  border-radius: 10px;
+  z-index: 1; /* 調整z-index以確保遮罩在背景圖片之上 */
+}
+
+/* 調整內部內容 */
+#welcome > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* 調整文字區域 */
+.welcome-text {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.6); /* 調整透明度 */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  margin: 0 auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* 放大效果 */
+.scale-up {
+  transform: scale(1.1);
+}
+
+.welcome-image {
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #2c2c2c;
+}
+
+/* 精選展示區域 */
+#featured {
+  margin-top: 50px;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  background-color: #1f1e31;
+  border-radius: 10px; /* 圓角效果 */
+}
+
+#featured.visible {
+  opacity: 1;
+}
+
+.featured-btn {
+  background-color: #8d8faa; /* 按鈕背景色 */
+  color: #fff; /* 按鈕文字顏色 */
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px; /* 圓角效果 */
+  cursor: pointer; /* 顯示指針光標 */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* 平滑過渡效果 */
+  flex: 1; /* 使按鈕擴展以佔據更多空間 */
+  max-width: 150px; /* 限制按鈕的最大寬度 */
+}
+
+.featured-btn:hover {
+  background-color: #926ccf; /* 按鈕懸停背景色 */
+  transform: scale(1.05); /* 懸停時放大效果 */
+}
+
+.profile-info {
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明底色 */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 靠左對齊 */
+}
+
+.profile-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #cf9dd6; /* 亮藍色 */
+  color: #0b0c10; /* 深色文字 */
+  text-decoration: none;
+  border-radius: 5px; /* 圓角效果 */
+  font-weight: bold; /* 加粗字體 */
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.profile-button:hover {
+  background-color: #45a29e; /* 深藍綠色 */
+  color: #fff; /* 白色文字 */
+}
+
+.highlight {
+  display: flex;
+  flex-wrap: wrap; /* 允許換行 */
+  justify-content: space-between;
+  padding: 10px; /* 調整內邊距 */
+  scroll-behavior: smooth; /* 平滑滾動 */
+  gap: 20px;
+}
+
+.highlight article {
+  background-color: #1f2833;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 置中對齊所有子元素 */
+  transition: transform 0.2s ease-in-out;
+  position: relative; /* 使子元素可以絕對定位 */
+  max-width: 300px;
+}
+
+.highlight article img {
+  width: 100%; /* 確保圖片寬度適應容器 */
+  height: auto; /* 自動調整高度以保持比例 */
+  border-radius: 10px; /* 圓角效果 */
+  transition: transform 0.3s ease-in-out;
+}
+
+.highlight article:hover img {
+  transform: scale(1.05);
+}
+
+.highlight article:hover {
+  transform: translateY(-10px);
+}
+
+.highlight .description {
+  margin-top: 10px;
+  color: #c5c6c7; /* 淡灰色文字 */
+}
+
+.highlight a {
+  display: block; /* 使連結佔據整個區域 */
+  margin-top: auto; /* 確保按鈕始終在卡片的底部 */
+  padding: 10px;
+  background-color: #8d8faa; /* 按鈕背景色 */
+  color: #fff; /* 按鈕文字顏色 */
+  text-decoration: none;
+  border-radius: 5px; /* 圓角效果 */
+  text-align: center; /* 按鈕文字置中對齊 */
+  width: 100%; /* 按鈕寬度為100% */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.highlight a:hover {
+  background-color: #926ccf; /* 按鈕懸停背景色 */
+  color: #1f2833; /* 懸停文字顏色 */
+  text-decoration: underline; /* 懸停時加下劃線 */
+}

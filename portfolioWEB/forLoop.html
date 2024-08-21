@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #e0f2f1, #c8e6c9); /* 漸層背景 */
+            font-family: 'Arial', sans-serif;
+            color: #3e3e3e; /* 深灰色文字 */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #8d6e63; /* 大地色背景 */
+            padding: 15px;
+            border-bottom: 3px solid #6d4c41; /* 深色邊框 */
+        }
+        .navbar a {
+            color: #ffffff; /* 白色文字 */
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #dbe5d3; /* 懸停顏色 */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .section, .home {
+            background: #ededed;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            border: 2px solid #8d6e63; /* 大地色邊框 */
+            display: none; /* 默認隱藏內容 */
+        }
+        .home {
+            display: block; /* 顯示主頁內容 */
+            text-align: left;
+        }
+        .section h2 {
+            color: #4a4a4a; /* 標題色 */
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        pre, p {
+            background-color: #d6d6d6; /* 淺灰色背景 */
+            padding: 15px;
+            border-radius: 8px;
+            text-align: left;
+            white-space: pre-wrap;
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        img {
+            width: 100%; /* 讓圖片寬度隨容器寬度變化 */
+            height: auto; /* 保持圖片比例 */
+            max-width: 100%; /* 確保圖片不會超過容器寬度 */
+            border-radius: 12px; /* 圓角邊框 */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* 投影效果 */
+        }
+        .logo {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: #8d6e63; /* 大地色背景 */
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .logo img {
+            width: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="#" onclick="showContent('home')">主頁</a>
+        <a href="#" onclick="showContent('pTimes')">月份日期</a>
+        <a href="#" onclick="showContent('pCalculation')">計算結果</a>
+        <a href="#" onclick="showContent('pSquare')">長方形星星</a>
+        <a href="#" onclick="showContent('pTriangle')">三角形星星</a>
+        <a href="#" onclick="showContent('Pmultiply')">九九乘法表</a>
+    </div>
+
+    <div class="container">
+        <div class="home">
+            <h1>51_FOR_練習</h1>
+            <p>這裡是FOR迴圈的練習內容。</p>
+            <img src="SAMPLE.jpg" alt="ScreenShot">
+        </div>
+
+        <div class="section" id="home">
+            <h2>主頁</h2>
+            <p>歡迎來到 51_FOR_練習 網頁！</p>
+            <p>這些是 FOR 的練習內容，請點選左上角的按鈕進入不同的練習。
+                <br>請注意，每個練習都有自己的 HTML、CSS、JavaScript 程式碼，
+                <br>而且這些基本上都不是我做的，全部都是ChatGPT完成了的。</p>
+            <img src="SAMPLE.jpg" alt="ChatGPT">
+        </div>
+
+        <div class="section" id="pTimes">
+            <h2>1. 月份日期</h2>
+            <pre></pre>
+            <img src="SAMPLE.jpg" alt="ScreenShot">
+            <p>過程中，我們會使用 for 迴圈，來列印出這個月份從1號到目前系統日。
+            <br>例如，假設今天是 2024/08/16，那麼我們會列印出：<br>
+             2024/08/1  到 2024/08/16 <br>
+            這 10 天的日期。</p>
+            <p>程式碼如上圖</p>
+        </div>
+
+        <div class="section" id="pCalculation">
+            <h2>2. 從1加到10</h2>
+            <pre></pre>
+            <img src="SAMPLE.jpg" alt="ScreenShot">
+
+            <p>過程中，我們會使用 for 迴圈，來計算從 1 加到 10。</p>
+            <p>程式碼如上圖</p>
+        </div>
+
+        <div class="section" id="pSquare">
+            <h2>3. 長方形星星</h2>
+            <p></p>
+            <img src="SAMPLE.jpg" alt="ScreenShot">
+            <p>解釋一下這題的要求：
+            <br>1. 建立一個 10 x 10 的矩陣，並且每個元素都是 *
+            <br>2. 將矩陣印出，每行 10 個 *
+            <br>3. 將矩陣印出，每列 10 個 *
+            <br>4. 將矩陣印出，每個元素都是 *，且長度為 i 的等腰直角三角形
+            <br>那麼該怎麼做呢？
+            <br>首先，在這裡我們先用了var squareOutput = '';
+            <br>這個變數用來存放矩陣的輸出結果。
+            <br>接著，我們使用兩層 for 迴圈，第一層用來印出矩陣的每一列，第二層用來印出矩陣的每一行。
+            <br>在第一層迴圈中，我們用 j 來代表每一列的索引，並將 j 乘上 10 來得到每一列的起始位置。
+            <br>在第二層迴圈中，我們用 i 來代表每一行的索引，並將 i 乘上 10 來得到每一行的起始位置。
+            <br>在第二層迴圈中，我們用 k 來代表每個元素的索引，並將 k 加上 j 來得到每個元素的位置。
+            <br>在第二層迴圈中，我們用 squareOutput += '*' 來將 * 印出到矩陣中。
+            <br>在第一層迴圈中，我們用 squareOutput += '<br>' 來將換行符號印出到矩陣中。
+            <br>最後，我們將 squareOutput 放入 p 元素中，並將 p 元素放入 div 元素中，並將 div 元素放入 section 元素中。</p>
+            <p>程式碼如上圖：</p>
+        </div>
+
+        <div class="section" id="pTriangle">
+            <h2>4. 三角形星星</h2>
+            <p></p>
+            <img src="SAMPLE.jpg" alt="ScreenShot">
+            <p>解釋一下這題的要求：
+
+            <br>1. 建立一個 10 x 10 的矩陣，並且每個元素都是 *
+            <br>2. 將矩陣印出，每行 i 個 *
+            <br>3. 將矩陣印出，每列 i 個 *
+            <br>4. 將矩陣印出，每個元素都是 *，且長度為 i 的等腰直角三角形
+            <br>那麼該怎麼做呢？
+            <br>其實跟前面差不多，我們使用兩層 for 迴圈，第一層用來印出矩陣的每一列，第二層用來印出矩陣的每一行。
+            <br>在第一層迴圈中，我們用 j 來代表每一列的索引，並將 j 加上 i - 1 來得到每一列的起始位置。
+            <br>在第二層迴圈中，我們用 i 來代表每一行的索引，並將 i 加上 1 來得到每一行的起始位置。
+            <br>在第二層迴圈中，我們用 k 來代表每個元素的索引，並將 k 加上 j 來得到每個元素的位置。
+            <br>在第二層迴圈中，我們用 triangleOutput += '*' 來將 * 印出到矩陣中。
+            <br>在第一層迴圈中，我們用 triangleOutput += '<br>' 來將換行符號印出到矩陣中。
+            <br>最後，我們將 triangleOutput 放入 p 元素中，並將 p 元素放入 div 元素中，並將 div 元素放入 section 元素中。</p>
+            <p>程式碼如上圖：</p>
+        </div>
+
+        <div class="section" id="Pmultiply">
+            <h2>5. 九九乘法表</h2>
+            <pre></pre>
+        </div>
+    </div>
+
+    <a href="https://www.google.com" class="logo">
+        <img src="SAMPLE.jpg" alt="Logo">
+    </a>
+
+    <script>
+        function showContent(id) {
+            // 隱藏所有 section 和主頁內容
+            var sections = document.querySelectorAll('.section, .home');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+
+            // 顯示選擇的 section
+            var content = document.getElementById(id);
+            content.style.display = 'block';
+        }
+
+        // 初始化內容
+        function initializeContent() {
+            // 10. 使用 for 迴圈，列印出這個月份從1號到目前系統日
+            var currentDate = new Date();
+            var currentDay = currentDate.getDate(); // 獲取今天的日期
+            var output = '';
+
+            for (var i = 1; i <= currentDay; i++) {
+                output += i + "號\n"; // \n 用於換行
+            }
+
+            document.querySelector("#pTimes pre").innerText = output;
+
+            // 20. 使用 for 迴圈，逐一取得陣列裡面的元素
+            var weekList = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+
+            // 30. 使用 for 迴圈，計算從 1 加到 10
+            var calculationOutput = '';
+            for (var i = 1; i <= 10; i++) {
+                calculationOutput += i + " + ";
+            }
+            calculationOutput += "10 = 55";
+            document.querySelector("#pCalculation pre").innerText = calculationOutput;
+
+            // 40. 雙層迴圈 - 長方型星星 #pSquare
+            var squareOutput = '';
+            for (var i = 1; i <= 10; i++) {
+                for (var j = 1; j <= 10; j++) {
+                    squareOutput += '*';
+                }
+                squareOutput += '<br>';
+            }
+            document.querySelector("#pSquare p").innerHTML = squareOutput;
+
+            // 50. 雙層迴圈 - 三角形 #pTriangle
+            var triangleOutput = '';
+            for (var i = 1; i <= 10; i++) {
+                for (var j = 1; j <= i; j++) {
+                    triangleOutput += '*';
+                }
+                triangleOutput += '<br>';
+            }
+            document.querySelector("#pTriangle p").innerHTML = triangleOutput;
+
+            // 60. 列印九九乘法表 (tab為 "&#9;") + <pre> 標籤 #Pmultiply
+            var multiplyOutput = '';
+            for (var i = 1; i <= 10; i++) {
+                for (var j = 1; j <= i; j++) {
+                    multiplyOutput += i + " x " + j + " = " + i * j + "\t"; // \t 用於縮排
+                }
+                multiplyOutput += "\n"; // \n 用於換行
+            }
+
+            document.querySelector("#Pmultiply pre").innerText = multiplyOutput;
+        }
+
+        // 在頁面加載時初始化內容
+        window.onload = initializeContent;
+    </script>
+</body>
+
+</html>

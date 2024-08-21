@@ -1,0 +1,467 @@
+/* 基本樣式 */
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(
+    to bottom,
+    #0b0c10 0%,
+    #231e3a 100%
+  ); /* 往下漸層效果 */
+  color: #c5c6c7; /* 淡灰色文字 */
+  margin: 0;
+  padding: 0;
+  margin-left: 10%;
+}
+h1 {
+  margin: 20px 0; /* 增加標題的外邊距 */
+}
+
+/* 左側導航欄 */
+h1 {
+  font-size: 36px;
+  margin: 0;
+  padding: 0;
+}
+nav {
+  background-color: #1f2833; /* 深灰藍色 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70px; /* 初始寬度 */
+  transition: width 0.3s; /* 過渡效果 */
+  height: 100%;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 2; /* 確保導航欄在項目之上 */
+}
+nav.expanded {
+  width: 250px; /* 展開後的寬度 */
+}
+nav h1 {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul {
+  list-style: none; /* 移除列表的點 */
+  padding: 0; /* 移除列表的內邊距 */
+  margin: 0; /* 移除列表的外邊距 */
+  position: relative; /* 設置相對定位以便於給導航欄定位 */
+}
+
+nav ul li {
+  margin-bottom: 10px; /* 增加列表項目的外邊距 */
+  margin: 20px 0;
+}
+
+nav ul li a {
+  color: #82e0da; /* 藍綠色文字 */
+  text-decoration: none; /* 移除鏈接的下劃線 */
+  font-weight: bold;
+  display: block;
+  padding: 3px; /* 增加導航欄項目的內邊距 */
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.3s;
+  opacity: 0; /* 默認隱藏文字 */
+}
+nav.expanded ul li a {
+  opacity: 1; /* 展開時顯示文字 */
+}
+
+nav ul li a:hover {
+  color: #45a29e; /* 略深的藍綠色 */
+}
+
+/* 個人資料部分樣式 */
+#profile {
+  background-image: url("../img/background.png"); /* 背景圖片 */
+  background-attachment: fixed; /* 固定背景圖，隨著內容滾動而移動 */
+  background-size: cover; /* 背景圖片大小 */
+  background-position: center; /* 背景圖片位置 */
+  background-color: rgba(0, 0, 0, 0.5); /* 設置背景顏色及透明度 */
+  padding: 20px; /* 設置內邊距 */
+  text-align: center; /* 設置文本居中對齊 */
+  border: 1px solid #333; /* 增加邊框 */
+  border-radius: 15px; /* 增加圓角 */
+  position: relative; /* 設置相對定位以便於添加遮罩 */
+  overflow: hidden; /* 隱藏超出邊界的內容 */
+}
+
+/* 添加暗色遮罩 */
+#profile::before {
+  content: ""; /* 必須有的內容屬性 */
+  position: absolute; /* 絕對定位 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* 半透明黑色遮罩 */
+  border-radius: 15px; /* 確保遮罩也有圓角 */
+  z-index: 1; /* 確保遮罩在背景圖片之上 */
+  transition: background 0.5s ease; /* 添加過渡效果 */
+}
+
+/* 個人資料內容 */
+.profile-container {
+  max-width: 1000px; /* 設置個人資料區域的最大寬度 */
+  margin: 0 auto; /* 居中顯示 */
+  position: relative; /* 使內容在遮罩之上 */
+  z-index: 2; /* 確保內容在遮罩之上 */
+}
+
+.profile-header {
+  display: flex; /* 使用 Flexbox 來排列內容 */
+  align-items: center; /* 垂直對齊項目 */
+  justify-content: center; /* 水平居中對齊項目 */
+  flex-direction: column; /* 垂直方向排列項目 */
+}
+
+.profile-picture {
+  width: 120px; /* 設置頭像的寬度 */
+  height: 120px; /* 設置頭像的高度 */
+  border-radius: 50%; /* 設置頭像為圓形 */
+  object-fit: cover; /* 保持圖片比例並裁切超出部分 */
+  border: 4px solid #444; /* 設置邊框為深色 */
+  margin-bottom: 20px; /* 設置頭像底部的間距 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 添加頭像陰影 */
+  transition: transform 0.3s ease; /* 添加過渡效果 */
+}
+
+.profile-picture:hover {
+  transform: scale(1.1); /* 懸停時放大 */
+}
+
+.profile-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #d6a4e0d5; /* 淡紫色 */
+  color: #0b0c10; /* 深色文字 */
+  text-decoration: none;
+  border-radius: 5px; /* 圓角效果 */
+  font-weight: bold; /* 加粗字體 */
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  z-index: 10; /* 確保按鈕在其他元素之上 */
+  position: relative; /* 確保按鈕的定位不被其他元素干擾 */
+}
+
+.profile-button:hover {
+  background-color: #85a2ad; /* 深藍綠色 */
+  color: #fff; /* 白色文字 */
+}
+
+.profile-info h1 {
+  margin: 0; /* 移除標題的外邊距 */
+  font-size: 24px; /* 設置標題字體大小 */
+  color: #f0f0f0; /* 較亮的白色 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* 添加陰影 */
+}
+
+.profile-info p {
+  background-color: rgba(0, 0, 0, 0.7); /* 更暗的半透明背景 */
+  border-radius: 5px; /* 圓角效果 */
+  padding: 10px; /* 內邊距 */
+  margin: 10px 0; /* 設置段落的外邊距 */
+  font-size: 16px; /* 設置段落字體大小 */
+  color: #ffffff; /* 較亮的灰色 */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* 添加陰影 */
+}
+
+/* 精選照片區域樣式 */
+#featured {
+  margin: 40px auto; /* 垂直外邊距，水平外邊距自動居中 */
+  padding: 20px;
+  background-color: #1b1b1b; /* 深色背景與其他區域一致 */
+  border-radius: 10px; /* 圓角效果 */
+  width: 90%; /* 設定寬度，根據需要調整 */
+  max-width: 1800px; /* 最大寬度限制 */
+  text-align: center;
+}
+
+#featured h2 {
+  color: #e0e0e0; /* 較淺的文字顏色以提高可讀性 */
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.featured-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px; /* 圓角效果 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 陰影效果 */
+  transition: transform 0.3s ease; /* 添加轉場效果 */
+}
+
+.featured-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease; /* 轉場效果 */
+}
+
+.featured-item:hover img {
+  transform: scale(1.05); /* 懸停放大效果 */
+}
+
+.featured-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* 背景半透明 */
+  color: #e0e0e0; /* 較淺的文字顏色 */
+  padding: 10px;
+  text-align: center;
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.featured-item:hover .featured-description {
+  opacity: 1;
+} /* 懸停顯示描述 */
+
+/* 作品集部分樣式 */
+main {
+  margin-top: 50px; /* 作品集區域的上邊距 */
+  padding: 20px;
+}
+/* 作品集部分樣式 */
+/* 作品集標題樣式 */
+#portfolio h2 {
+    text-align: center; /* 設置標題居中對齊 */
+    margin-bottom: 20px; /* 設置標題底部的間距 */
+  }
+  
+  /* 作品集區域樣式 */
+  #portfolio {
+    width: 80%; /* 設置寬度為 80% */
+    margin: 0 auto; /* 水平居中顯示 */
+    padding: 20px;
+    box-sizing: border-box; /* 確保內邊距和邊框不會影響總寬度 */
+    overflow: hidden; /* 隱藏滾動條，保持內容可以滾動 */
+  }
+  
+  /* 作品集網格布局 */
+  .portfolio-grid {
+    display: grid; /* 使用網格布局 */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 設置列的自動填充布局 */
+    grid-template-rows: auto; /* 動態調整行高 */
+    gap: 15px; /* 設置網格項目之間的間距 */
+  }
+  
+  /* 作品集項目樣式 */
+  .portfolio-item {
+    position: relative; /* 設置相對定位以便於描述部分的絕對定位 */
+    overflow: hidden; /* 隱藏超出容器的內容 */
+    border: 1px solid #444; /* 設置邊框為深色 */
+    border-radius: 8px; /* 設置圓角 */
+    background: #222; /* 設置背景為深色 */
+    z-index: 1; /* 確保項目在導航欄之上 */
+    width: 100%; /* 設置寬度為 100% */
+    padding-top: 100%; /* 使用 padding-top 設置高度，保持為正方形 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加陰影過渡效果 */
+  }
+  
+  /* 懸停時放大效果 */
+  .portfolio-item:hover {
+    transform: scale(1.2); /* 放大效果 */
+    z-index: 2; /* 確保放大的圖片位於其他項目之上 */
+  }
+  
+  /* 圖片樣式 */
+  .portfolio-item img {
+    position: absolute; /* 絕對定位圖片 */
+    top: 0;
+    left: 0;
+    width: 100%; /* 設置圖片寬度為容器的 100% */
+    height: 100%; /* 設置圖片高度為容器的 100% */
+    display: block; /* 移除圖片底部的間距 */
+    object-fit: cover; /* 保持圖片比例並裁切超出部分 */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* 添加過渡效果 */
+  }
+  
+  /* 懸停時的圖片效果 */
+  .portfolio-item:hover img {
+    opacity: 0.8; /* 鼠標懸停時的圖片透明度 */
+    transform: scale(1.2); /* 略微放大效果，顯示完整圖片 */
+  }
+  
+  /* 圖片放大效果的容器 */
+  .portfolio-item .portfolio-image-container {
+    position: absolute; /* 絕對定位容器 */
+    top: 50%; /* 垂直居中 */
+    left: 50%; /* 水平居中 */
+    transform: translate(-50%, -50%); /* 中心對齊 */
+    width: 100%; /* 設置寬度為 100% */
+    height: 100%; /* 設置高度為 100% */
+    overflow: hidden; /* 隱藏超出容器的部分 */
+    z-index: 1; /* 確保容器在其他元素之上 */
+  }
+  
+  /* 放大顯示圖片 */
+  .portfolio-item:hover .portfolio-image-container {
+    transform: translate(-50%, -50%) scale(1.5); /* 放大圖片容器 */
+  }
+  
+  /* 描述部分樣式 */
+  .portfolio-description {
+    padding: 15px; /* 設置描述部分的內邊距 */
+    background: rgba(0, 0, 0, 0.8); /* 設置描述部分的背景顏色及透明度 */
+    color: #fff; /* 設置文字顏色為白色 */
+    position: absolute; /* 絕對定位以便於將其放置於圖片底部 */
+    bottom: 0; /* 將描述區域置於底部 */
+    left: 0; /* 將描述區域置於左側 */
+    width: 100%; /* 設置描述區域寬度為 100% */
+    text-align: center; /* 將文本居中對齊 */
+    display: flex; /* 使用 Flexbox 來居中對齊描述內容 */
+    flex-direction: column; /* 垂直排列描述內容 */
+    justify-content: center; /* 垂直居中對齊內容 */
+    height: 100px; /* 設置描述區域的高度 */
+    opacity: 0; /* 默認隱藏描述 */
+    transition: opacity 0.3s ease; /* 添加過渡效果 */
+  }
+  
+  /* 懸停顯示描述 */
+  .portfolio-item:hover .portfolio-description {
+    opacity: 1; /* 懸停顯示描述 */
+  }
+  
+  .portfolio-description h3 {
+    margin: 0; /* 移除標題的外邊距 */
+    font-size: 16px; /* 設置標題字體大小 */
+  }
+  
+  .portfolio-description p {
+    margin: 5px 0 0; /* 設置段落的外邊距 */
+    font-size: 14px; /* 設置段落字體大小 */
+  }
+  
+/* Modal 的基本樣式 */
+.modal {
+  display: none; /* 隱藏 Modal */
+  position: fixed;
+  z-index: 1000; /* 確保 Modal 位於最上層 */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* 避免內容溢出 */
+  background-color: rgba(0, 0, 0, 0.8); /* 背景半透明 */
+}
+
+/* Modal 內容樣式 */
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+/* 關閉按鈕樣式 */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  color: #f1f1f1;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+/* 關閉按鈕懸停效果 */
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Caption 的樣式 */
+#caption {
+  color: #ccc;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+/* 其他作品區域樣式 */
+#other-works {
+    margin: 40px auto; /* 垂直外邊距，水平外邊距自動居中 */
+    padding: 20px;
+    background-color: #1b1b1b; /* 深色背景與其他區域一致 */
+    border-radius: 10px; /* 圓角效果 */
+    width: 80%; /* 設定寬度，根據需要調整 */
+    max-width: 1200px; /* 最大寬度限制 */
+}
+
+#other-works h2 {
+    color: #e0e0e0; /* 較淺的文字顏色以提高可讀性 */
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.other-works-item {
+    margin-bottom: 20px; /* 增加項目底部間距 */
+    padding: 20px;
+    background-color: #2c2c2c; /* 深色背景 */
+    border-radius: 10px; /* 圓角效果 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 陰影效果 */
+    display: flex; /* 使用 Flexbox 來排列內容 */
+    align-items: center; /* 垂直對齊內容 */
+    gap: 20px; /* 項目之間的間距 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 加入過渡效果 */
+}
+
+.other-works-item img {
+    width: 100px; /* 設置插圖寬度 */
+    height: 100px; /* 設置插圖高度 */
+    object-fit: cover; /* 保持圖片比例並裁切超出部分 */
+    border-radius: 8px; /* 圓角效果 */
+    transition: transform 0.3s ease; /* 加入過渡效果 */
+}
+
+.other-works-item:hover {
+    transform: scale(1.05); /* 放大效果 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* 更強的陰影效果 */
+}
+
+.other-works-item img:hover {
+    transform: scale(1.1); /* 圖片放大效果 */
+}
+
+.other-works-description {
+    color: #e0e0e0; /* 較淺的文字顏色 */
+}
+
+.other-works-description h3 {
+    margin: 0 0 10px; /* 標題底部間距 */
+    font-size: 18px; /* 標題字體大小 */
+}
+
+.other-works-description p {
+    margin: 0; /* 段落外邊距 */
+    font-size: 16px; /* 段落字體大小 */
+    line-height: 1.5; /* 行高 */
+}
+
+
+/* 底部樣式 */
+footer {
+  background-color: #1f2833;
+  color: #c5c6c7;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: calc(100% - 70px); /* 避免與導航欄重疊 */
+  bottom: 0;
+  left: 70px; /* 導航欄寬度 */
+  z-index: 1000; /* 確保在其他內容之上 */
+}

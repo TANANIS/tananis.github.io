@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>影音社群網站</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .navbar {
+            background-color: #444;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .navbar a:hover {
+            background-color: #666;
+        }
+        .container {
+            display: flex;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+        .main-content {
+            flex: 2;
+            margin-right: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .video-player {
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+        }
+        .video-player iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+        .video-info {
+            padding: 15px;
+        }
+        .video-info h1 {
+            font-size: 28px;
+            margin: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+        }
+        .video-info p {
+            font-size: 18px;
+            color: #555;
+        }
+        .comments {
+            margin-top: 20px;
+            padding: 15px;
+            border-top: 1px solid #ddd;
+        }
+        .comments h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        .comment-list {
+            list-style: none;
+            padding: 0;
+        }
+        .comment-list li {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .recommendations {
+            flex: 1;
+            background: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .recommendations h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        .recommendations img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .recommendations img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .comment-form {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+        .comment-form textarea {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            resize: none;
+            box-sizing: border-box;
+        }
+        .comment-form button {
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .comment-form button:hover {
+            background-color: #575757;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="#">首頁</a>
+        <a href="#">熱門影片</a>
+        <a href="#">訂閱</a>
+        <a href="#">我的頻道</a>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="video-player">
+                <iframe width="1255" height="706" src="https://www.youtube.com/embed/k2Bz3uHiyhQ" title="#BestPhonesForever: Must Be Santa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+                <h1>示範影片標題</h1>
+                <p><strong>發佈者:</strong> 影音達人</p>
+                <p><strong>發佈日期:</strong> 2024年8月19日</p>
+                <p><strong>觀看次數:</strong> 1,234,567 次</p>
+                <p><strong>影片長度:</strong> 10 分鐘 35 秒</p>
+                <p>這是一個描述影片內容的區域。這裡可以顯示影片的詳細資訊，例如發佈者、觀看次數等。這部影片講述了最新的科技趨勢，涵蓋了從人工智慧到量子計算的各個方面，並且提供了深刻的見解和未來展望。</p>
+            </div>
+            <div class="comments">
+                <h2>評論區</h2>
+                <ul class="comment-list">
+                    <li><strong>用戶A:</strong> 這是一個非常有趣的影片！我特別喜歡你對人工智慧的分析部分，非常有啟發性。</li>
+                    <li><strong>用戶B:</strong> 我也覺得這影片很棒！但希望未來可以加入更多實際案例，這樣會更吸引人。</li>
+                    <li><strong>用戶C:</strong> 影片的製作非常專業，畫面和音效都很到位。希望能看到更多這樣的內容。</li>
+                    <li><strong>用戶D:</strong> 影片中的技術介紹非常詳細，但有時候講解有點太深入，對於新手可能會有點困難。</li>
+                </ul>
+                <div class="comment-form">
+                    <textarea placeholder="寫下你的評論..."></textarea>
+                    <button>發佈評論</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="recommendations">
+            <h2>推薦影片</h2>
+            <img src="https://via.placeholder.com/300x200" alt="推薦影片1">
+            <img src="https://via.placeholder.com/300x200" alt="推薦影片2">
+            <img src="https://via.placeholder.com/300x200" alt="推薦影片3">
+        </div>
+    </div>
+</body>
+
+</html>

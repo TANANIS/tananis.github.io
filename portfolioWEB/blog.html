@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>現代科技部落格首頁</title>
+<style>
+    body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0f0f0f; /* 深灰色背景 */
+    color: #e0e0e0; /* 淺灰色文字 */
+}
+
+header {
+    background: #1e1e1e; /* 深色背景 */
+    color: #f1f1f1; /* 淺色文字 */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.8em; /* 調整標題大小 */
+    font-weight: 700; /* 更粗的字體 */
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: #61dafb; /* 藍綠色 */
+    text-decoration: none;
+    margin: 0 20px; /* 調整間距 */
+    font-size: 1.2em; /* 調整字體大小 */
+    font-weight: 500; /* 半粗體字 */
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #4da3d0; /* 懸停顏色 */
+}
+
+main {
+    padding: 20px;
+    max-width: 1100px; /* 調整最大寬度 */
+    margin: 20px auto; /* 調整外邊距 */
+}
+
+.article-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* 調整間距 */
+}
+
+article {
+    background: #1b1b1b; /* 更深色的背景 */
+    border-radius: 12px; /* 更圓的邊角 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* 更深的陰影 */
+    overflow: hidden;
+    flex: 1;
+    max-width: calc(33.333% - 30px); /* 三欄布局 */
+    margin-bottom: 30px; /* 調整底部外邊距 */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+article img {
+    width: 100%;
+    height: 200px; /* 固定圖片高度 */
+    object-fit: cover;
+}
+
+article h2 {
+    margin: 15px;
+    font-size: 1.8em; /* 調整標題大小 */
+    color: #61dafb; /* 藍綠色標題 */
+    font-weight: 700; /* 更粗的字體 */
+}
+
+article p {
+    margin: 0 15px 15px;
+    font-size: 1.1em; /* 調整字體大小 */
+}
+
+article:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6); /* 更深的陰影 */
+}
+
+.comment-section {
+    margin-top: 40px; /* 調整上邊距 */
+    padding: 20px;
+    background: #1b1b1b;
+    border-radius: 12px; /* 更圓的邊角 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.comment-section h2 {
+    margin-top: 0;
+    font-size: 2em; /* 調整標題大小 */
+    color: #61dafb; /* 藍綠色標題 */
+    font-weight: 700; /* 更粗的字體 */
+}
+
+.comment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment-list li {
+    margin-bottom: 20px; /* 調整底部外邊距 */
+    padding-bottom: 15px;
+    border-bottom: 1px solid #333; /* 深色邊框 */
+    font-size: 1.1em; /* 調整字體大小 */
+}
+
+.comment-form {
+    margin-top: 20px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #333; /* 深色邊框 */
+    border-radius: 8px; /* 更圓的邊角 */
+    font-size: 16px;
+    background: #2e2e2e; /* 更深的背景顏色 */
+    color: #e0e0e0;
+    box-sizing: border-box;
+    resize: vertical; /* 允許垂直調整大小 */
+}
+
+.comment-form button {
+    margin-top: 10px;
+    padding: 12px 25px;
+    background-color: #61dafb; /* 藍綠色按鈕 */
+    color: white;
+    border: none;
+    border-radius: 8px; /* 更圓的邊角 */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.comment-form button:hover {
+    background-color: #4da3d0; /* 深藍綠色 */
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+    text-align: center;
+    padding: 20px; /* 調整內邊距 */
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.4); /* 更深的陰影 */
+}
+
+footer p {
+    margin: 0;
+    font-size: 1em; /* 調整字體大小 */
+}
+
+</style>
+
+
+</head>
+
+<body>
+    <header>
+        <h1>現代科技部落格</h1>
+        <nav>
+            <a href="index.html">首頁</a>
+            <a href="about.html">關於我們</a>
+            <a href="contact.html">聯絡我們</a>
+        </nav>
+    </header>
+
+    <main>
+            <div class="article-list">
+                <article>
+                    <img src="SAMPLE.jpg" alt="範例圖片1">
+                    <div class="content">
+                        <h2><a href="post.html">文章標題 1</a></h2>
+                        <p>這是一篇簡短的文章摘要。點擊標題查看完整內容。</p>
+                    </div>
+                </article>
+                <article>
+                    <img src="SAMPLE.jpg" alt="範例圖片2">
+                    <div class="content">
+                        <h2><a href="post.html">文章標題 2</a></h2>
+                        <p>這是一篇簡短的文章摘要。點擊標題查看完整內容。</p>
+                    </div>
+                </article>
+                <article>
+                    <img src="SAMPLE.jpg" alt="範例圖片3">
+                    <div class="content">
+                        <h2><a href="post.html">文章標題 3</a></h2>
+                        <p>這是一篇簡短的文章摘要。點擊標題查看完整內容。</p>
+                    </div>
+                </article>
+                <article>
+                    <img src="SAMPLE.jpg" alt="範例圖片4">
+                    <div class="content">
+                        <h2><a href="post.html">文章標題 4</a></h2>
+                        <p>這是一篇簡短的文章摘要。點擊標題查看完整內容。</p>
+                    </div>
+                </article>
+                <article>
+                    <img src="SAMPLE.jpg" alt="範例圖片5">
+                    <div class="content">
+                        <h2><a href="post.html">文章標題 5</a></h2>
+                        <p>這是一篇簡短的文章摘要。點擊標題查看完整內容。</p>
+                    </div>
+                </article>
+                <article>
+                    <img src="SAMPLE.jpg" alt="範例圖片6">
+                    <div class="content">
+                        <h2><a href="post.html">文章標題 6</a></h2>
+                        <p>這是一篇簡短的文章摘要。點擊標題查看完整內容。</p>
+                    </div>
+                </article>
+                <article>
+                    <img src="SAMPLE.jpg" alt="範例圖片7">
+                    <div class="content">
+                        <h2><a href="post.html">文章標題 7</a></h2>
+                        <p>這是一篇簡短的文章摘要。點擊標題查看完整內容。</p>
+                    </div>
+                </article>
+                <article>
+                    <img src="SAMPLE.jpg" alt="範例圖片8">
+                    <div class="content">
+                        <h2><a href="post.html">文章標題 8</a></h2>
+                        <p>這是一篇簡短的文章摘要。點擊標題查看完整內容。</p>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- 評論區域 -->
+            <div class="comment-section">
+                <h2>評論區</h2>
+                <ul class="comment-list">
+                    <li><strong>用戶A:</strong> 這是一個非常有趣的文章！</li>
+                    <li><strong>用戶B:</strong> 我也覺得這篇文章很棒！</li>
+                    <li><strong>用戶C:</strong> 很有啟發性，謝謝分享。</li>
+                    <li><strong>用戶D:</strong> 期待更多的更新！</li>
+                    <li><strong>用戶E:</strong> 這篇文章幫助我了解了很多。</li>
+                </ul>
+                <div class="comment-form">
+                    <textarea placeholder="寫下你的評論..."></textarea>
+                    <button onclick="postComment()">發佈評論</button>
+                </div>
+            </div>
+            
+
+        
+        <!-- 評論區域 -->
+        <div class="comment-section">
+            <h2>評論區</h2>
+            <ul class="comment-list">
+                <li><strong>用戶A:</strong> 這是一個非常有趣的文章！</li>
+                <li><strong>用戶B:</strong> 我也覺得這篇文章很棒！</li>
+                <li><strong>用戶C:</strong> 很有啟發性，謝謝分享。</li>
+                <li><strong>用戶D:</strong> 期待更多的更新！</li>
+                <li><strong>用戶E:</strong> 這篇文章幫助我了解了很多。</li>
+            </ul>
+            <div class="comment-form">
+                <textarea placeholder="寫下你的評論..."></textarea>
+                <button onclick="postComment()">發佈評論</button>
+            </div>
+        </div>
+        
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 現代科技部落格</p>
+    </footer>
+
+    <script>
+        function postComment() {
+            // 簡單的示範，實際應用中應該有更多邏輯來處理評論
+            alert('評論已發佈！');
+        }
+    </script>
+</body>
+
+</html>

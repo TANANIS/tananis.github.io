@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h3 {
+            text-align: center;
+            color: #333;
+        }
+        .formGroup {
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            text-align: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 22px); /* Adjust width to fit padding and border */
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>姓名判斷系統</h3>
+    <div class="formGroup">
+        <form onsubmit="return false;">
+            <label for="name">姓名:</label>
+            <input type="text" id="name" name="name" placeholder="請輸入姓名">
+            <button type="button" onclick="calculate()">判定</button>
+        </form>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculate() {
+            const name = document.getElementById("name").value.trim();
+            
+            // 檢查姓名是否為空
+            if (name === "") {
+                document.getElementById("result").innerHTML = "請輸入姓名！";
+                return;
+            }
+
+            let totalValue = 0;
+
+            // 計算姓名的 Unicode 總值
+            for (let i = 0; i < name.length; i++) {
+                totalValue += name.charCodeAt(i);
+            }
+
+            // 根據總值來決定結果
+            let result = "";
+            if (totalValue % 3 === 0) {
+                result = "你人不錯，";
+            } else if (totalValue % 3 === 1) {
+                result = "性格太差，";
+            } else if (totalValue % 3 === 2) {
+                result = "過於老實，";
+            }
+
+            // 可以添加更多的判斷方法
+            if (totalValue % 5 === 0) {
+                result += "但小心漏財";
+            } else if (totalValue % 5 === 1) {
+                result += "今天還是準時下班";
+            } else if (totalValue % 5 === 2) {
+                result += "要注意健康";
+            }
+
+            document.getElementById("result").innerHTML = result;
+        }
+    </script>
+
+</body>
+
+</html>

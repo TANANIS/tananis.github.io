@@ -1,0 +1,162 @@
+/* SQL.html 特有樣式 */
+
+/* 主體區域 */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #0B0C10; /* 深藍黑色背景 */
+    color: #C5C6C7; /* 淡灰色文字 */
+    margin: 0;
+    padding: 0;
+}
+
+/* 左側導航欄 */
+nav {
+    background-color: #1F2833; /* 深灰藍色 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60px; /* 縮回的寬度 */
+    height: 100%;
+    padding: 10px; /* 減少內邊距 */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    overflow: hidden; /* 隱藏超出容器的內容 */
+    transition: width 0.3s, padding 0.3s; /* 使展開和收起過渡效果更平滑 */
+    z-index: 1000; /* 確保導航欄在其他內容之上 */
+}
+
+nav.expanded {
+    width: 250px; /* 展開的寬度 */
+    padding: 20px; /* 展開時的內邊距 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    opacity: 0; /* 隱藏文字 */
+    transition: opacity 0.3s; /* 文字顯示/隱藏過渡效果 */
+}
+
+nav.expanded ul {
+    opacity: 1; /* 展開時顯示文字 */
+}
+
+nav ul li {
+    margin: 20px 0;
+}
+
+nav ul li a {
+    color: #82e0da; /* 藍綠色文字 */
+    text-decoration: none;
+    font-weight: bold;
+    display: block; /* 確保鏈接占據整個區域 */
+}
+
+nav ul li a:hover {
+    color: #45A29E; /* 略深的藍綠色 */
+}
+
+main {
+    margin-left: 70px; /* 留出空間給導航欄 */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7); /* 深色背景 */
+    border-radius: 10px;
+}
+
+/* SQL 簡易介紹區域 */
+#intro {
+    background-color: #1F2833; /* 深灰藍色背景 */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 陰影效果 */
+    margin-bottom: 30px; /* 增加下方間距 */
+}
+
+/* 段落區域 */
+section[id^="paragraph"] {
+    background-color: #1F2833; /* 深灰藍色背景 */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 陰影效果 */
+    margin-bottom: 30px; /* 增加下方間距 */
+}
+
+/* 段落標題 */
+section[id^="paragraph"] h2 {
+    color: #66FCF1; /* 亮藍色 */
+    margin-top: 0; /* 移除標題上方間距 */
+    margin-bottom: 10px; /* 增加標題下方間距 */
+}
+
+/* 段落內容 */
+section[id^="paragraph"] p {
+    color: #C5C6C7; /* 淡灰色文字 */
+    line-height: 1.6; /* 增加行高 */
+    margin: 0; /* 移除段落上下間距 */
+}
+
+/* 返回按鈕樣式 */
+.backBTN {
+    width: 40px; /* 按鈕寬度 */
+    height: 40px; /* 調整按鈕高度 */
+    cursor: pointer; /* 顯示指針光標 */
+    background-color: #1F2833; /* 深灰藍色背景 */
+    border: none;
+    border-radius: 5px; /* 圓角效果 */
+    color: #C5C6C7; /* 淡灰色文字 */
+    text-align: center; /* 文字置中 */
+    line-height: 40px; /* 文字垂直置中 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* 陰影效果 */
+}
+
+/* 主題圖片區域 */
+#theme-image {
+    text-align: center; /* 使圖片居中 */
+    margin-bottom: 30px; /* 增加下方間距 */
+}
+
+#theme-image img {
+    width: 100%; /* 使圖片寬度自適應 */
+    height: auto; /* 高度自動調整 */
+    border-radius: 10px; /* 圓角效果 */
+}
+
+/* 段落放大效果 */
+section[id^="paragraph"].zoom {
+    transform: scale(1.05); /* 增大 5% */
+    transition: transform 0.3s ease-in-out; /* 平滑過渡效果 */
+}
+
+/* 回到頂部按鈕樣式 */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #1F2833; /* 深灰藍色背景 */
+    color: #C5C6C7; /* 淡灰色文字 */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1000; /* 確保按鈕在其他內容之上 */
+}
+
+.back-to-top.visible {
+    opacity: 1; /* 顯示按鈕 */
+}
+
+/* 頁腳樣式 */
+footer {
+    background-color: #1F2833;
+    color: #C5C6C7;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: calc(100% - 70px); /* 避免與導航欄重疊 */
+    bottom: 0;
+    left: 70px; /* 導航欄寬度 */
+}

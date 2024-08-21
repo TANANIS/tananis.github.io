@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電子商務網站</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            /* 淺灰色背景 */
+            color: #333;
+        }
+
+        header {
+            background: #1e1e1e;
+            /* 深色背景 */
+            color: #ffffff;
+            /* 白色文字 */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #00bcd4;
+            /* 藍色 */
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #0097a7;
+            /* 深藍色 */
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .product-item {
+            background: #ffffff;
+            /* 白色背景 */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            text-align: center;
+            flex: 1;
+            max-width: calc(33.333% - 20px);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .product-item h3 {
+            margin: 15px 0 5px;
+            font-size: 1.4em;
+            color: #333;
+        }
+
+        .product-item p {
+            margin: 0;
+            font-size: 1.2em;
+            color: #888;
+        }
+
+        .product-item button {
+            background-color: #00bcd4;
+            /* 藍色按鈕 */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .product-item button:hover {
+            background-color: #0097a7;
+            /* 深藍色 */
+            transform: scale(1.05);
+        }
+
+        .cart,
+        .account {
+            background: #ffffff;
+            /* 白色背景 */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .cart h2,
+        .account h2 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #333;
+        }
+
+        .account form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .account label {
+            margin-top: 10px;
+            font-size: 1.1em;
+        }
+
+        .account input {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        .account button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            background-color: #00bcd4;
+            /* 藍色按鈕 */
+            color: white;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .account button:hover {
+            background-color: #0097a7;
+            /* 深藍色 */
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #1e1e1e;
+            /* 深色背景 */
+            color: #ffffff;
+            /* 白色文字 */
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>電子商務網站</h1>
+        <nav>
+            <a href="#home">首頁</a>
+            <a href="#products">商品</a>
+            <a href="#cart">購物車</a>
+            <a href="#account">賬戶</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 商品展示區域 -->
+        <section id="products" class="product-list">
+            <h2>商品展示</h2>
+            <div class="product-item">
+                <img src="SAMPLE.jpg" alt="商品1">
+                <h3>商品名稱 1</h3>
+                <p>價格: NT$ 1000</p>
+                <button onclick="addToCart('商品名稱 1', 1000)">加入購物車</button>
+            </div>
+            <div class="product-item">
+                <img src="SAMPLE.jpg" alt="商品2">
+                <h3>商品名稱 2</h3>
+                <p>價格: NT$ 2000</p>
+                <button onclick="addToCart('商品名稱 2', 2000)">加入購物車</button>
+            </div>
+            <div class="product-item">
+                <img src="SAMPLE.jpg" alt="商品3">
+                <h3>商品名稱 3</h3>
+                <p>價格: NT$ 1832</p>
+                <button onclick="addToCart('商品名稱 3', 1832)">加入購物車</button>
+            </div>
+            <!-- 更多商品項目... -->
+        </section>
+
+        <!-- 購物車區域 -->
+        <section id="cart" class="cart">
+            <h2>購物車</h2>
+            <div id="cart-items"></div>
+            <p id="total-price">總價格: NT$ 0</p>
+            <button onclick="checkout()">結帳</button>
+        </section>
+
+        <!-- 用戶賬戶管理區域 -->
+        <section id="account" class="account">
+            <h2>賬戶管理</h2>
+            <form id="account-form">
+                <label for="username">用戶名:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">密碼:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">登入</button>
+                <button type="button" onclick="register()">註冊</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 電子商務網站</p>
+    </footer>
+
+    <script>
+        // scripts.js
+
+        let cart = [];
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const totalPriceElement = document.getElementById('total-price');
+            let totalPrice = 0;
+            cartItems.innerHTML = '';
+
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.textContent = `${item.name} - NT$ ${item.price}`;
+                cartItems.appendChild(cartItem);
+                totalPrice += item.price;
+            });
+
+            totalPriceElement.textContent = `總價格: NT$ ${totalPrice}`;
+        }
+
+        function checkout() {
+            alert('結帳功能尚未實現！');
+        }
+
+        function register() {
+            alert('註冊功能尚未實現！');
+        }
+
+    </script>
+</body>
+
+</html>
