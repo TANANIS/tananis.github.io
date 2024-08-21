@@ -106,6 +106,18 @@
 #news a:hover {
   text-decoration: underline;
 }
+.topbackground
+{
+  object-fit: cover;
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 50px;
+}
+
 
 
 /* 主題圖片區域(background-image) */
