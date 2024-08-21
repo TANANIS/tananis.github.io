@@ -5,7 +5,7 @@
     position: fixed;
     width: calc(100% - 70px); /* 避免與導航欄重疊 */
     bottom: 0;
-    left: 70px; /* 導航欄寬度 */
+    left: 50px; /* 導航欄寬度 */
     z-index: 1;
     display: flex;
     justify-content: center; /* 使內容水平居中 */

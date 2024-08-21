@@ -1,3 +1,68 @@
+// 當文檔內容加載完成時執行
+document.addEventListener("DOMContentLoaded", function () {
+  // 選擇頁面上所有的圖片元素
+  const allImages = document.querySelectorAll("img");
+
+  // 遍歷每個圖片元素
+  allImages.forEach((img) => {
+    // 獲取圖片的 src 屬性
+    const src = img.getAttribute("src");
+
+    // 如果 src 存在並且是 JPG 或 PNG 圖片
+    if (src && (src.endsWith(".jpg") || src.endsWith(".png"))) {
+      // 將 src 屬性的值設置到 data-src 屬性中，並刪除 src 屬性
+      img.setAttribute("data-src", src);
+      img.removeAttribute("src");
+      // 添加 lazyload 類以應用懶加載樣式
+      img.classList.add("lazyload");
+    }
+  });
+
+  // 懶加載的處理函數
+  const lazyLoad = (image) => {
+    // 獲取圖片的 data-src 屬性
+    const src = image.getAttribute("data-src");
+    if (src) {
+      // 設置圖片的 src 屬性並移除 lazyload 類
+      image.src = src;
+      image.classList.remove("lazyload");
+      console.log(`Loading image: ${src}`); // 日誌輸出
+    }
+  };
+
+  // 設置 IntersectionObserver 的選項
+  const imgOptions = {
+    threshold: 0, // 圖片進入視口的閾值
+    rootMargin: "0px 0px 256px 0px", // 視口邊緣的額外空間
+  };
+
+  // 檢查瀏覽器是否支持 IntersectionObserver
+  if ("IntersectionObserver" in window) {
+    // 創建 IntersectionObserver 實例
+    const observer = new IntersectionObserver((entries, observer) => {
+      // 遍歷觀察到的條目
+      entries.forEach((entry) => {
+        // 如果條目進入視口
+        if (entry.isIntersecting) {
+          // 調用 lazyLoad 函數加載圖片
+          lazyLoad(entry.target);
+          // 停止觀察該條目
+          observer.unobserve(entry.target);
+        }
+      });
+    }, imgOptions);
+    // 觀察所有帶有 lazyload 類的圖片
+    document.querySelectorAll("img.lazyload").forEach((image) => {
+      observer.observe(image);
+    });
+  } else {
+    // 無 IntersectionObserver 支持的情況下，直接加載圖片
+    document.querySelectorAll("img.lazyload").forEach((image) => {
+      lazyLoad(image);
+    });
+  }
+});
+
 // 開啟懸浮視窗
 document.getElementById("openModalBtn").addEventListener("click", () => {
   document.getElementById("authModal").style.display = "block";

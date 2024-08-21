@@ -11,7 +11,7 @@ h1 {
     position: fixed;
     top: 0;
     left: 0;
-    width: 70px; /* 縮回的寬度 */
+    width: 40px; /* 縮回的寬度 */
     height: 100%;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
