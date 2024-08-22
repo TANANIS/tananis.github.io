@@ -53,7 +53,7 @@
   
   /* 卡片圖片 */
   .card-image {
-    width: 30%;
+    width: 50%;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -113,6 +113,7 @@
     max-width: 400px; /* 限制最大寬度 */
   }
   
+  
   /* 按鈕樣式 */
   .nav-button {
     background-color: #fff;
@@ -133,7 +134,7 @@
   .nav-button:hover {
     background-color: #1f2833;
     color: #fff;
-    transform: scale(1.1); /* 按鈕放大效果 */
+    transform: scale(1.5); /* 按鈕放大效果 */
   }
   
   .nav-button:focus {
