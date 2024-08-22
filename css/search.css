@@ -1,0 +1,99 @@
+/* 搜尋列容器 */
+.search-container {
+    position: fixed; /* 固定位置 */
+    top: 0;
+    left: 0; /* 搜尋欄容器靠左 */
+    width: 100%; /* 確保容器寬度為100% */
+    background-color: #1b222b; /* 背景色，根據你的風格 */
+    height: 50px; /* 高度 */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #444; /* 底部邊框 */
+    z-index: 1000; /* 確保在其他內容之上 */
+}
+
+/* 搜尋欄樣式 */
+#searchInput {
+    padding: 8px;
+    border: 1px solid #555; /* 邊框顏色 */
+    border-radius: 4px;
+    color: #c5c6c7; /* 文字顏色 */
+    background-color: #333; /* 背景顏色 */
+    margin-left: 120px; /* 搜尋欄輸入區域退縮 */
+    margin-right: 10px; /* 搜尋輸入區域和按鈕之間的間距 */
+    flex: 1;
+}
+
+/* 搜尋按鈕樣式 */
+#searchButton {
+    padding: 8px 16px;
+    border: none;
+    background-color: #d294d8; /* 按鈕背景顏色 */
+    color: #fff; /* 文字顏色 */
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+#searchButton:hover {
+    background-color: #5c3f58; /* 按鈕懸停顏色 */
+}
+
+/* 當搜尋沒有結果時顯示的訊息 */
+#noResults {
+    position: fixed; /* 固定位置 */
+    top: 120px; /* 根據需要調整位置 */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #5c5555; /* 背景顏色 */
+    color: #e41e71; /* 文字顏色 */
+    padding: 20px; /* 增加內邊距 */
+    border: 2px solid #11030e; /* 增加邊框厚度 */
+    border-radius: 6px; /* 增加邊角圓角 */
+    z-index: 1000;
+    width: 80%; /* 增加寬度，根據需要調整 */
+    max-width: 600px; /* 最大寬度，根據需要調整 */
+    font-size: 18px; /* 增加文字大小 */
+    font-weight: bold; /* 加粗文字 */
+    text-align: center; /* 文字居中對齊 */
+}
+
+/* 通知樣式 */
+.notification {
+    display: none; /* 隱藏通知 */
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+@keyframes flash {
+    0% {
+        border-color: yellow;
+        background-color: rgba(255, 255, 0, 0.2);
+    }
+    50% {
+        border-color: transparent;
+        background-color: rgba(255, 255, 0, 0.4);
+    }
+    100% {
+        border-color: yellow;
+        background-color: rgba(255, 255, 0, 0.2);
+    }
+}
+
+.search-highlight {
+    position: relative;
+    border: 2px solid yellow; /* 黃色邊框 */
+    padding: 5px; /* 調整內邊距，以避免文字和邊框過於貼近 */
+    background-color: rgba(255, 255, 0, 0.2); /* 淡黃色背景色，增加對比 */
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5); /* 輕微的陰影效果 */
+    animation: flash 1s infinite; /* 添加閃爍動畫，1秒鐘閃爍一次 */
+}
+

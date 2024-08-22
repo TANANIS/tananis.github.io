@@ -12,8 +12,10 @@
     <link id="register-auth-modal-stylesheet" rel="stylesheet" href="css/registerModal.css">
     <link id="card-display-stylesheet" rel="stylesheet" href="css/card.css">
     <link id="footer-celebrate-btn-stylesheet" rel="stylesheet" href="css/footerStyles.css">
+    <link id="search-stylesheet" rel="stylesheet" href="css/search.css">
 
     <script src="JS/main.js" defer></script>
+    <script src="JS/search.js" defer></script>
 </head>
 
 <body>
@@ -49,6 +51,19 @@
         </div>
     </div>
 
+    <!-- 搜尋列 -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="搜尋內容...">
+        <button id="searchButton">搜尋</button>
+    </div>
+
+    <div id="noResults" style="display: none; color: red;">
+        沒有找到結果
+    </div>
+    <div id="searchingNotification" class="notification">
+        <p>正在導向搜尋結果...</p>
+    </div>
+
     <!-- 導航列 -->
     <nav>
         <img src="img\BACKBTN-01-01.png" alt="backBTN" class="backBTN">
@@ -70,7 +85,7 @@
 
     <main>
         <section id="welcome">
-            <div class="welcome-text">
+            <div class="welcome-text searchable-content">
                 <h2>迷你遊戲區</h2>
                 <p>歡迎來到迷你遊戲區！這裡展示了我創作的各種有趣迷你遊戲。希望你喜歡這些遊戲，並且能夠找到你喜愛的遊戲。</p>
             </div>
@@ -82,25 +97,25 @@
         <section id="featured">
             <h2>精選遊戲</h2>
             <div class="highlight">
-                <article>
+                <article class="searchable-content">
                     <h3>經典蛇蛇遊戲</h3>
                     <img src="img\OIG2.jpg" alt="經典蛇蛇遊戲">
                     <p>這是一款經典的蛇蛇遊戲，你需要控制蛇的移動，並吃掉食物來增加分數。</p>
                     <a href="MGsnake.html">開始遊戲</a>
                 </article>
-                <article>
+                <article class="searchable-content">
                     <h3>迷宮挑戰</h3>
                     <img src="img\WaitUpdate.png" alt="迷宮挑戰">
                     <p>挑戰自己的迷宮遊戲，試著找到出口並解決迷宮中的謎題。</p>
                     <a href="MGsnake.html">等待更新</a>
                 </article>
-                <article>
+                <article class="searchable-content">
                     <h3>數字猜謎</h3>
                     <img src="img\WaitUpdate.png" alt="數字猜謎">
                     <p>這是一款有趣的數字猜謎遊戲，挑戰你的數字直覺和猜謎技巧。</p>
                     <a href="MGsnake.html">等待更新</a>
                 </article>
-                <article>
+                <article class="searchable-content">
                     <h3>小球彈跳</h3>
                     <img src="img\WaitUpdate.png" alt="小球彈跳">
                     <p>控制小球彈跳並收集分數，挑戰自己的反應能力和反應速度。</p>
@@ -109,7 +124,7 @@
             </div>
         </section>
 
-        <section id="news">
+        <section id="news" class="searchable-content">
             <h2>最新消息</h2>
             <p>1. 2024年8月17日：新遊戲上線 - 小球彈跳</p>
             <a href="main.html">查看更多</a>

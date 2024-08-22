@@ -1,13 +1,3 @@
-/* 預設懶讀取 */
-img.lazyload {
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-img.lazyload[src] {
-  opacity: 1;
-}
-
 /* 全局樣式 */
 html,body {
   height: 100%;

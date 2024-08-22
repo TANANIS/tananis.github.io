@@ -15,8 +15,11 @@
     <link id="register-auth-modal-stylesheet" rel="stylesheet" href="css/registerModal.css">
     <link id="card-display-stylesheet" rel="stylesheet" href="css/card.css">
     <link id="footer-celebrate-btn-stylesheet" rel="stylesheet" href="css/footerStyles.css">
-    
+    <link id="search-stylesheet" rel="stylesheet" href="css/search.css">
+
+
     <script src="JS/main.js" defer></script>
+    <script src="JS/search.js" defer></script>
 </head>
 
 
@@ -53,6 +56,19 @@
         </div>
     </div>
 
+    <!-- 搜尋列 -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="搜尋內容...">
+        <button id="searchButton">搜尋</button>
+    </div>
+
+    <div id="noResults" style="display: none; color: red;">
+        沒有找到結果
+    </div>
+    <div id="searchingNotification" class="notification">
+        <p>正在導向搜尋結果...</p>
+    </div>
+
     <!-- 導航列 -->
     <nav>
         <img src="img\BACKBTN-01-01.png" alt="backBTN" class="backBTN">
@@ -64,16 +80,16 @@
             <li><a href="mini-games.html">迷你遊戲</a></li>
             <li><a href="contact.html">聯絡</a></li>
         </ul>
+        <a href="index.html" class="home-button">Home</a>
         <!-- 顯示懸浮視窗的按鈕 -->
         <button id="openModalBtn" class="openModalBtn">註冊 | 登入</button>
-
     </nav>
     <!-- - 提供網站的主要導航連結
     - 包含返回按鈕、標題和不同的頁面連結 -->
 
     <main>
         <section id="welcome">
-            <div class="welcome-text">
+            <div class=" welcome-text searchable-content">
                 <h2 id="modal-title"></h2>
                 <p class="modal-text"></p>
                 <p>這裡是我紀錄關於近期作品、分享學習資源
@@ -81,7 +97,7 @@
                     <br>請<a href="#contact">聯繫我</a>或者參考資訊分頁
 
                     <!-- 慶祝按鈕及其特效 -->
-                <div class="celebrate-container">
+                <div class="celebrate-container searchable-content">
                     <div class="celebrate"></div>
                     <button id="celebrate-btn" class="celebrate-btn">🎉</button>
                 </div>
@@ -98,36 +114,50 @@
             <!-- 精選展示區域 -->
             <h2>精選展示</h2>
             <div class="highlight">
-                <article>
+                <article class="searchable-content">
                     <h3>近期作品</h3>
                     <img src="img/PIC (10).png" alt="近期作品示例">
                     <p>最近完成的繪畫作品在這...</p>
                     <a href="portfolio.html">查看更多作品</a>
                 </article>
-                <article>
+                <article class="searchable-content">
                     <h3>最新學習資源</h3>
                     <img src="img\LearnBG.png" alt="最新資源示例">
                     <p>這是新發現的優質學習資源...</p>
                     <a href="viewport.html">探索更多資源</a>
                 </article>
-                <article>
+                <article class="searchable-content">
                     <h3>迷你遊戲</h3>
                     <img src="img/inasnake.png" alt="迷你遊戲截圖">
                     <p>這是一個我最近做的迷你遊戲...</p>
                     <a href="#games">玩玩看其他遊戲</a>
                 </article>
-                <article>
+                <article class="searchable-content">
                     <h3>新消息</h3>
                     <img src="img\MPimg.png" alt="個人日誌區">
                     <p>也想一起學習新技能嗎？...</p>
                     <a href="LearningDiary.html">查看個人日記</a>
                 </article>
-
+                <article class="searchable-content">
+                    <h3>持續更新</h3>
+                    <img src="img\WaitUpdate.png" alt="持續更新中">
+                    <p>持續更新中...</p>
+                    <a href="#games">持續更新中</a>
+                </article>
+                <article class="searchable-content">
+                    <h3>持續更新</h3>
+                    <img src="img\WaitUpdate.png" alt="持續更新中">
+                    <p>持續更新中...</p>
+                    <a href="#games">持續更新中</a>
+                </article>
             </div>
             <!-- - 顯示幾個精選項目，每個項目包含標題、圖片、描述及連結
             - 用於展示網站的主要內容和更新信息 -->
-             <section id="about">
-            <div class="card-container">
+        </section>
+
+        <!-- 關於我 -->
+        <section id="about">
+            <div class="card-container searchable-content">
                 <div class="card active" id="card-1">
                     <div class="card-content">
                         <div class="card-image">
@@ -139,7 +169,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card inactive" id="card-2">
+                <div class="card inactive searchable-content" id="card-2">
                     <div class="card-content">
                         <div class="card-image">
                             <img src="img/WaitUpdate.png" alt="Image 2">
@@ -151,7 +181,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card inactive" id="card-3">
+                <div class="card inactive searchable-content" id="card-3">
                     <div class="card-content">
                         <div class="card-image">
                             <img src="img/WaitUpdate.png" alt="Image 3">
@@ -165,7 +195,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card inactive" id="card-4">
+                <div class="card inactive searchable-content" id="card-4">
                     <div class="card-content">
                         <div class="card-image">
                             <img src="img/WaitUpdate.png" alt="Image 4">
@@ -177,7 +207,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="nav-buttons">
+                <div class="nav-buttons searchable-content">
                     <button class="nav-button" id="prev-button"></button>
                     <button class="nav-button" id="next-button"></button>
                 </div>
@@ -185,15 +215,11 @@
         </section>
         <!-- - 顯示個人卡片，每張卡片包含圖片和文本
         - nav-buttons 用於切換顯示的卡片 -->
-        </section>
-
-        <!-- 關於我 -->
-       
 
 
 
         <!-- NEWS -->
-        <section id="news">
+        <section id="news" class="searchable-content">
             <h2>What's New</h2>
             <p>1. 2024年8月17日學習紀錄：個人網站創立</p>
             <a href="MainPage.html">查看更多</a>
@@ -210,7 +236,7 @@
     </main>
 
 
-    <footer class="footerBG">
+    <footer class="footerBG searchable-content">
         <p class="footer-text">&copy; 2024 版權所有.</p>
     </footer>
 </body>

@@ -1,12 +1,3 @@
-img.lazyload {
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-img.lazyload[src] {
-  opacity: 1;
-}
-
 /* 基本樣式 */
 body {
   font-family: "Arial", sans-serif;

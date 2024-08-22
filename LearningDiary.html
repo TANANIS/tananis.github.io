@@ -12,8 +12,10 @@
     <link id="register-auth-modal-stylesheet" rel="stylesheet" href="css/registerModal.css">
     <link id="card-display-stylesheet" rel="stylesheet" href="css/card.css">
     <link id="footer-celebrate-btn-stylesheet" rel="stylesheet" href="css/footerStyles.css">
+    <link id="search-stylesheet" rel="stylesheet" href="css/search.css">
 
     <script src="JS\main.JS" defer></script>
+    <script src="JS/search.js" defer></script>
 </head>
 
 <body>
@@ -49,6 +51,19 @@
         </div>
     </div>
 
+    <!-- 搜尋列 -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="搜尋內容...">
+        <button id="searchButton">搜尋</button>
+    </div>
+
+    <div id="noResults" style="display: none; color: red;">
+        沒有找到結果
+    </div>
+    <div id="searchingNotification" class="notification">
+        <p>正在導向搜尋結果...</p>
+    </div>
+
     <!-- 導航列 -->
     <nav>
         <img src="img\BACKBTN-01-01.png" alt="backBTN" class="backBTN">
@@ -72,7 +87,7 @@
     <main>
         <!-- 歡迎區域 -->
         <section id="welcome">
-            <div class="welcome-text">
+            <div class="welcome-text searchable-content">
                 <h2>歡迎來到我的學習記錄網站</h2>
                 <p>這裡是我在學習過程中的一些記錄與分享，希望對你有幫助。</p>
             </div>
@@ -82,7 +97,7 @@
         </section>
 
         <!-- 個人資訊區塊 -->
-        <section class="profile-info">
+        <section class="profile-info searchable-content">
             <h2>學習記錄</h2>
             <p>關於我的學習歷程，筆記/解釋/語法與註釋等等，都會在這裡更新。</p>
             <a href="https://www.notion.so/d3c712265e744507b0f4fcabd235b345?pvs=4"
@@ -93,11 +108,11 @@
         <section id="featured" class="featured">
             <h2>分頁內容</h2>
             <div class="highlight">
-                <button class="featured-btn" onclick="location.href='LearningDiary/SQL.html'">SQL</button>
-                <button class="featured-btn" onclick="location.href='LearningDiary/HTML.html'">HTML</button>
-                <button class="featured-btn" onclick="location.href='LearningDiary/Python.html'">Python</button>
-                <button class="featured-btn" onclick="location.href='LearningDiary/unity.html'">Unity</button>
-                <button class="featured-btn" onclick="location.href='LearningDiary/csharp.html'">C#</button>
+                <button class="featured-btn searchable-content" onclick="location.href='LearningDiary/SQL.html'">SQL</button>
+                <button class="featured-btn searchable-content" onclick="location.href='LearningDiary/HTML.html'">HTML</button>
+                <button class="featured-btn searchable-content" onclick="location.href='LearningDiary/Python.html'">Python</button>
+                <button class="featured-btn searchable-content" onclick="location.href='LearningDiary/unity.html'">Unity</button>
+                <button class="featured-btn searchable-content" onclick="location.href='LearningDiary/csharp.html'">C#</button>
             </div>
         </section>
 
@@ -106,7 +121,7 @@
             <h2>最新消息</h2>
             <p>這裡是一些最新的筆記或更新。</p>
             <a href="#">查看所有消息</a>
-            <div class="news-container">
+            <div class="news-container searchable-content">
                 <div class="news-item">
 
                     <h3>最新消息一</h3>

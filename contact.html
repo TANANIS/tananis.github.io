@@ -12,13 +12,15 @@
     <link id="register-auth-modal-stylesheet" rel="stylesheet" href="css/registerModal.css">
     <link id="card-display-stylesheet" rel="stylesheet" href="css/card.css">
     <link id="footer-celebrate-btn-stylesheet" rel="stylesheet" href="css/footerStyles.css">
+    <link id="search-stylesheet" rel="stylesheet" href="css/search.css">
 
     <script src="JS\main.js" defer></script>
+    <script src="JS/search.js" defer></script>
 </head>
 
 <body>
     <!-- 懸浮視窗的 HTML 結構 -->
-    <div id="authModal" class="modal">
+    <div id="authModal" class="modal searchable-content">
         <div class="modalContent">
             <span class="closeBtn" onclick="closeModal()">&times;</span>
             <h2>welcome！</h2>
@@ -49,6 +51,18 @@
         </div>
     </div>
 
+    <!-- 搜尋列 -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="搜尋內容...">
+        <button id="searchButton">搜尋</button>
+    </div>
+
+    <div id="noResults" style="display: none; color: red;">
+        沒有找到結果
+    </div>
+    <div id="searchingNotification" class="notification">
+        <p>正在導向搜尋結果...</p>
+    </div>
     <!-- 導航列 -->
     <nav>
         <img src="img\BACKBTN-01-01.png" alt="backBTN" class="backBTN">
@@ -72,22 +86,22 @@
         <section id="contact">
             <h2>聯絡方式</h2>
             <div class="highlight">
-                <article>
+                <article class="searchable-content">
                     <img src="img/CONCACT/PIXIV.png" alt="PIXIV" class="welcome-image">
                     <h3>加入PIXIV看更多作品</h3>
                     <a href="https://www.pixiv.net/users/19414207" target="_blank" class="profile-button">前往網站</a>
                 </article>
-                <article>
+                <article class="searchable-content">
                     <img src="img/CONCACT/X.jpg" alt="社群2" class="welcome-image">
                     <h3>追蹤我的X看個人社群</h3>
                     <a href="https://x.com/LIANG_TANA" target="_blank" class="profile-button">前往網站</a>
                 </article>
-                <article>
+                <article class="searchable-content">
                     <img src="img/CONCACT/DISCORD.png" alt="社群3" class="welcome-image">
                     <h3>進入Discord結交更多朋友</h3>
                     <a href="https://discord.gg/e87RXSXhjJ" target="_blank" class="profile-button">前往網站</a>
                 </article>
-                <article>
+                <article class="searchable-content">
                     <img src="img/CONCACT/PODCAST.jpg" alt="社群4" class="welcome-image">
                     <h3>聽我們聊聊遊戲</h3>
                     <a href="https://open.firstory.me/user/gamestreet" target="_blank" class="profile-button">前往網站</a>
@@ -95,13 +109,13 @@
                 <!-- 可以添加更多社群按鈕 -->
             </div>
 
-            <div class="contact-info">
+            <div class="contact-info searchable-content">
                 <p class="profile-button"><strong>電子郵件：</strong><a href="zhitai012@gmail.com">zhitai012@gmail.com</a>
                 </p>
                 <p class="profile-button"><strong>電話：</strong>0912-345-678</p>
             </div>
             <!-- 留言評論專區 -->
-            <section id="comments">
+            <section id="comments searchable-content">
                 <h2>留言區</h2>
                 <div class="comment-form">
                     <input type="text" id="commentName" placeholder="你的名字">

@@ -395,7 +395,7 @@ main {
 #other-works {
     margin: 40px auto; /* 垂直外邊距，水平外邊距自動居中 */
     padding: 20px;
-    background-color: #1b1b1b; /* 深色背景與其他區域一致 */
+    background-color: #443741; /* 深色背景與其他區域一致 */
     border-radius: 10px; /* 圓角效果 */
     width: 80%; /* 設定寬度，根據需要調整 */
     max-width: 1200px; /* 最大寬度限制 */

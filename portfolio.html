@@ -16,11 +16,13 @@
     <link id="register-auth-modal-stylesheet" rel="stylesheet" href="css/registerModal.css">
     <link id="card-display-stylesheet" rel="stylesheet" href="css/card.css">
     <link id="footer-celebrate-btn-stylesheet" rel="stylesheet" href="css/footerStyles.css">
+    <link id="search-stylesheet" rel="stylesheet" href="css/search.css">
 
     <script src="JS/portfolio.js" defer></script>
+    <script src="JS/search.js" defer></script>
 
     <script src="JS/main.js" defer></script>
-    
+
 </head>
 
 <body>
@@ -56,10 +58,23 @@
         </div>
     </div>
 
+    <!-- 搜尋列 -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="搜尋內容...">
+        <button id="searchButton">搜尋</button>
+    </div>
+
+    <div id="noResults" style="display: none; color: red;">
+        沒有找到結果
+    </div>
+    <div id="searchingNotification" class="notification">
+        <p>正在導向搜尋結果...</p>
+    </div>
+
     <!-- 導航列 -->
     <nav>
         <img src="img\BACKBTN-01-01.png" alt="backBTN" class="backBTN">
-        <h1>主頁</h1>
+        <h1>過去作品</h1>
         <ul>
             <li><a href="index.html">首頁</a></li>
             <li><a href="portfolio.html">過去作品</a></li>
@@ -70,7 +85,6 @@
         </ul>
         <!-- 顯示懸浮視窗的按鈕 -->
         <button id="openModalBtn" class="openModalBtn">註冊 | 登入</button>
-
     </nav>
     <!-- - 提供網站的主要導航連結
     - 包含返回按鈕、標題和不同的頁面連結 -->
@@ -92,7 +106,7 @@
         </section>
 
         <!-- 精選照片區域 -->
-        <section id="featured">
+        <section id="featured searchable-content">
             <h2>精選照片</h2>
             <div class="featured-grid">
                 <div class="featured-item">
@@ -124,7 +138,7 @@
 
 
 
-        <section id="portfolio">
+        <section id="portfolio" class="searchable-content">
             <h2>作品集</h2>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
@@ -376,7 +390,7 @@
     <section id="other-works" class="other-works">
         <h2>其他作品</h2>
         <div class="other-works-grid">
-            <div class="other-works-item">
+            <div class="other-works-item searchable-content">
                 <img src="img\PIC (33).png" alt="其他作品">
                 <div class="other-works-description">
                     <h3>inake</h3>
@@ -384,7 +398,7 @@
                     <a href="https://tananis.itch.io/inake" class="other-works-button">前往作品</a>
                 </div>
             </div>
-            <div class="other-works-item">
+            <div class="other-works-item searchable-content">
                 <img src="img\PIC (34).png" alt="其他作品">
                 <div class="other-works-description">
                     <h3>購物網站練習</h3>
@@ -392,7 +406,7 @@
                     <a href="portfolioWEB\shopping.html" class="other-works-button">前往作品</a>
                 </div>
             </div>
-            <div class="other-works-item">
+            <div class="other-works-item searchable-content">
                 <img src="img\WaitUpdate.png" alt="其他作品">
                 <div class="other-works-description">
                     <h3>影音網站練習</h3>
@@ -400,7 +414,7 @@
                     <a href="portfolioWEB\Media.html" class="other-works-button">前往作品</a>
                 </div>
             </div>
-            <div class="other-works-item">
+            <div class="other-works-item searchable-content">
                 <img src="img\WaitUpdate.png" alt="其他作品">
                 <div class="other-works-description">
                     <h3>課堂For迴圈練習</h3>
@@ -408,7 +422,7 @@
                     <a href="portfolioWEB\forLoop.html" class="other-works-button">前往作品</a>
                 </div>
             </div>
-            <div class="other-works-item">
+            <div class="other-works-item searchable-content">
                 <img src="img\WaitUpdate.png" alt="其他作品">
                 <div class="other-works-description">
                     <h3>亂數算命系統</h3>
@@ -416,7 +430,7 @@
                     <a href="portfolioWEB\yourlife.html" class="other-works-button">前往作品</a>
                 </div>
             </div>
-            <div class="other-works-item">
+            <div class="other-works-item searchable-content">
                 <img src="img\WaitUpdate.png" alt="其他作品">
                 <div class="other-works-description">
                     <h3>一個普通的祕密花園</h3>
@@ -424,7 +438,7 @@
                     <a href="portfolioWEB\secretGarden.html" class="other-works-button">前往作品</a>
                 </div>
             </div>
-            <div class="other-works-item">
+            <div class="other-works-item searchable-content">
                 <img src="img\WaitUpdate.png" alt="其他作品">
                 <div class="other-works-description">
                     <h3>線上電視節目選台器</h3>
@@ -432,7 +446,7 @@
                     <a href="portfolioWEB\TV.html" class="other-works-button">前往作品</a>
                 </div>
             </div>
-            <div class="other-works-item">
+            <div class="other-works-item searchable-content">
                 <img src="img\WaitUpdate.png" alt="其他作品">
                 <div class="other-works-description">
                     <h3>部落格範例網站</h3>
@@ -440,7 +454,7 @@
                     <a href="portfolioWEB\blog.html" class="other-works-button">前往作品</a>
                 </div>
             </div>
-            <div class="other-works-item">
+            <div class="other-works-item searchable-content">
                 <img src="img\WaitUpdate.png" alt="其他作品">
                 <div class="other-works-description">
                     <h3>電子商城範例網站</h3>
@@ -448,7 +462,7 @@
                     <a href="portfolioWEB\E-Commerce.html" class="other-works-button">前往作品</a>
                 </div>
             </div>
-            <div class="other-works-item">
+            <div class="other-works-item searchable-content">
                 <img src="img\WaitUpdate.png" alt="其他作品">
                 <div class="other-works-description">
                     <h3>社群媒體範例網站</h3>
@@ -456,7 +470,7 @@
                     <a href="portfolioWEB\SocialMedia.html" class="other-works-button">前往作品</a>
                 </div>
             </div>
-            <div class="other-works-item">
+            <div class="other-works-item searchable-content">
                 <img src="img\WaitUpdate.png" alt="其他作品">
                 <div class="other-works-description">
                     <h3>音樂撥放器範例</h3>
@@ -464,7 +478,7 @@
                     <a href="portfolioWEB\Music.html" class="other-works-button">前往作品</a>
                 </div>
             </div>
-            <div class="other-works-item">
+            <div class="other-works-item searchable-content">
                 <img src="img\WaitUpdate.png" alt="其他作品">
                 <div class="other-works-description">
                     <h3>煙火效果</h3>

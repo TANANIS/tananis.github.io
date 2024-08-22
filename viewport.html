@@ -15,8 +15,10 @@
     <link id="register-auth-modal-stylesheet" rel="stylesheet" href="css/registerModal.css">
     <link id="card-display-stylesheet" rel="stylesheet" href="css/card.css">
     <link id="footer-celebrate-btn-stylesheet" rel="stylesheet" href="css/footerStyles.css">
+    <link id="search-stylesheet" rel="stylesheet" href="css/search.css">
 
     <script src="JS/main.js" defer></script>
+    <script src="JS/search.js" defer></script>
 </head>
 
 
@@ -53,6 +55,19 @@
         </div>
     </div>
 
+    <!-- 搜尋列 -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="搜尋內容...">
+        <button id="searchButton">搜尋</button>
+    </div>
+
+    <div id="noResults" style="display: none; color: red;">
+        沒有找到結果
+    </div>
+    <div id="searchingNotification" class="notification">
+        <p>正在導向搜尋結果...</p>
+    </div>
+
     <!-- 導航列 -->
     <nav>
         <img src="img\BACKBTN-01-01.png" alt="backBTN" class="backBTN">
@@ -77,15 +92,15 @@
         <!-- 最新消息區域 -->
         <section id="news" class="news-section visible">
             <section id="theme-image">
-                <img src="img\background.png" alt="學習資源主題圖片" class="topbackground">
+                <img src="img\background.png" alt="學習資源主題圖片">
             </section>
             <h2>學習資源推薦</h2>
-            <p class="description">在這裡，
+            <p class="description searchable-content">在這裡，
                 <br>我將分享一些我在學習過程中發現的有用資源。
                 <br>這些網站和影片在我的學習過程中對我非常有幫助，
                 <br>並且都是我個人推薦的。
             </p>
-            <article class="resource-item">
+            <article class="resource-item searchable-content">
                 <div class="resource-image">
                     <img src="img\viewLogo\Notion.png" alt="資源圖片 11">
                 </div>
@@ -95,7 +110,7 @@
                     <p>關於本網頁的所有的學習內容/筆記。甚至是實體課程的紀錄都可以在這邊找到。</p>
                 </div>
             </article>
-            <article class="resource-item">
+            <article class="resource-item searchable-content">
                 <div class="resource-image">
                     <img src="img\viewLogo\w3school.png" alt="資源圖片 1">
                 </div>
@@ -104,7 +119,7 @@
                     <p>主流的Code基本知識、語法教學網站，包含HTML、CSS、JavaScript、jQuery、PHP、Python、SQL、Bootstrap等知識。</p>
                 </div>
             </article>
-            <article class="resource-item">
+            <article class="resource-item searchable-content">
                 <div class="resource-image">
                     <img src="img\viewLogo\2.jpg" alt="資源圖片 2">
                 </div>
@@ -114,7 +129,7 @@
                     <p>來自於愛寫扣論壇的教材，教你如何用HTML、CSS建立網頁。內部除了有文章與討論區用於交流，還有學習歷程的紀錄與自學作業包，可以參考。</p>
                 </div>
             </article>
-            <article class="resource-item">
+            <article class="resource-item searchable-content">
                 <div class="resource-image">
                     <img src="img\viewLogo\datacamp.png" alt="資源圖片 3">
                 </div>
@@ -124,7 +139,7 @@
                     <p>DataCamp的SQL免費課程，教你如何使用SQL語言操作資料庫。內容包含SQL語法、資料庫結構、SQL操作、SQL工具、SQL實務應用等。</p>
                 </div>
             </article>
-            <article class="resource-item">
+            <article class="resource-item searchable-content">
                 <div class="resource-image">
                     <img src="img\viewLogo\3.jpg" alt="資源圖片 4">
                 </div>
@@ -134,7 +149,7 @@
                     <p>中文圈內簡單易懂的Youtube影片教學，不用吸收簡體中文的專有詞彙，解迅速簡潔扼要，適合初入SQL馬上進入狀況。</p>
                 </div>
             </article>
-            <article class="resource-item">
+            <article class="resource-item searchable-content">
                 <div class="resource-image">
                     <img src="img\viewLogo\5.png" alt="資源圖片 5">
                 </div>
@@ -144,7 +159,7 @@
                     <p>知名Youtuber的影片教學影片系列，教你如何使用Unity建立自己的第一個遊戲。內容包含Unity的環境設定、物理引擎、角色控制器、遊戲物件、音效、場景等。非常值得一看。</p>
                 </div>
             </article>
-            <article class="resource-item">
+            <article class="resource-item searchable-content">
                 <div class="resource-image">
                     <img src="img\viewLogo\6.jpg" alt="資源圖片 6">
                 </div>
@@ -154,7 +169,7 @@
                     <p>稍進階的2Dunity教學，由Blackthornprod製作，內容包含了動作控制、，Inspector與C#的邏輯與推薦的Unity Asset清單等</p>
                 </div>
             </article>
-            <article class="resource-item">
+            <article class="resource-item searchable-content">
                 <div class="resource-image">
                     <img src="img\viewLogo\7.PNG" alt="資源圖片 7">
                 </div>
@@ -164,7 +179,7 @@
                     <p>同樣來自Brackeys的影片教學影片系列，教你如何使用C#程式語言，內容包含C#的環境設定、基本語法、控制流程、類別與物件、陣列、函式、事件、檔案等。同樣大推。</p>
                 </div>
             </article>
-            <article class="resource-item">
+            <article class="resource-item searchable-content">
                 <div class="resource-image">
                     <img src="img\viewLogo\8.png" alt="資源圖片 8">
                 </div>
@@ -174,7 +189,7 @@
                     <p>我的第一本C#敲門磚，內容非常完整，建議以基礎認識後可以搭配練功。從WINDOW到LINQ，再到OOP，最後還有C#的寫法/邏輯建立等內容。</p>
                 </div>
             </article>
-            <article class="resource-item">
+            <article class="resource-item searchable-content">
                 <div class="resource-image">
                     <img src="img\viewLogo\9.png" alt="資源圖片 9">
                 </div>
@@ -184,7 +199,7 @@
                     <p>來自微軟與Bob Tabo的影片教學，內容詳盡，8個小時從C#是什麼一路教到迴圈、物件導向、.NET庫等，簡直比看書還賺。</p>
                 </div>
             </article>
-            <article class="resource-item">
+            <article class="resource-item searchable-content">
                 <div class="resource-image">
                     <img src="img\viewLogo\10.png" alt="資源圖片 10">
                 </div>
