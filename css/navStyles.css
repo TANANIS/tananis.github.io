@@ -55,21 +55,25 @@ nav ul li a:hover {
 /* 返回主頁按鈕樣式 */
 .home-button {
   border: none;
-  color: white;
-  padding: 15px; /* 增加內邊距以確保按鈕為圓形 */
-  text-align: center;
-  text-decoration: none;
+
+  padding: 3px; /* 增加內邊距以確保按鈕為圓形 */
   display: inline-block;
   cursor: pointer;
   border-radius: 50%; /* 圓形按鈕 */
-  background-color: #652491; /* 按鈕顏色 */
+  background-color: #c3b7ca; /* 按鈕顏色 */
   position: fixed; /* 固定定位 */
-  bottom: 120px; /* 距離底部 10px */
-  right: 10px; /* 距離左邊 10px */
-  font-size: 12px; /* 文字大小 */
+  bottom: 80px; /* 距離底部 10px */
+  left: 20px; /* 距離左邊 10px */
   z-index: 1000; /* 確保按鈕在其他內容之上 */
-  text-align: center; /* 文字置中 */
-  line-height: 1.2; /* 行高調整以確保文字置中 */
+  display: flex;
+}
+.home-icon
+{
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .home-button:hover {
