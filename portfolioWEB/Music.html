@@ -3,24 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
     <title>音樂播放器</title>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;
-            /* 深色背景 */
+            background: linear-gradient(135deg, #121212, #323232);
             color: #e0e0e0;
-            /* 淺灰色文字 */
         }
 
         header {
-            background: #1f1f1f;
-            /* 深色背景 */
+            background: linear-gradient(135deg, #1f1f1f, #333);
             color: #ffffff;
-            /* 白色文字 */
             padding: 20px;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -41,11 +38,10 @@
 
         .player {
             flex: 2;
-            background: #1e1e1e;
-            /* 更深色的背景 */
+            background: linear-gradient(135deg, #1e1e1e, #292929);
             border-radius: 10px;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -68,11 +64,13 @@
             height: 150px;
             border-radius: 10px;
             object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .track-info h2 {
             margin: 0;
             font-size: 1.8em;
+            color: #bb86fc;
         }
 
         .track-info p {
@@ -82,7 +80,6 @@
 
         .controls button {
             background-color: #bb86fc;
-            /* 紫色按鈕 */
             color: white;
             border: none;
             padding: 10px 20px;
@@ -91,11 +88,11 @@
             font-size: 1.5em;
             margin: 0 10px;
             transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
         .controls button:hover {
             background-color: #9b59b6;
-            /* 深紫色 */
             transform: scale(1.05);
         }
 
@@ -115,28 +112,30 @@
         }
 
         .lyrics {
-            background: #1e1e1e;
+            background: linear-gradient(135deg, #1e1e1e, #292929);
             border-radius: 10px;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
         }
 
         .lyrics h2 {
             margin-bottom: 10px;
             font-size: 1.5em;
+            color: #bb86fc;
         }
 
         #lyrics {
             font-size: 1em;
             color: #ccc;
+            white-space: pre-line;
         }
 
         .sidebar {
             flex: 1;
-            background: #1e1e1e;
+            background: linear-gradient(135deg, #1e1e1e, #292929);
             border-radius: 10px;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
             display: flex;
             flex-direction: column;
         }
@@ -160,7 +159,6 @@
 
         .tab-button.active {
             background: #bb86fc;
-            /* 紫色按鈕 */
         }
 
         .tab-button:hover {
@@ -179,30 +177,64 @@
 
         .tab-content li {
             background: #2e2e2e;
-            /* 更深色背景 */
             margin-bottom: 10px;
             padding: 10px;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
+            color: #bb86fc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .tab-content li:hover {
             background: #3e3e3e;
-            /* 更深色背景 */
         }
 
         footer {
             background: #1f1f1f;
-            /* 深色背景 */
             color: #ffffff;
-            /* 白色文字 */
             text-align: center;
             padding: 15px;
             position: fixed;
             width: 100%;
             bottom: 0;
             box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 時間軸樣式 */
+        .progress-container {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 8px;
+            background: #333;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #bb86fc;
+            border-radius: 5px;
+            width: 0;
+            transition: width 0.1s;
+        }
+
+        .current-time,
+        .duration {
+            font-size: 1em;
+            color: #bbb;
+            margin: 0 10px;
         }
     </style>
 </head>
@@ -218,18 +250,23 @@
                 <div class="now-playing">
                     <img src="SAMPLE.jpg" alt="專輯封面" class="album-art">
                     <div class="track-info">
-                        <h2>歌曲標題</h2>
-                        <p>歌手名稱</p>
+                        <h2>Shape of You</h2>
+                        <p>Ed Sheeran</p>
                     </div>
                 </div>
                 <div class="controls">
                     <button onclick="prevTrack()">◀</button>
-                    <button onclick="togglePlay()">播放</button>
+                    <button id="playPauseButton" onclick="togglePlay()">播放</button>
                     <button onclick="nextTrack()">▶</button>
                 </div>
                 <div class="volume-control">
-                    <input type="range" id="volume" min="0" max="100" value="50">
+                    <input type="range" id="volume" min="0" max="100" value="50" onchange="setVolume(this.value)">
                     <label for="volume">音量</label>
+                </div>
+                <div class="progress-container">
+                    <span id="currentTime" class="current-time">0:00</span>
+                    <div class="progress-bar" id="progressBar"></div>
+                    <span id="duration" class="duration">0:00</span>
                 </div>
             </div>
 
@@ -242,175 +279,120 @@
 
                 <div class="tab-content" id="playlist">
                     <ul>
-                        <!-- 範例播放列表項目 -->
-                        <li>歌曲- 歌手</li>
-                        <li>歌曲- 歌手</li>
-                        <li>歌曲- 歌手</li>
-                        <li>歌曲- 歌手</li>
-                        <li>歌曲- 歌手</li>
-                        <li>歌曲- 歌手</li>
-                        <li>歌曲- 歌手</li>
-                        <li>歌曲- 歌手</li>
-                        <li>歌曲- 歌手</li>
-                        <li>歌曲- 歌手</li>
-                        <li>歌曲- 歌手</li>
-                        <li>歌曲- 歌手</li>
+                        <li>Shape of You - Ed Sheeran <span>3:53</span></li>
+                        <li>Blinding Lights - The Weeknd <span>3:20</span></li>
+                        <li>Levitating - Dua Lipa <span>3:23</span></li>
+                        <li>Someone You Loved - Lewis Capaldi <span>3:02</span></li>
+                        <li>Bad Guy - Billie Eilish <span>3:14</span></li>
                     </ul>
                 </div>
-
-                <div class="tab-content" id="recommendations" style="display: none;">
+                <div class="tab-content" id="recommendations">
                     <ul>
-                        <!-- 範例推薦音樂項目 -->
-                        <li>範例- 歌手</li>
-                        <li>範例- 歌手</li>
-                        <li>範例- 歌手</li>
-                        <li>範例- 歌手</li>
-                        <li>範例- 歌手</li>
-                        <li>範例- 歌手</li>
-                        <li>範例- 歌手</li>
-                        <li>範例- 歌手</li>
-                        <li>範例- 歌手</li>
-                        <li>範例- 歌手</li>
-                        <li>範例- 歌手</li>
-                        <li>範例- 歌手</li>
-                        <li>範例- 歌手</li>
-                        <li>範例- 歌手</li>
-                        <li>範例- 歌手</li>
-                        <li>範例- 歌手</li>
-                        <li>範例- 歌手</li>
+                        <li>Peaches - Justin Bieber <span>3:18</span></li>
+                        <li>Watermelon Sugar - Harry Styles <span>2:54</span></li>
+                        <li>Savage Love - Jawsh 685 <span>2:54</span></li>
+                        <li>ROCKSTAR - DaBaby <span>3:01</span></li>
+                        <li>Don't Start Now - Dua Lipa <span>3:03</span></li>
                     </ul>
                 </div>
-
-                <div class="tab-content" id="similar" style="display: none;">
+                <div class="tab-content" id="similar">
                     <ul>
-                        <!-- 範例你可能也喜歡的歌曲項目 -->
-                        <li>歌曲-你可能也喜歡</li>
-                        <li>歌曲-你可能也喜歡</li>
-                        <li>歌曲-你可能也喜歡</li>
-                        <li>歌曲-你可能也喜歡</li>
-                        <li>歌曲-你可能也喜歡</li>
-                        <li>歌曲-你可能也喜歡</li>
-                        <li>歌曲-你可能也喜歡</li>
-                        <li>歌曲-你可能也喜歡</li>
-                        <li>歌曲-你可能也喜歡</li>
-                        <li>歌曲-你可能也喜歡</li>
-                        <li>歌曲-你可能也喜歡</li>
-                        <li>歌曲-你可能也喜歡</li>
-                        <li>歌曲-你可能也喜歡</li>
-                        <li>歌曲-你可能也喜歡</li>
-                        <li>歌曲-你可能也喜歡</li>
-                        <li>歌曲-你可能也喜歡</li>
-                        <li>歌曲-你可能也喜歡</li>
-                        <li>歌曲-你可能也喜歡</li>
-                        <li>歌曲-你可能也喜歡</li>
-
+                        <li>Don't Let Me Down - The Chainsmokers <span>3:19</span></li>
+                        <li>Starboy - The Weeknd <span>3:50</span></li>
+                        <li>Perfect - Ed Sheeran <span>4:23</span></li>
+                        <li>Bad Liar - Imagine Dragons <span>3:32</span></li>
+                        <li>Happier - Marshmello <span>3:34</span></li>
                     </ul>
                 </div>
             </aside>
         </section>
-
         <section class="lyrics">
             <h2>歌詞</h2>
-            <p id="lyrics">歌詞會在這裡顯示...</p>
+            <div id="lyrics">以下是歌曲的歌詞...</div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 音樂播放器. 版權所有。</p>
+        <p>&copy; 2024 音樂播放器</p>
     </footer>
 
+    <!-- 音頻元素 -->
+    <audio id="audio" src="SAMPLE.mp3"></audio>
     <script>
-        // scripts.js
-
-        // 播放/暫停功能
+        // 切換播放/暫停功能
         function togglePlay() {
-            const playButton = document.querySelector('.controls button:nth-child(2)');
-            const isPlaying = playButton.textContent === '暫停';
-            playButton.textContent = isPlaying ? '播放' : '暫停';
-            // 這裡可以添加播放或暫停音樂的功能
+            const button = document.getElementById('playPauseButton');
+            const audio = document.getElementById('audio');
+            if (audio.paused) {
+                audio.play();
+                button.textContent = '暫停';
+            } else {
+                audio.pause();
+                button.textContent = '播放';
+            }
         }
-
-        // 播放上一首歌曲
+    
+        // 播放上一首曲目（待實作）
         function prevTrack() {
-            alert('播放上一首歌曲');
-            // 這裡可以添加播放上一首歌曲的功能
+            // TODO: 實作播放上一首
         }
-
-        // 播放下一首歌曲
+    
+        // 播放下一首曲目（待實作）
         function nextTrack() {
-            alert('播放下一首歌曲');
-            // 這裡可以添加播放下一首歌曲的功能
+            // TODO: 實作播放下一首
         }
-
-        // 顯示分頁內容
+    
+        // 顯示指定的選項卡內容
         function showTab(tabId) {
             const tabs = document.querySelectorAll('.tab-content');
             tabs.forEach(tab => {
                 tab.style.display = tab.id === tabId ? 'block' : 'none';
             });
-
+    
             const buttons = document.querySelectorAll('.tab-button');
             buttons.forEach(button => {
                 button.classList.toggle('active', button.getAttribute('onclick').includes(tabId));
             });
         }
-
-        // 初始化分頁顯示
-        document.addEventListener('DOMContentLoaded', () => {
-            showTab('playlist'); // 預設顯示「當前播放清單」
-        });
-
-        // 顯示歌詞功能（示範用途，實際歌詞應從音樂播放器或API中獲取）
-        function updateLyrics(lyrics) {
-            const lyricsElement = document.getElementById('lyrics');
-            lyricsElement.textContent = lyrics;
+    
+        // 設置音量
+        function setVolume(volume) {
+            const audio = document.getElementById('audio');
+            audio.volume = volume / 100; // 將音量值轉換為 0.0 到 1.0 的範圍
         }
-
-        // 範例用法
-        updateLyrics("I couldn't wait for you to come and clear the cupboard\n" +
-            "我迫不及待地想讓你來清理櫥櫃\n" +
-            "But now you're gone and leaving nothing but a sign\n" +
-            "但現在你走了，只留下一個標誌\n" +
-            "Another evening I'll be sitting reading in between your lines\n" +
-            "另一個晚上，我會坐在你的字裡行間讀書\n" +
-            "Because I miss you all the time\n" +
-            "因為我一直想念你\n" +
-            "So, get away 所以，離開\n" +
-            "Another way to feel what you didn't want yourself to know\n" +
-            "另一種感受你不想讓自己知道的方式\n" +
-            "And let yourself go\n" +
-            "讓自己放手\n" +
-            "You know you didn't lose your self-control\n" +
-            "你知道你沒有失去自製力\n" +
-            "Let's start at the rainbow\n" +
-            "讓我們從彩虹開始\n" +
-            "Turn away 轉身離開\n" +
-            "Another way to be where you didn't want yourself to go\n" +
-            "另一種方式去你不想讓自己去的地方\n" +
-            "And let yourself go\n" +
-            "讓自己放手\n" +
-            "Is that a compromise ?\n" +
-            "這是一種妥協嗎？\n" +
-            "So, what do you wanna do, what's your point of view?\n" +
-            "那麼，你想做什麼，你的觀點是什麼？\n" +
-            "There's a party, screw it, do you wanna go?\n" +
-            "有一個派對，搞砸了，你想去嗎？\n" +
-            "A handshake with you, what's your point of view?\n" +
-            "和你握手，你的觀點是什麼？\n" +
-            "I'm on top of you, I don't wanna go\n" +
-            "我在你上面，我不想去\n" +
-            "'Cause I really wanna stay at your house\n" +
-            "因為我真的很想住在你家\n" +
-            "And I hope it all works out\n" +
-            "我希望這一切都能成功\n" +
-            "But you know how much you broke me apart\n" +
-            "但你知道你讓我分崩離析\n" +
-            "I'm done with you, I'm ignoring you\n" +
-            "我和你在一起了，我不理你\n" +
-            "I don't wanna know, ahh\n" +
-            "我不想知道，啊\n" +);
-
+    
+        // 更新播放進度條和時間顯示
+        function updateProgress() {
+            const audio = document.getElementById('audio');
+            const currentTime = Math.floor(audio.currentTime);
+            const duration = Math.floor(audio.duration);
+            const progress = (currentTime / duration) * 100;
+    
+            document.getElementById('progressBar').style.setProperty('--progress', progress + '%');
+            document.getElementById('currentTime').textContent = formatTime(currentTime);
+            document.getElementById('duration').textContent = formatTime(duration);
+        }
+    
+        // 格式化時間為 "分鐘:秒"
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return minutes + ':' + (secs < 10 ? '0' : '') + secs;
+        }
+    
+        // 初始化播放器
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('audio');
+            audio.addEventListener('timeupdate', updateProgress);
+            document.getElementById('volume').addEventListener('input', function() {
+                setVolume(this.value);
+            });
+    
+            // 預設顯示當前播放清單選項卡
+            showTab('playlist');
+        });
     </script>
+    
 </body>
 
 </html>

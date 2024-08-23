@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>個人作品集與學習平台</title>
+    <link id="profile-stylesheet" rel="stylesheet" href="css/profile.css">
 
     <link id="mobileStyle" rel="stylesheet" href="css/mobileStyle.css">
 
@@ -27,7 +28,7 @@
     <!-- 懸浮視窗的 HTML 結構 -->
     <div id="authModal" class="modal">
         <div class="modalContent">
-            <span class="closeBtn" onclick="closeModal()">&times;</span>
+            <span class="RScloseBtn" onclick="RScloseModal()">&times;</span>
             <h2>welcome！</h2>
             <div id="authForm">
                 <div id="loginForm">
@@ -200,8 +201,8 @@
                         </div>
                     </div>
                 </div>
-                
-                
+
+
                 <div class="nav-buttons searchable-content">
                     <button class="nav-button" id="prev-button"></button>
                     <button class="nav-button" id="next-button"></button>
@@ -210,25 +211,272 @@
         </section>
         <!-- - 顯示個人卡片，每張卡片包含圖片和文本
         - nav-buttons 用於切換顯示的卡片 -->
-        <section id="featured">
-        </section>
+
+        <section id="portfolio" class="portfolio">
+            <h2>前往我的作品</h2>
+            <div class="button-group">
+                <button class="portfolio-btn" onclick="showGallery('html-gallery')">HTML</button>
+                <button class="portfolio-btn" onclick="showGallery('js-gallery')">JavaScript</button>
+                <button class="portfolio-btn" onclick="showGallery('csharp-gallery')">C#</button>
+                <button class="portfolio-btn" onclick="showGallery('paint-gallery')">Paint</button>
+                <button class="portfolio-btn" onclick="showGallery('unity-gallery')">Unity</button>
+            </div>
+            <!-- 縮圖區域 -->
+            <div id="html-gallery" class="gallery" style="display: none;">
+                <h3>HTML 案例研究</h3>
+                <div class="thumbnail-gallery">
+                    <div class="thumbnail-item" onclick="openModal('html-case1')">
+                        <img src="img\MusicInfo.png" alt="Project 1 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openModal('html-case2')">
+                        <img src="img/WaitUpdate.png" alt="Project 2 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openModal('html-case3')">
+                        <img src="img/WaitUpdate.png" alt="Project 3 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openModal('html-case4')">
+                        <img src="img/WaitUpdate.png" alt="Project 4 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openModal('html-case5')">
+                        <img src="img/WaitUpdate.png" alt="Project 5 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openModal('html-case6')">
+                        <img src="img/WaitUpdate.png" alt="Project 6 Thumbnail" class="thumbnail">
+                    </div>
+                </div>
+
+                <!-- 音樂撥放器範例 -->
+                <div id="html-case1" class="modal-window" style="display: none;">
+                    <div class="modal-content">
+                        <span class="modal-close" onclick="closeModal()">&times;</span>
+                        <img src="img\MusicInfo.png" alt="音樂撥放器範例縮圖" class="thumbnail">
+                        <h4>音樂撥放器</h4>
+                        <p><strong>目的：</strong>設計並開發一個支持多種音樂格式的網頁音樂撥放器，包括播放、暫停、音量調節和播放進度控制功能。</p>
+                        <p><strong>使用技術：</strong>這個項目使用 HTML5 的 `audio` 元素實現音樂播放，並結合 JavaScript
+                                進行控制，如播放/暫停、音量調節和播放進度設定，CSS 用於設計用戶介面。</p>
+                        <p><strong>遇到問題：</strong>在開發過程中遇到了以下問題：</p>
+                        <ul>
+                            <li><strong>自動播放功能無法取消：</strong>由於 `audio` 元素的 `autoplay`
+                                屬性未能正確設置，導致播放器在頁面加載時自動播放音樂，無法由用戶控制。</li>
+                            <li><strong>音量控制滑桿範圍不正確：</strong>音量控制滑桿的 `input` 事件處理函數未能正確映射音量範圍，導致音量設定不精確。</li>
+                            <li><strong>播放進度條顯示不完全：</strong>播放進度條顯示邏輯中的 `seekTo` 函數未能正確計算播放進度，無法準確反映音樂的播放狀態。</li>
+                        </ul>
+                        <p><strong>解決方案：</strong>進行了以下修正：</p>
+                        <ul>
+                            <li><strong>修正自動播放功能：</strong>移除了 `autoplay` 屬性，並在 `togglePlay` 函數中添加了播放和暫停的邏輯來控制音樂播放。</li>
+                            <li><strong>調整音量控制：</strong>修正了音量滑桿的 `input` 事件處理函數，確保音量值正確映射到 `audio` 元素的 `volume` 屬性。</li>
+                            <li><strong>更新播放進度條顯示：</strong>修正了 `seekTo` 函數的邏輯，確保播放進度條能夠正確顯示音樂的播放狀態。</li>
+                        </ul>
+                        <p>經過上述調整後，播放器能夠順利運行並正確顯示音樂播放的狀態，實現了預期的功能。</p>
+                        <a href="portfolioWEB\Music.html" class="profile-button" target="_blank">查看成品</a>
+                    </div>
+                </div>
 
 
+                <!-- 社群媒體範例網站 -->
+                <div id="html-case2" class="modal-window" style="display: none;">
+                    <div class="modal-content">
+                        <span class="modal-close" onclick="closeModal()">&times;</span>
+                        <img src="img\SocialMedia.png" alt="社群媒體範例網站縮圖" class="thumbnail">
+                        <h4>社交媒體平台</h4>
+                        <p><strong>目的：</strong>開發一個可以讓使用者分享貼文、留言和互動的社交媒體平台，具備基礎社交功能。</p>
+                        <p><strong>使用技術：</strong>這個項目使用 HTML、CSS 和 JavaScript 開發，實現了動態內容顯示、主題切換、以及用戶互動功能。</p>
+                        <p><strong>遇到問題：</strong>在開發過程中遇到了以下問題：</p>
+                        <ul>
+                            <li><strong>主題切換功能未正常運作：</strong>主題切換按鈕按下後，背景顏色和文字顏色未能及時更新。</li>
+                            <li><strong>互動按鈕反應：</strong>按鈕點擊後的沒有反應。</li>
+                            <li><strong>響應式設計問題：</strong>在直式螢幕上顯示有問題。</li>
+                        </ul>
+                        <p><strong>解決方案：</strong>進行了以下修正：</p>
+                        <ul>
+                            <li><strong>修正主題切換功能：</strong>更新了 `switchTheme` 函數，確保按鈕點擊後能夠立即更新 CSS 變數以改變主題。</li>
+                            <li><strong>優化按鈕反應：</strong>改進了按鈕的 CSS 樣式，使用 `transition` 屬性來提升按鈕的交互效果。</li>
+                            <li><strong>改進響應式設計：</strong>調整了 CSS 媒體查詢，確保在各種設備上顯示效果一致。</li>
+                        </ul>
+                        <p>經過這些調整後，能夠更順利地運行實現了預期的功能。</p>
+                        <a href="portfolioWEB\SocialMedia.html" class="profile-button" target="_blank">查看成品</a>
+                    </div>
+                </div>
 
-        <!-- NEWS -->
-        <section id="news" class="searchable-content">
-            <h2>What's New</h2>
-            <p>1. 2024年8月17日學習紀錄：個人網站創立</p>
-            <a href="MainPage.html">查看更多</a>
-            <p>2. 2024年8月16日學習紀錄：JavaScript基礎教學if-else與迴圈</p>
-            <a href="MainPage.html">查看更多</a>
-            <p>教育資源推薦：w3school</p>
-            <a href="https://www.w3school.com.cn/">前往</a>
-            <p>教育資源推薦：MDN Web Docs</p>
-            <a href="https://developer.mozilla.org/zh-TW/">前往</a>
-            <p>教育資源推薦：Codecademy</p>
-            <a href="https://www.codecademy.com/">前往</a>
-        </section>
+                <!-- 電子商城範例網站 -->
+                <div id="html-case3" class="modal-window" style="display: none;">
+                    <div class="modal-content">
+                        <span class="modal-close" onclick="closeModal()">&times;</span>
+                        <img src="img/WaitUpdate.png" alt="電子商城範例網站縮圖" class="thumbnail">
+                        <h4>電子商城範例</h4>
+                        <p><strong>目的：</strong>建立一個展示產品並模擬購物車功能的電子商城網站。</p>
+                        <p><strong>使用技術：</strong>網站利用 HTML 和 CSS 進行結構和樣式設計，並透過 JavaScript 實現購物車的基礎功能，如加入商品、計算價格等。</p>
+                        <p><strong>成果：</strong>這個網站成功展示了電子商務網站的基本功能，是電商網站開發的良好起點。</p>
+                        <a href="portfolioWEB\E-Commerce.html" class="profile-button" target="_blank">查看成品</a>
+                    </div>
+                </div>
+
+                <!-- 部落格範例網站 -->
+                <div id="html-case4" class="modal-window" style="display: none;">
+                    <div class="modal-content">
+                        <span class="modal-close" onclick="closeModal()">&times;</span>
+                        <img src="img/WaitUpdate.png" alt="部落格範例網站縮圖" class="thumbnail">
+                        <h4>部落格網站</h4>
+                        <p><strong>目的：</strong>開發一個讓使用者能發表文章和管理內容的部落格平台。</p>
+                        <p><strong>使用技術：</strong>網站使用 HTML、CSS 設計結構與樣式，並藉助 JavaScript 完成文章發布和管理功能的模擬。</p>
+                        <p><strong>成果：</strong>這個部落格範例網站展示了簡單內容管理系統的基本功能，是學習部落格平台開發的重要範例。</p>
+                        <a href="portfolioWEB\blog.html" class="profile-button" target="_blank">查看成品</a>
+                    </div>
+                </div>
+
+                <!-- 影音網站練習 -->
+                <div id="html-case5" class="modal-window" style="display: none;">
+                    <div class="modal-content">
+                        <img src="img/WaitUpdate.png" alt="影音網站練習縮圖" class="thumbnail">
+                        <span class="modal-close" onclick="closeModal()">&times;</span>
+                        <h4>影音網站</h4>
+                        <p><strong>目的：</strong>創建一個能播放影音內容的練習網站。</p>
+                        <p><strong>使用技術：</strong>網站採用 HTML5 的 `video` 和 `audio` 元素，並使用 JavaScript
+                            進行控制和管理，提供了多媒體內容的展示和操作功能。</p>
+                        <p><strong>成果：</strong>網站成功實現了影音內容的播放和管理，是多媒體網站開發的基礎範例。</p>
+                        <a href="portfolioWEB\Media.html" class="profile-button" target="_blank">查看成品</a>
+                    </div>
+                </div>
+
+                <!-- 購物網站練習 -->
+                <div id="html-case6" class="modal-window" style="display: none;">
+                    <div class="modal-content">
+                        <img src="img/WaitUpdate.png" alt="購物網站練習縮圖" class="thumbnail">
+                        <span class="modal-close" onclick="closeModal()">&times;</span>
+                        <h4>購物網站練習</h4>
+                        <p><strong>目的：</strong>開發一個模擬購物流程的網站，讓使用者能選購商品。</p>
+                        <p><strong>使用技術：</strong>網站使用 HTML 和 CSS 設計頁面結構和樣式，並通過 JavaScript 實現商品展示和購物車的基礎功能。</p>
+                        <p><strong>成果：</strong>網站模擬了電子商務的購物過程，展示了購物網站開發中的主要技術和流程。</p>
+                        <a href="portfolioWEB\shopping.html" class="profile-button" target="_blank">查看成品</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JavaScript 作品集 -->
+
+            <div id="js-gallery" class="gallery" style="display: none;">
+                <h3>JavaScript 案例研究</h3>
+                <div class="thumbnail-gallery">
+                    <div class="thumbnail-item" onclick="openModal('js-case1')">
+                        <img src="img/WaitUpdate.png" alt="Project 1 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openModal('js-case2')">
+                        <img src="img/WaitUpdate.png" alt="Project 2 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openModal('js-case3')">
+                        <img src="img/WaitUpdate.png" alt="Project 3 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openModal('js-case4')">
+                        <img src="img/WaitUpdate.png" alt="Project 4 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openModal('js-case5')">
+                        <img src="img/WaitUpdate.png" alt="Project 5 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openModal('js-case6')">
+                        <img src="img/WaitUpdate.png" alt="Project 6 Thumbnail" class="thumbnail">
+                    </div>
+                </div>
+                <!-- 詳細內容模態視窗 -->
+                <div id="js-case1" class="modal-window" style="display: none;">
+                    <div class="modal-content">
+                        <img src="img/WaitUpdate.png" alt="Project 1 Thumbnail" class="thumbnail">
+                        <span class="modal-close" onclick="closeModal()">&times;</span>
+                        <h4>項目名稱 1</h4>
+                        <p><strong>問題：</strong>描述這個項目面臨的主要挑戰或問題。</p>
+                        <p><strong>解決方案：</strong>解釋你是如何解決這些問題的，包括所使用的技術或方法。</p>
+                        <p><strong>結果：</strong>展示最終的成果，並討論項目的成功或對用戶的影響。</p>
+                        <a href="path/to/your/js_project1.html" class="btn" target="_blank">查看成品</a>
+                    </div>
+                </div>
+                <!-- 其他模態視窗略 -->
+            </div>
+
+            <!-- C# 作品集 -->
+            <div id="csharp-gallery" class="gallery" style="display: none;">
+                <h3>C# 案例研究</h3>
+                <div class="thumbnail-gallery">
+                    <div class="thumbnail-item" onclick="openModal('csharp-case1')">
+                        <img src="img/WaitUpdate.png" alt="Project 1 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openModal('csharp-case2')">
+                        <img src="img/WaitUpdate.png" alt="Project 2 Thumbnail" class="thumbnail">
+                    </div>
+                    <!-- 其他縮圖 -->
+                </div>
+                <!-- 詳細內容模態視窗 -->
+                <div id="csharp-case1" class="modal-window" style="display: none;">
+                    <div class="modal-content">
+                        <img src="img/WaitUpdate.png" alt="Project 1 Thumbnail" class="thumbnail">
+                        <span class="modal-close" onclick="closeModal()">&times;</span>
+                        <h4>項目名稱 1</h4>
+                        <p><strong>問題：</strong>描述這個項目面臨的主要挑戰或問題。</p>
+                        <p><strong>解決方案：</strong>解釋你是如何解決這些問題的，包括所使用的技術或方法。</p>
+                        <p><strong>結果：</strong>展示最終的成果，並討論項目的成功或對用戶的影響。</p>
+                        <a href="path/to/your/csharp_project1.html" class="btn" target="_blank">查看成品</a>
+                    </div>
+                </div>
+                <!-- 其他模態視窗 -->
+            </div>
+
+            <!-- Unity 作品集 -->
+            <div id="unity-gallery" class="gallery" style="display: none;">
+                <h3>Unity 案例研究</h3>
+                <div class="thumbnail-gallery">
+                    <div class="thumbnail-item" onclick="openModal('unity-case1')">
+                        <img src="img/WaitUpdate.png" alt="Project 1 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openModal('unity-case2')">
+                        <img src="img/WaitUpdate.png" alt="Project 2 Thumbnail" class="thumbnail">
+                    </div>
+                    <!-- 其他縮圖 -->
+                </div>
+                <!-- 詳細內容模態視窗 -->
+                <div id="unity-case1" class="modal-window" style="display: none;">
+                    <div class="modal-content">
+                        <img src="img/WaitUpdate.png" alt="Project 1 Thumbnail" class="thumbnail">
+                        <span class="modal-close" onclick="closeModal()">&times;</span>
+                        <h4>項目名稱 1</h4>
+                        <p><strong>問題：</strong>描述這個項目面臨的主要挑戰或問題。</p>
+                        <p><strong>解決方案：</strong>解釋你是如何解決這些問題的，包括所使用的技術或方法。</p>
+                        <p><strong>結果：</strong>展示最終的成果，並討論項目的成功或對用戶的影響。</p>
+                        <a href="path/to/your/unity_project1.html" class="btn" target="_blank">查看成品</a>
+                    </div>
+                </div>
+                <!-- 其他模態視窗 -->
+            </div>
+            <!-- 繪畫作品集 -->
+
+            <div id="paint-gallery" class="gallery" style="display: none;">
+                <h3>繪圖作品集</h3>
+                <div class="thumbnail-gallery">
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image1')">
+                        <img src="img/WaitUpdate.png" alt="Paint Project 1 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image2')">
+                        <img src="img/WaitUpdate.png" alt="Paint Project 2 Thumbnail" class="thumbnail">
+                    </div>
+                    <!-- 添加更多縮圖 -->
+                </div>
+
+                <!-- 圖片模態視窗 -->
+                <div id="paint-image1" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/WaitUpdate.png" alt="Paint Project 1" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image2" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/WaitUpdate.png" alt="Paint Project 2" class="image-modal-img">
+                    </div>
+                </div>
+                <!-- 添加更多圖片模態視窗 -->
+            </div>
+            <section id="news" class="searchable-content">
+            </section>
+            <section id="featured" class="featured">
+            </section>
 
     </main>
 

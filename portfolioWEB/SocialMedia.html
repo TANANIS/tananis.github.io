@@ -6,25 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>社交媒體平台</title>
     <style>
+        /* Existing CSS */
+        /* 更新主題變數 */
+        /* 更新主題變數 */
+        :root {
+            --background-color: #121212;
+            /* 深色背景 */
+            --text-color: #e0e0e0;
+            /* 淺灰色文字 */
+        }
+
         body {
+            background-color: var(--background-color);
+            color: var(--text-color);
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;
-            /* 深色背景 */
-            color: #e0e0e0;
-            /* 淺灰色文字 */
         }
 
         header {
             background: #1f1f1f;
-            /* 深色背景 */
             color: #ffffff;
-            /* 白色文字 */
             padding: 20px;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
+
+        /* 其他 CSS 樣式 */
+
 
         header h1 {
             margin: 0;
@@ -145,6 +154,7 @@
             display: flex;
             align-items: center;
             background: #1e1e1e;
+            /* 深色背景 */
             border-radius: 10px;
             padding: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -159,7 +169,7 @@
         }
 
         .message-content {
-            flex: 1;
+            font-size: 1.1em;
         }
 
         .message-form {
@@ -168,13 +178,13 @@
 
         .message-form textarea {
             width: 100%;
+            height: 80px;
             padding: 10px;
-            border: 1px solid #333;
             border-radius: 5px;
-            background: #121212;
-            /* 深色背景 */
+            border: 1px solid #ccc;
+            background: #2e2e2e;
+            /* 更深色的背景 */
             color: #e0e0e0;
-            box-sizing: border-box;
         }
 
         .message-form button {
@@ -196,6 +206,53 @@
             transform: scale(1.05);
         }
 
+        .notification-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .notification {
+            background: #1e1e1e;
+            /* 深色背景 */
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .search-form input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background: #2e2e2e;
+            color: #e0e0e0;
+        }
+
+        .search-form button {
+            padding: 10px 20px;
+            background-color: #bb86fc;
+            /* 紫色按鈕 */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .search-form button:hover {
+            background-color: #9b59b6;
+            /* 深紫色 */
+            transform: scale(1.05);
+        }
+
         footer {
             background: #1f1f1f;
             /* 深色背景 */
@@ -208,7 +265,29 @@
             bottom: 0;
             box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
         }
+
+        /* CSS 部分 */
+        .theme-switcher {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .theme-switcher button {
+            background-color: #bb86fc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .theme-switcher button:hover {
+            background-color: #9b59b6;
+        }
     </style>
+
 </head>
 
 <body>
@@ -218,7 +297,12 @@
             <a href="#home">首頁</a>
             <a href="#profile">用戶頁面</a>
             <a href="#messages">消息</a>
+            <a href="#ads">廣告</a>
         </nav>
+        <div class="theme-switcher">
+            <button onclick="switchTheme('dark')">深色模式</button>
+            <button onclick="switchTheme('light')">淺色模式</button>
+        </div>
     </header>
 
     <main>
@@ -272,6 +356,17 @@
                 <button onclick="sendMessage()">發送消息</button>
             </div>
         </section>
+
+        <section id="ads">
+            <h2>廣告</h2>
+            <div class="ads-section">
+                <div class="ad-banner">
+                    <img src="AD_SAMPLE.jpg" alt="廣告圖片">
+                    <p>廣告內容描述...</p>
+                </div>
+                <!-- 其他廣告可以按需添加 -->
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -280,6 +375,21 @@
 
     <script>
         // scripts.js
+        // JavaScript 部分
+        function switchTheme(theme) {
+            const root = document.documentElement;
+            if (theme === 'dark') {
+                root.style.setProperty('--background-color', '#121212');
+                root.style.setProperty('--text-color', '#e0e0e0');
+            } else {
+                root.style.setProperty('--background-color', '#ffffff');
+                root.style.setProperty('--text-color', '#000000');
+            }
+        }
+
+        // 初始設置主題
+        switchTheme('dark');
+
 
         function likePost() {
             alert('您喜歡了這條帖子！');
@@ -300,6 +410,11 @@
         function sendMessage() {
             alert('消息發送功能尚未實現！');
         }
+
+        function search() {
+            alert('搜尋功能尚未實現！');
+        }
+
 
     </script>
 </body>

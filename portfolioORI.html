@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品集</title>
+
+    <link id="stylesheet" rel="stylesheet" href="css/stylesPortfolio.css">
+
+
+    <link id="body-main-stylesheet" rel="stylesheet" href="css/bodyMain.css">
+    <link id="welcome-featured-profile-highlight-stylesheet" rel="stylesheet" href="css/welcomeFeatured.css">
+    <link id="nav-stylesheet" rel="stylesheet" href="css/navStyles.css">
+    <link id="news-stylesheet" rel="stylesheet" href="css/newsStyles.css">
+    <link id="register-auth-modal-stylesheet" rel="stylesheet" href="css/registerModal.css">
+    <link id="card-display-stylesheet" rel="stylesheet" href="css/card.css">
+    <link id="footer-celebrate-btn-stylesheet" rel="stylesheet" href="css/footerStyles.css">
+    <link id="search-stylesheet" rel="stylesheet" href="css/search.css">
+
+    <script src="JS/portfolio.js" defer></script>
+    <script src="JS/search.js" defer></script>
+
+    <script src="JS/main.js" defer></script>
+
+</head>
+
+<body>
+    <!-- 懸浮視窗的 HTML 結構 -->
+    <div id="authModal" class="modal">
+        <div class="modalContent">
+            <span class="RScloseBtn" onclick="RScloseModal()">&times;</span>
+            <h2>welcome！</h2>
+            <div id="authForm">
+                <div id="loginForm">
+                    <h3>好久不見！</h3>
+                    <form>
+                        <label for="loginEmail">電子郵件：</label>
+                        <input type="email" id="loginEmail" name="loginEmail" required>
+                        <label for="loginPassword">密碼：</label>
+                        <input type="password" id="loginPassword" name="loginPassword" required>
+                        <button type="submit" class="submitBtn">登入</button>
+                    </form>
+                    <p>還沒有帳號？ <button class="toggleFormBtn" onclick="showRegisterForm()">註冊</button></p>
+                </div>
+                <div id="registerForm" style="display:none;">
+                    <h3>你好啊，新朋友！</h3>
+                    <form>
+                        <label for="registerEmail">電子郵件：</label>
+                        <input type="email" id="registerEmail" name="registerEmail" required>
+                        <label for="registerPassword">密碼：</label>
+                        <input type="password" id="registerPassword" name="registerPassword" required>
+                        <button type="submit" class="submitBtn">註冊</button>
+                    </form>
+                    <p>已有帳號？ <button class="toggleFormBtn" onclick="showLoginForm()">登入</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 搜尋列 -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="搜尋內容...">
+        <button id="searchButton">搜尋</button>
+    </div>
+
+    <div id="noResults" style="display: none; color: red;">
+        沒有找到結果
+    </div>
+    <div id="searchingNotification" class="notification">
+        <p>正在導向搜尋結果...</p>
+    </div>
+
+    <!-- 導航列 -->
+    <nav>
+        <img src="img\BACKBTN-01-01.png" alt="backBTN" class="backBTN">
+        <h1>過去作品</h1>
+        <ul>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="portfolio.html">過去作品</a></li>
+            <li><a href="LearningDiary.html">學習日誌</a></li>
+            <li><a href="viewport.html">學習資源推薦</a></li>
+            <li><a href="mini-games.html">迷你遊戲</a></li>
+            <li><a href="contact.html">聯絡</a></li>
+        </ul>
+        <!-- 顯示懸浮視窗的按鈕 -->
+        <button id="openModalBtn" class="openModalBtn">註冊 | 登入</button>
+    </nav>
+    <!-- - 提供網站的主要導航連結
+    - 包含返回按鈕、標題和不同的頁面連結 -->
+
+    <main>
+        
+        <section id="profile">
+            <div class="profile-container">
+                <div class="profile-header">
+                    <img src="img\PIC (7).jpg" alt="頭像" class="profile-picture">
+                    <div class="profile-info">
+                        <h1>TANA</h1>
+                        <br>
+                        <p><strong>作品風格：個人電繪、厚塗/日式風格。
+                                <br></strong>多以V二創為主，也接個人用頭像委託，<br>完整圖片請參考下方社群</p>
+
+                        <a href="https://www.pixiv.net/dashboard/works" target="_blank" class="profile-button">PIXIV</a>
+                        <a href="https://t.co/Jpj2Kt7d1Z" target="_blank" class="profile-button">X</a>
+                    </div>
+        </section>
+
+        <!-- 精選照片區域 -->
+        <section id="featured searchable-content">
+            <h2>精選照片</h2>
+            <div class="featured-grid">
+                <div class="featured-item">
+                    <img src="img\PIC (10).png" alt="精選照片">
+                    <div class="featured-description">
+                        <h3>精選作品</h3>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <img src="img\PIC (11).png" alt="精選照片">
+                    <div class="featured-description">
+                        <h3>精選作品</h3>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <img src="img\PIC (29).png" alt="精選照片">
+                    <div class="featured-description">
+                        <h3>精選作品</h3>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <img src="img\PIC (5).jpg" alt="精選照片">
+                    <div class="featured-description">
+                        <h3>精選作品</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="portfolio" class="searchable-content">
+            <h2>作品集</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="img/PIC (10).png" alt="作品1">
+                    <div class="portfolio-description">
+                        <h3>nerissa ravencroft</h3>
+                        <p>20240721</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (17).png" alt="作品2">
+                    <div class="portfolio-description">
+                        <h3>nerissa ravencroft</h3>
+                        <p>20240721線稿</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (21).png" alt="作品3">
+                    <div class="portfolio-description">
+                        <h3>Ina and Raora</h3>
+                        <p>20240628</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (22).png" alt="作品4">
+                    <div class="portfolio-description">
+                        <h3>Raora Panthera</h3>
+                        <p>20240716</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (11).png" alt="作品5">
+                    <div class="portfolio-description">
+                        <h3>Ninomae Ina'nis</h3>
+                        <p>20240703</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (16).png" alt="作品7">
+                    <div class="portfolio-description">
+                        <h3>Holo Myth</h3>
+                        <p>20240718</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (29).png" alt="作品6">
+                    <div class="portfolio-description">
+                        <h3>Mori Calliope</h3>
+                        <p>20220107</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (5).png" alt="作品8">
+                    <div class="portfolio-description">
+                        <h3>Ninomae Ina'nis uniform </h3>
+                        <p>Not recorded</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (19).png" alt="作品9">
+                    <div class="portfolio-description">
+                        <h3>Qunnie swimsuit</h3>
+                        <p>20240725</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (1).jpg" alt="作品10">
+                    <div class="portfolio-description">
+                        <h3>Takanashi Kiara</h3>
+                        <p>Not recorded</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (3).png" alt="作品14">
+                    <div class="portfolio-description">
+                        <h3>Personalprofile-2</h3>
+                        <p>Not recorded</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC.png" alt="作品11">
+                    <div class="portfolio-description">
+                        <h3>Personalprofile-5</h3>
+                        <p>20240727</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (5).jpg" alt="作品12">
+                    <div class="portfolio-description">
+                        <h3>AllCollection</h3>
+                        <p>Not recorded</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (14).png" alt="作品15">
+                    <div class="portfolio-description">
+                        <h3>Personalprofile-3</h3>
+                        <p>Not recorded</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (27).png" alt="作品16">
+                    <div class="portfolio-description">
+                        <h3>Personalprofile-4</h3>
+                        <p>Not recorded</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (2).jpg" alt="作品17">
+                    <div class="portfolio-description">
+                        <h3>遊戲玩街完結賀圖</h3>
+                        <p>Not recorded</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (30).png" alt="作品18">
+                    <div class="portfolio-description">
+                        <h3>Ina's uniform</h3>
+                        <p>Not recorded</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (8).png" alt="作品19">
+                    <div class="portfolio-description">
+                        <h3>QunnieDefualt</h3>
+                        <p>Not recorded</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (2).png" alt="作品21">
+                    <div class="portfolio-description">
+                        <h3>Gawr Gura</h3>
+                        <p>Not recorded</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC.jpg" alt="作品22">
+                    <div class="portfolio-description">
+                        <h3>2023NewYear</h3>
+                        <p>Not recorded</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (8).jpg" alt="作品23">
+                    <div class="portfolio-description">
+                        <h3>Personalprofile-8</h3>
+                        <p>20240804</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (1).png" alt="作品24">
+                    <div class="portfolio-description">
+                        <h3>Personalprofile-9</h3>
+                        <p>Not recorded</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\PIC (4).jpg" alt="作品13">
+                    <div class="portfolio-description">
+                        <h3>Personalprofile-1</h3>
+                        <p>20240726</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img\WaitUpdate.png" alt="等待上船中">
+                    <div class="portfolio-description">
+                        <h3>等待上傳中</h3>
+                        <p>等待上傳</p>
+                    </div>
+                </div>
+                <!-- 可以繼續添加更多作品 -->
+            </div>
+        </section>
+        <!-- Modal 結構 -->
+        <div id="modal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modal-image">
+            <div id="caption"></div>
+        </div>
+    </main>
+
+    <!-- 其他作品專區 -->
+    <section id="other-works" class="other-works">
+        <h2>其他作品</h2>
+        <div class="other-works-grid">
+            <div class="other-works-item searchable-content">
+                <img src="img\PIC (33).png" alt="其他作品">
+                <div class="other-works-description">
+                    <h3>inake</h3>
+                    <p>ina貪吃蛇小遊戲。請嘗試著獲得最高分。</p>
+                    <a href="https://tananis.itch.io/inake" class="other-works-button">前往作品</a>
+                </div>
+            </div>
+            <div class="other-works-item searchable-content">
+                <img src="img\PIC (34).png" alt="其他作品">
+                <div class="other-works-description">
+                    <h3>購物網站練習</h3>
+                    <p>這裡是一個購物網站練習的作品</p>
+                    <a href="portfolioWEB\shopping.html" class="other-works-button">前往作品</a>
+                </div>
+            </div>
+            <div class="other-works-item searchable-content">
+                <img src="img\WaitUpdate.png" alt="其他作品">
+                <div class="other-works-description">
+                    <h3>影音網站練習</h3>
+                    <p>此為一個影音網站練習的作品</p>
+                    <a href="portfolioWEB\Media.html" class="other-works-button">前往作品</a>
+                </div>
+            </div>
+            <div class="other-works-item searchable-content">
+                <img src="img\WaitUpdate.png" alt="其他作品">
+                <div class="other-works-description">
+                    <h3>課堂For迴圈練習</h3>
+                    <p>由於圖片未經包裝，現在內部圖片替換為此網站原始圖片。</p>
+                    <a href="portfolioWEB\forLoop.html" class="other-works-button">前往作品</a>
+                </div>
+            </div>
+            <div class="other-works-item searchable-content">
+                <img src="img\WaitUpdate.png" alt="其他作品">
+                <div class="other-works-description">
+                    <h3>亂數算命系統</h3>
+                    <p>一個讀取名稱後猜測今天運勢的網站</p>
+                    <a href="portfolioWEB\yourlife.html" class="other-works-button">前往作品</a>
+                </div>
+            </div>
+            <div class="other-works-item searchable-content">
+                <img src="img\WaitUpdate.png" alt="其他作品">
+                <div class="other-works-description">
+                    <h3>一個普通的祕密花園</h3>
+                    <p>沒有，裡面沒有奇怪的東西，真的沒有，密碼不是1234相信我。</p>
+                    <a href="portfolioWEB\secretGarden.html" class="other-works-button">前往作品</a>
+                </div>
+            </div>
+            <div class="other-works-item searchable-content">
+                <img src="img\WaitUpdate.png" alt="其他作品">
+                <div class="other-works-description">
+                    <h3>線上電視節目選台器</h3>
+                    <p>一個線上選電視節目的網站，請分別輸入20/65與66</p>
+                    <a href="portfolioWEB\TV.html" class="other-works-button">前往作品</a>
+                </div>
+            </div>
+            <div class="other-works-item searchable-content">
+                <img src="img\WaitUpdate.png" alt="其他作品">
+                <div class="other-works-description">
+                    <h3>部落格範例網站</h3>
+                    <p>一個部落格範例網站，可以自由發表自己的文章。</p>
+                    <a href="portfolioWEB\blog.html" class="other-works-button">前往作品</a>
+                </div>
+            </div>
+            <div class="other-works-item searchable-content">
+                <img src="img\WaitUpdate.png" alt="其他作品">
+                <div class="other-works-description">
+                    <h3>電子商城範例網站</h3>
+                    <p>這是另一個電子商城範例網站，可以購買各式商品的參考。</p>
+                    <a href="portfolioWEB\E-Commerce.html" class="other-works-button">前往作品</a>
+                </div>
+            </div>
+            <div class="other-works-item searchable-content">
+                <img src="img\WaitUpdate.png" alt="其他作品">
+                <div class="other-works-description">
+                    <h3>社群媒體範例網站</h3>
+                    <p>這是一個社群媒體範例網站，可以分享自己的想法與感想。</p>
+                    <a href="portfolioWEB\SocialMedia.html" class="other-works-button">前往作品</a>
+                </div>
+            </div>
+            <div class="other-works-item searchable-content">
+                <img src="img\WaitUpdate.png" alt="其他作品">
+                <div class="other-works-description">
+                    <h3>音樂撥放器範例</h3>
+                    <p>音樂撥放器範例，可以播放各式音樂。</p>
+                    <a href="portfolioWEB\Music.html" class="other-works-button">前往作品</a>
+                </div>
+            </div>
+            <div class="other-works-item searchable-content">
+                <img src="img\WaitUpdate.png" alt="其他作品">
+                <div class="other-works-description">
+                    <h3>煙火效果</h3>
+                    <p>這是一個煙火效果的網頁，可以自行取用。</p>
+                    <a href="portfolioWEB\firework.html" class="other-works-button">前往作品</a>
+                </div>
+
+                <!-- 可以繼續添加更多作品 -->
+            </div>
+    </section>
+
+
+    <footer class="footerBG">
+        <p class="footer-text">&copy; 2024 版權所有.</p>
+    </footer>
+</body>
+
+</html>

@@ -4,7 +4,7 @@ document.getElementById("openModalBtn").addEventListener("click", () => {
 });
 
 // 關閉懸浮視窗
-function closeModal() {
+function RScloseModal() {
   document.getElementById("authModal").style.display = "none";
 }
 
@@ -22,7 +22,7 @@ function showLoginForm() {
 
 window.addEventListener("load", () => {
   const modal = document.getElementById("welcome-modal"); //顯示Hello World視窗
-  const closeBtn = document.querySelector(".close-btn"); // 關閉按鈕
+  const RScloseBtn = document.querySelector(".RSclose-btn"); // 關閉按鈕
   const titleElement = document.getElementById("modal-title"); // 使用 ID 選擇器
   const paragraphElement = document.querySelector(".modal-text"); // 使用類別選擇器
 
@@ -247,7 +247,7 @@ document.getElementById("celebrate-btn").addEventListener("click", (event) => {
     celebratePiece.className = "celebrate-piece"; // 設定紙雪類別
     celebratePiece.style.backgroundColor = getRandomColor();
     celebratePiece.style.width = `${Math.random() * 10 + 5}px`; // 設定紙雪大小
-    
+
     celebratePiece.style.height = celebratePiece.style.width;
     celebratePiece.style.position = "absolute"; // 設定紙雪位置 = 絕對定位
     celebratePiece.style.left = `${buttonCenterX}px`; // 設定紙雪位置 = 按鈕中心
@@ -299,4 +299,75 @@ function getRandomColor() {
     color += letters[Math.floor(Math.random() * 16)];
   }
   return color;
+}
+
+// 顯示所選的縮圖區域
+function showGallery(galleryId) {
+  // 隱藏所有縮圖區域
+  var galleries = document.querySelectorAll(".gallery");
+  galleries.forEach(function (gallery) {
+    gallery.style.display = "none";
+  });
+
+  // 顯示所選的縮圖區域
+  var selectedGallery = document.getElementById(galleryId);
+  if (selectedGallery) {
+    selectedGallery.style.display = "block";
+  }
+}
+
+// 顯示所選的詳細內容
+function showDetails(detailId) {
+  var details = document.getElementById(detailId);
+  var isVisible = details.style.display === "block";
+
+  // 隱藏所有詳細內容
+  var allDetails = document.querySelectorAll(".case-details");
+  allDetails.forEach(function (detail) {
+    detail.style.display = "none";
+  });
+
+  // 如果當前是隱藏的，就顯示；否則保持隱藏
+  if (!isVisible) {
+    details.style.display = "block";
+  }
+}
+
+// 開啟模態視窗
+function openModal(detailId) {
+  document.getElementById(detailId).style.display = "block";
+}
+
+// 關閉模態視窗
+function closeModal() {
+  var modals = document.querySelectorAll(".modal-window");
+  modals.forEach(function (modal) {
+    modal.style.display = "none";
+  });
+}
+
+// 顯示大圖
+function showLargeImage(imageUrl) {
+  var largeImageDisplay = document.getElementById("largeImageDisplay");
+  largeImageDisplay.style.backgroundImage = `url(${imageUrl})`;
+  largeImageDisplay.style.display = "block";
+}
+
+// 隱藏大圖
+function hideLargeImage() {
+  var largeImageDisplay = document.getElementById("largeImageDisplay");
+  largeImageDisplay.style.display = "none";
+}
+
+// 顯示圖片模態視窗
+function openImageModal(imageId) {
+  document.getElementById(imageId).style.display = "block";
+}
+
+// 關閉圖片模態視窗
+function closeImageModal() {
+  var modals = document.querySelectorAll(".image-modal");
+  modals.forEach(function(modal) {
+    modal.style.display = "none";
+  });
 }
