@@ -98,10 +98,9 @@
             <div class=" welcome-text searchable-content">
                 <h2 id="modal-title"></h2>
                 <p class="modal-text"></p>
-                <p>這裡是我紀錄關於近期作品、分享學習資源
-                    <br>以及提供迷你遊戲的地方。如有任何需求或連繫，
-                    <br>請<a href="#contact">聯繫我</a>或者參考資訊分頁
-
+                <p>這便放置了我過去的作品，
+                    <br>包含了JS功能組件，HTML/CSS效果美術，C#遊戲，
+                    <br>以及其他一些平面設計作品。
                     <!-- 慶祝按鈕及其特效 -->
                 <div class="celebrate-container searchable-content">
                     <div class="celebrate"></div>
@@ -112,7 +111,7 @@
             </div>
             <!-- 歡迎區域 -->
             <div class="welcome-image">
-                <img src="img/ME.jpg" alt="圓形圖片">
+                <img src="img\LearningDiaryHEAD.png" alt="圓形圖片">
             </div>
         </section>
 
@@ -201,8 +200,6 @@
                         </div>
                     </div>
                 </div>
-
-
                 <div class="nav-buttons searchable-content">
                     <button class="nav-button" id="prev-button"></button>
                     <button class="nav-button" id="next-button"></button>
@@ -211,8 +208,54 @@
         </section>
         <!-- - 顯示個人卡片，每張卡片包含圖片和文本
         - nav-buttons 用於切換顯示的卡片 -->
+        <section id="selectShowcase" class="searchable-content">
+            <h2>精選區域</h2>
+            <div class="selectShowcaseGrid">
+                <div class="selectShowcaseItem">
+                    <img src="img\ShopInfo.png" alt="精選照片">
+                    <div class="selectShowcaseDescription">
+                        <h3>購物車系統</h3>
+                        <p>這是我製作的一個購物車系統網頁，裡面模擬了一個完整的一頁式賣場新增、刪除購物車加總，帳戶登入等功能。</p>
+                        <p>往下查看更多</p>
+                    </div>
+                </div>
+                <div class="selectShowcaseItem">
+                    <img src="img\FIREWORK.gif" alt="精選照片">
+                    <div class="selectShowcaseDescription">
+                        <h3>煙火特效</h3>
+                        <p>利用JS生成元素，並做出了基本的動態效果，點擊按鈕後會生成元素釋放且下墜。</p>
+                        <p>往下查看更多</p>
+                    </div>
+                </div>
+                <div class="selectShowcaseItem">
+                    <img src="img\MusicInfo.png" alt="精選照片">
+                    <div class="selectShowcaseDescription">
+                        <h3>音樂撥放器</h3>
+                        <p>一個內建有音樂撥放器的網頁，可以播放各類音樂，並且可以調整音量。</p>
+                        <p>往下查看更多</p>
+                    </div>
+                </div>
+                <div class="selectShowcaseItem">
+                    <img src="img\OIG2.jpg" alt="精選照片">
+                    <div class="selectShowcaseDescription">
+                        <h3>JS貪吃蛇</h3>
+                        <p>一個簡單的貪吃蛇遊戲，使用方向鍵控制蛇的移動，吃到食物會增加長度。</p>
+                        <p>前往迷你遊戲區</p>
+                    </div>
+                </div>
+                <div class="selectShowcaseItem">
+                    <img src="img\YourLifeInfo.png" alt="精選照片">
+                    <div class="selectShowcaseDescription">
+                        <h3>亂數生成器</h3>
+                        <p>利用亂數生成器產生的算命系統，將使用者的名稱轉換為UID，並且讀取後給予結果。</p>
+                        <p>往下查看更多</p>
+                    </div>
+                </div>
+            </div>
 
-        <section id="portfolio" class="portfolio">
+        </section>
+
+        <section id="portfolio" class="portfolioInfo">
             <h2>前往我的作品</h2>
             <div class="button-group">
                 <button class="portfolio-btn" onclick="showGallery('html-gallery')">HTML</button>
@@ -221,27 +264,25 @@
                 <button class="portfolio-btn" onclick="showGallery('paint-gallery')">Paint</button>
                 <button class="portfolio-btn" onclick="showGallery('unity-gallery')">Unity</button>
             </div>
+
             <!-- 縮圖區域 -->
             <div id="html-gallery" class="gallery" style="display: none;">
-                <h3>HTML 案例研究</h3>
+                <h3>HTML 過去作品</h3 class="gallery-title">
                 <div class="thumbnail-gallery">
                     <div class="thumbnail-item" onclick="openModal('html-case1')">
                         <img src="img\MusicInfo.png" alt="Project 1 Thumbnail" class="thumbnail">
                     </div>
                     <div class="thumbnail-item" onclick="openModal('html-case2')">
-                        <img src="img/WaitUpdate.png" alt="Project 2 Thumbnail" class="thumbnail">
+                        <img src="img\SocialMedia.png" alt="Project 2 Thumbnail" class="thumbnail">
                     </div>
                     <div class="thumbnail-item" onclick="openModal('html-case3')">
-                        <img src="img/WaitUpdate.png" alt="Project 3 Thumbnail" class="thumbnail">
+                        <img src="img\BlogInfo.png" alt="Project 3 Thumbnail" class="thumbnail">
                     </div>
                     <div class="thumbnail-item" onclick="openModal('html-case4')">
-                        <img src="img/WaitUpdate.png" alt="Project 4 Thumbnail" class="thumbnail">
+                        <img src="img\TubeMediaInfo.png" alt="Project 4 Thumbnail" class="thumbnail">
                     </div>
                     <div class="thumbnail-item" onclick="openModal('html-case5')">
                         <img src="img/WaitUpdate.png" alt="Project 5 Thumbnail" class="thumbnail">
-                    </div>
-                    <div class="thumbnail-item" onclick="openModal('html-case6')">
-                        <img src="img/WaitUpdate.png" alt="Project 6 Thumbnail" class="thumbnail">
                     </div>
                 </div>
 
@@ -251,9 +292,9 @@
                         <span class="modal-close" onclick="closeModal()">&times;</span>
                         <img src="img\MusicInfo.png" alt="音樂撥放器範例縮圖" class="thumbnail">
                         <h4>音樂撥放器</h4>
-                        <p><strong>目的：</strong>設計並開發一個支持多種音樂格式的網頁音樂撥放器，包括播放、暫停、音量調節和播放進度控制功能。</p>
+                        <p><strong>目的：</strong>設計並開發一個支持多種音樂格式的網頁音樂播放器，包括播放、暫停、音量調節和播放進度控制功能。</p>
                         <p><strong>使用技術：</strong>這個項目使用 HTML5 的 `audio` 元素實現音樂播放，並結合 JavaScript
-                                進行控制，如播放/暫停、音量調節和播放進度設定，CSS 用於設計用戶介面。</p>
+                            進行控制，如播放/暫停、音量調節和播放進度設定，CSS 用於設計用戶介面。</p>
                         <p><strong>遇到問題：</strong>在開發過程中遇到了以下問題：</p>
                         <ul>
                             <li><strong>自動播放功能無法取消：</strong>由於 `audio` 元素的 `autoplay`
@@ -277,57 +318,75 @@
                 <div id="html-case2" class="modal-window" style="display: none;">
                     <div class="modal-content">
                         <span class="modal-close" onclick="closeModal()">&times;</span>
-                        <img src="img/WaitUpdate.png" alt="社群媒體範例網站縮圖" class="thumbnail">
+                        <img src="img\SocialMedia.png" alt="社群媒體範例網站縮圖" class="thumbnail">
                         <h4>社群媒體範例網站</h4>
                         <p><strong>目的：</strong>開發一個可讓使用者分享想法與感想的社群媒體平台。</p>
                         <p><strong>使用技術：</strong>這個網站使用 HTML、CSS 和 JavaScript 進行前端開發，並模擬了基本的社交功能，如貼文、留言和按讚。</p>
-                        <p><strong>成果：</strong>最終網站具備基礎社交功能的模擬範例，展示了前端技術在社群媒體網站開發中的應用。</p>
+                        <p><strong>成果：</strong>最終網站具備基礎社交功能的前端功能，並有著基礎的切換深淺主題功能。</p>
                         <a href="portfolioWEB\SocialMedia.html" class="profile-button" target="_blank">查看成品</a>
                     </div>
                 </div>
 
-                <!-- 電子商城範例網站 -->
+                <!-- 部落格範例網站 -->
                 <div id="html-case3" class="modal-window" style="display: none;">
                     <div class="modal-content">
                         <span class="modal-close" onclick="closeModal()">&times;</span>
-                        <img src="img/WaitUpdate.png" alt="電子商城範例網站縮圖" class="thumbnail">
-                        <h4>電子商城範例</h4>
-                        <p><strong>目的：</strong>建立一個展示產品並模擬購物車功能的電子商城網站。</p>
-                        <p><strong>使用技術：</strong>網站利用 HTML 和 CSS 進行結構和樣式設計，並透過 JavaScript 實現購物車的基礎功能，如加入商品、計算價格等。</p>
-                        <p><strong>成果：</strong>這個網站成功展示了電子商務網站的基本功能，是電商網站開發的良好起點。</p>
-                        <a href="portfolioWEB\E-Commerce.html" class="profile-button" target="_blank">查看成品</a>
-                    </div>
-                </div>
-
-                <!-- 部落格範例網站 -->
-                <div id="html-case4" class="modal-window" style="display: none;">
-                    <div class="modal-content">
-                        <span class="modal-close" onclick="closeModal()">&times;</span>
-                        <img src="img/WaitUpdate.png" alt="部落格範例網站縮圖" class="thumbnail">
-                        <h4>部落格網站</h4>
-                        <p><strong>目的：</strong>開發一個讓使用者能發表文章和管理內容的部落格平台。</p>
-                        <p><strong>使用技術：</strong>網站使用 HTML、CSS 設計結構與樣式，並藉助 JavaScript 完成文章發布和管理功能的模擬。</p>
-                        <p><strong>成果：</strong>這個部落格範例網站展示了簡單內容管理系統的基本功能，是學習部落格平台開發的重要範例。</p>
+                        <img src="img\BlogInfo.png" alt="部落格範例網站縮圖" class="thumbnail">
+                        <h4>部落格首頁</h4>
+                        <p><strong>目的：</strong>這個部落格首頁設計旨在展示一個現代化的內容管理平台，讓使用者能夠輕鬆地查看最新文章、瀏覽內容摘要，並且參與互動評論。首頁設計包括文章列表、固定頁腳以及評論區域，提供一個直觀且吸引人的用戶界面。
+                        </p>
+                        <p><strong>使用技術：</strong>這個網站使用了以下技術：
+                        <ul>
+                            <li><strong>HTML：</strong>用於構建網站的基本結構，包括頁面標題、文章列表和評論區域。</li>
+                            <li><strong>CSS：</strong>負責網站的外觀和樣式設計，包括字體、顏色、布局和響應式設計。特別設計了九宮格布局來顯示文章縮略圖，並且為頁腳和評論區域添加了額外的樣式。
+                            </li>
+                            <li><strong>JavaScript：</strong>實現了基本的互動功能，例如評論區的發佈按鈕。用戶可以在評論區域輸入評論並點擊「發佈評論」按鈕，系統會顯示簡單的確認提示。
+                            </li>
+                        </ul>
+                        </p>
+                        <p><strong>功能：</strong>這個部落格首頁包含以下功能：
+                        <ul>
+                            <li><strong>文章預覽：</strong>首頁展示了多篇文章的縮略圖、標題和簡短摘要。每篇文章都能夠點擊進入詳細內容頁面。</li>
+                            <li><strong>九宮格布局：</strong>文章縮略圖以九宮格的形式展示，適應不同屏幕大小，確保頁面內容整齊排列且易於閱讀。</li>
+                            <li><strong>固定頁腳：</strong>頁腳保持在頁面底部，顯示版權信息，提升用戶體驗和網站的專業感。</li>
+                            <li><strong>評論區域：</strong>用戶可以在評論區輸入並發佈評論。評論區域包括已有的用戶評論列表和一個簡單的評論發佈表單。</li>
+                        </ul>
+                        </p>
+                        <p><strong>成果：</strong>這個部落格首頁範例有效地展示了如何設計一個現代化、互動性強的部落格首頁。它涵蓋了文章展示、用戶互動和網站布局等重要方面，是學習和實踐部落格設計的寶貴資源。
+                        </p>
                         <a href="portfolioWEB\blog.html" class="profile-button" target="_blank">查看成品</a>
                     </div>
                 </div>
 
-                <!-- 影音網站練習 -->
-                <div id="html-case5" class="modal-window" style="display: none;">
+                <!-- 影音社群範本 -->
+                <div id="html-case4" class="modal-window" style="display: none;">
                     <div class="modal-content">
-                        <img src="img/WaitUpdate.png" alt="影音網站練習縮圖" class="thumbnail">
+                        <img src="img\TubeMediaInfo.png" alt="影音社群網站縮圖" class="thumbnail">
                         <span class="modal-close" onclick="closeModal()">&times;</span>
-                        <h4>影音網站</h4>
-                        <p><strong>目的：</strong>創建一個能播放影音內容的練習網站。</p>
-                        <p><strong>使用技術：</strong>網站採用 HTML5 的 `video` 和 `audio` 元素，並使用 JavaScript
-                            進行控制和管理，提供了多媒體內容的展示和操作功能。</p>
-                        <p><strong>成果：</strong>網站成功實現了影音內容的播放和管理，是多媒體網站開發的基礎範例。</p>
+                        <h4>影音社群網站</h4>
+                        <p><strong>目的：</strong>開發一個多功能的影音社群網站，讓使用者可以觀看影片、查看影片資訊、發佈評論以及探索推薦影片。</p>
+                        <p><strong>使用技術：</strong>網站使用 HTML 和 CSS 設計頁面結構和樣式，並嵌入 YouTube 影片播放器以實現影片播放功能。使用 CSS
+                            進行頁面樣式設計，包括暗色主題背景和特效，提供了用戶互動和視覺效果。</p>
+                        <p><strong>功能：</strong>
+                        <ul>
+                            <li><strong>影片播放：</strong>通過 iframe 元素嵌入 YouTube 影片，支持播放、暫停及全螢幕功能。</li>
+                            <li><strong>影片資訊展示：</strong>顯示影片標題、發佈者、發佈日期、觀看次數及影片長度等詳細資訊。</li>
+                            <li><strong>評論區：</strong>顯示用戶評論列表，並提供文本框讓用戶撰寫新評論。</li>
+                            <li><strong>推薦影片展示：</strong>顯示相關或推薦影片的縮圖，提供更多內容選擇。</li>
+                            <li><strong>導航欄：</strong>提供快速導航連結至首頁、熱門影片、訂閱和個人頻道頁面。</li>
+                            <li><strong>用戶互動：</strong>用戶可以在評論區撰寫並發佈評論，增強互動體驗。</li>
+                            <li><strong>視覺效果：</strong>提供圖片懸停效果及其他視覺反饋，提升用戶體驗。</li>
+                        </ul>
+                        </p>
+                        <p><strong>成果：</strong>這個影音社群網站提供了一個完整的影音播放和社群互動體驗，包括詳細的影片資訊展示、用戶評論和推薦影片功能。
+                        </p>
                         <a href="portfolioWEB\Media.html" class="profile-button" target="_blank">查看成品</a>
                     </div>
                 </div>
 
+
                 <!-- 購物網站練習 -->
-                <div id="html-case6" class="modal-window" style="display: none;">
+                <div id="html-case5" class="modal-window" style="display: none;">
                     <div class="modal-content">
                         <img src="img/WaitUpdate.png" alt="購物網站練習縮圖" class="thumbnail">
                         <span class="modal-close" onclick="closeModal()">&times;</span>
@@ -346,66 +405,419 @@
                 <h3>JavaScript 案例研究</h3>
                 <div class="thumbnail-gallery">
                     <div class="thumbnail-item" onclick="openModal('js-case1')">
-                        <img src="img/WaitUpdate.png" alt="Project 1 Thumbnail" class="thumbnail">
+                        <img src="img\ShopInfo.png" alt="Project 1 Thumbnail" class="thumbnail">
                     </div>
                     <div class="thumbnail-item" onclick="openModal('js-case2')">
-                        <img src="img/WaitUpdate.png" alt="Project 2 Thumbnail" class="thumbnail">
+                        <img src="img\FIREWORK.gif" alt="Project 2 Thumbnail" class="thumbnail">
                     </div>
+
                     <div class="thumbnail-item" onclick="openModal('js-case3')">
-                        <img src="img/WaitUpdate.png" alt="Project 3 Thumbnail" class="thumbnail">
+                        <img src="img\YourLifeInfo.png" alt="Project 3 Thumbnail" class="thumbnail">
                     </div>
+
                     <div class="thumbnail-item" onclick="openModal('js-case4')">
-                        <img src="img/WaitUpdate.png" alt="Project 4 Thumbnail" class="thumbnail">
+                        <img src="img\secretGardenInfo.png" alt="Project 4 Thumbnail" class="thumbnail">
                     </div>
+
                     <div class="thumbnail-item" onclick="openModal('js-case5')">
-                        <img src="img/WaitUpdate.png" alt="Project 5 Thumbnail" class="thumbnail">
+                        <img src="img\TvInfo.png" alt="Project 5 Thumbnail" class="thumbnail">
                     </div>
+
                     <div class="thumbnail-item" onclick="openModal('js-case6')">
-                        <img src="img/WaitUpdate.png" alt="Project 6 Thumbnail" class="thumbnail">
+                        <img src="img\OIG2.jpg" alt="Project 6 Thumbnail" class="thumbnail">
+                    </div>
+                    <!-- 詳細內容模態視窗 -->
+                    <div id="js-case1" class="modal-window" style="display: none;">
+                        <div class="modal-content">
+                            <img src="img\ShopInfo.png" alt="電子商務網站範例縮圖" class="thumbnail">
+                            <span class="modal-close" onclick="closeModal()">&times;</span>
+                            <h4>電子商務網站</h4>
+                            <p><strong>問題：</strong>在開發過程中遇到了以下主要挑戰：</p>
+                            <ul>
+                                <li><strong>圖片未等比例縮小：</strong>商品圖片在顯示時未能等比例縮小，導致圖片顯示不正常。</li>
+                                <li><strong>未顯示“加入購物車”按鈕：</strong>在商品詳細頁面中，“加入購物車”按鈕未能正確顯示。</li>
+                                <li><strong>商品詳細介紹頁面無法隱藏：</strong>當用戶關閉商品詳細介紹時，頁面未能正確隱藏，影響用戶體驗。</li>
+                                <li><strong>購物車功能尚未實現完整：</strong>購物車功能的更新和結帳操作尚未實現，導致用戶無法完成購物。</li>
+                            </ul>
+                            <p><strong>解決方案：</strong>進行了以下修正：</p>
+                            <ul>
+                                <li><strong>修正圖片等比例縮小：</strong>修改了 CSS 中的 `.product-details img` 樣式，使用 `max-width`
+                                    確保圖片等比例縮小。</li>
+                                <li><strong>添加“加入購物車”按鈕：</strong>在商品詳細介紹區域加入“加入購物車”按鈕，並使用 JavaScript 處理按鈕點擊事件。</li>
+                                <li><strong>修正頁面隱藏邏輯：</strong>確保 `hideProductDetails` 函數能正確隱藏商品詳細介紹頁面。</li>
+                                <li><strong>完善購物車功能：</strong>實現了 `updateCart` 和 `removeFromCart` 函數來更新購物車內容，並提供了
+                                    `checkout`
+                                    結帳功能的提示。</li>
+                                <li><strong>調整網站色調和排版：</strong>根據新的設計要求調整了 CSS 中的顏色和排版，確保網站整體風格一致。</li>
+                            </ul>
+                            <p><strong>結果：</strong>經過上述調整後，電子商務網站的功能和界面得到了改善，能夠更好地支持用戶的購物需求。</p>
+                            <a href="portfolioWEB\E-Commerce.html" class="profile-button" target="_blank">查看成品</a>
+                        </div>
+                    </div>
+                    <div id="js-case2" class="modal-window" style="display: none;">
+                        <div class="modal-content">
+                            <img src="img\FIREWORK.gif" alt="煙火效果範例縮圖" class="thumbnail">
+                            <span class="modal-close" onclick="closeModal()">&times;</span>
+                            <h4>煙火效果實現</h4>
+                            <p><strong>功能：</strong>點擊按鈕後顯示煙火動畫，增添節日氣氛。</p>
+                            <p><strong>實現方式：</strong>通過以下步驟實現煙火效果：</p>
+                            <ul>
+                                <li><strong>按鈕觸發：</strong>點擊按鈕後，計算按鈕的中心位置作為煙火起點。</li>
+                                <li><strong>生成煙火：</strong>使用 JavaScript 創建多個煙火片段，設定隨機顏色和大小。</li>
+                                <li><strong>動畫效果：</strong>煙火片段從按鈕中心擴散，通過設定 `transform` 和 `opacity`
+                                    屬性來實現動畫效果。煙火片段會向四周擴散並逐漸掉落。</li>
+                                <li><strong>清理：</strong>動畫完成後，使用 `setTimeout` 隱藏並移除煙火片段，以保持頁面整潔。</li>
+                                <li><strong>Function 說明：</strong>使用了 `getRandomColor()` 函數生成隨機顏色，`setTimeout`
+                                    控制動畫延遲和移除煙火片段。
+                                </li>
+                            </ul>
+                            <p><strong>結果：</strong>點擊按鈕後，頁面上會出現煙火效果，增加了互動性和視覺效果。</p>
+                            <a href="portfolioWEB\firework.html" class="profile-button" target="_blank">查看成品</a>
+                        </div>
+                    </div>
+
+                    <!-- 其他模態視窗略 -->
+                    <div id="js-case3" class="modal-window" style="display: none;">
+                        <div class="modal-content">
+                            <img src="img\YourLifeInfo.png" alt="姓名判斷系統範例縮圖" class="thumbnail">
+                            <span class="modal-close" onclick="closeModal()">&times;</span>
+                            <h4>姓名判斷系統</h4>
+                            <p><strong>功能：</strong>根據用戶輸入的姓名進行簡單的判斷，並顯示結果。</p>
+                            <p><strong>實現方式：</strong>通過以下步驟實現姓名判斷：</p>
+                            <ul>
+                                <li><strong>用戶輸入：</strong>用戶在文本框中輸入姓名。</li>
+                                <li><strong>計算 Unicode 總值：</strong>通過 JavaScript 計算姓名中每個字符的 Unicode 總值。</li>
+                                <li><strong>生成結果：</strong>根據總值的餘數，顯示不同的判斷結果。結果包括關於性格和運勢的簡單預測。</li>
+                                <li><strong>顯示結果：</strong>結果會顯示在頁面上的 `result` 區域。</li>
+                            </ul>
+                            <p><strong>Function 說明：</strong>使用了 `calculate()` 函數來處理用戶輸入，計算姓名的 Unicode 總值，並生成根據總值決定的預測結果。
+                            </p>
+                            <p><strong>結果：</strong>用戶輸入姓名後，點擊「判定」按鈕，頁面會顯示關於該姓名的簡單判斷結果。</p>
+                            <a href="portfolioWEB\yourlife.html" class="profile-button" target="_blank">查看成品</a>
+                        </div>
+                    </div>
+
+                    <div id="js-case4" class="modal-window" style="display: none;">
+                        <div class="modal-content">
+                            <img src="img\secretGardenInfo.png" alt="秘密花園範例縮圖" class="thumbnail">
+                            <span class="modal-close" onclick="closeModal()">&times;</span>
+                            <h4>秘密花園</h4>
+                            <p><strong>功能：</strong>網站提供了一個互動體驗，用戶必須輸入正確的通關密碼才能解鎖並關閉當前頁面。</p>
+                            <ul>
+                                <li><strong>密碼保護：</strong>只有當用戶輸入正確的密碼「1234」時，網站才會顯示確認訊息並關閉視窗。</li>
+                                <li><strong>密碼錯誤提示：</strong>如果密碼輸入錯誤，用戶會收到錯誤提示，要求重新輸入密碼。</li>
+                                <li><strong>用戶界面：</strong>網站界面包含一個大標題和一個按鈕，背景為朦朧的花園圖片和半透明覆蓋層，增添神秘感。</li>
+                            </ul>
+                            <p><strong>結果：</strong>通過輸入正確的通關密碼，用戶可以解鎖網站並看到一個確認訊息，頁面將會被關閉。</p>
+                            <a href="portfolioWEB/secretGarden.html" class="profile-button" target="_blank">查看成品</a>
+                        </div>
+                    </div>
+                    <div id="js-case5" class="modal-window" style="display: none;">
+                        <div class="modal-content">
+                            <img src="img\TvInfo.png" alt="頻道查詢範例縮圖" class="thumbnail">
+                            <span class="modal-close" onclick="closeModal()">&times;</span>
+                            <h4>頻道代碼查詢系統</h4>
+                            <p><strong>功能：</strong>這個網站的主要功能是根據用戶輸入的頻道代碼顯示對應的頻道名稱。</p>
+                            <ul>
+                                <li><strong>頻道代碼查詢：</strong>用戶在輸入框中輸入頻道代碼（例如「20」、「65」、「66」），點擊「確定」按鈕後，網站會顯示對應的頻道名稱。</li>
+                                <li><strong>錯誤處理：</strong>如果輸入的代碼不在預設範圍內，網站會顯示「未知頻道」的提示。</li>
+                                <li><strong>界面設計：</strong>網站使用了線性漸層背景色、圓角邊框和陰影效果來提升界面美觀。按鈕和輸入框具有過渡效果和焦點背景顏色，增強用戶體驗。</li>
+                            </ul>
+                            <p><strong>結果：</strong>用戶根據輸入的頻道代碼，會看到相應的頻道名稱。界面設計直觀且易於使用。</p>
+                            <a href="portfolioWEB\TV.html" class="profile-button" target="_blank">查看成品</a>
+                        </div>
+                    </div>
+                    <div id="js-case6" class="modal-window" style="display: none;">
+                        <div class="modal-content">
+                            <img src="img\OIG2.jpg" alt="貪吃蛇遊戲縮圖" class="thumbnail">
+                            <span class="modal-close" onclick="closeModal()">&times;</span>
+                            <h4>貪吃蛇遊戲</h4>
+                            <p><strong>功能：</strong>這是一個經典的貪吃蛇遊戲。玩家可以使用箭頭鍵來控制蛇的方向，吃到食物後會增加分數。這個版本的蛇不會變長。</p>
+                            <ul>
+                                <li><strong>控制方式：</strong>使用箭頭鍵來控制蛇的移動方向。</li>
+                                <li><strong>遊戲結束：</strong>當蛇撞到牆壁或自身時，遊戲結束並顯示「Game Over」訊息。</li>
+                                <li><strong>界面設計：</strong>遊戲畫布邊框使用了簡單的邊框設計，計分板和開始按鈕具有固定位置的樣式。</li>
+                            </ul>
+                            <p><strong>結果：</strong>玩家可以透過控制蛇吃到食物來增加分數。遊戲會隨著分數的增加而變得更具挑戰性。</p>
+                            <a href="mini-games.html" class="profile-button" target="_blank">玩遊戲</a>
+                        </div>
                     </div>
                 </div>
-                <!-- 詳細內容模態視窗 -->
-                <div id="js-case1" class="modal-window" style="display: none;">
-                    <div class="modal-content">
-                        <img src="img/WaitUpdate.png" alt="Project 1 Thumbnail" class="thumbnail">
-                        <span class="modal-close" onclick="closeModal()">&times;</span>
-                        <h4>項目名稱 1</h4>
-                        <p><strong>問題：</strong>描述這個項目面臨的主要挑戰或問題。</p>
-                        <p><strong>解決方案：</strong>解釋你是如何解決這些問題的，包括所使用的技術或方法。</p>
-                        <p><strong>結果：</strong>展示最終的成果，並討論項目的成功或對用戶的影響。</p>
-                        <a href="path/to/your/js_project1.html" class="btn" target="_blank">查看成品</a>
-                    </div>
-                </div>
-                <!-- 其他模態視窗略 -->
             </div>
 
             <!-- C# 作品集 -->
             <div id="csharp-gallery" class="gallery" style="display: none;">
-                <h3>C# 案例研究</h3>
+                <h3>C# 案例研究</h3 class="gallery-title">
                 <div class="thumbnail-gallery">
                     <div class="thumbnail-item" onclick="openModal('csharp-case1')">
-                        <img src="img/WaitUpdate.png" alt="Project 1 Thumbnail" class="thumbnail">
+                        <img src="img\inasnake.png" alt="Project 1 Thumbnail" class="thumbnail">
                     </div>
                     <div class="thumbnail-item" onclick="openModal('csharp-case2')">
                         <img src="img/WaitUpdate.png" alt="Project 2 Thumbnail" class="thumbnail">
                     </div>
                     <!-- 其他縮圖 -->
                 </div>
+
                 <!-- 詳細內容模態視窗 -->
                 <div id="csharp-case1" class="modal-window" style="display: none;">
                     <div class="modal-content">
-                        <img src="img/WaitUpdate.png" alt="Project 1 Thumbnail" class="thumbnail">
                         <span class="modal-close" onclick="closeModal()">&times;</span>
-                        <h4>項目名稱 1</h4>
-                        <p><strong>問題：</strong>描述這個項目面臨的主要挑戰或問題。</p>
-                        <p><strong>解決方案：</strong>解釋你是如何解決這些問題的，包括所使用的技術或方法。</p>
-                        <p><strong>結果：</strong>展示最終的成果，並討論項目的成功或對用戶的影響。</p>
-                        <a href="path/to/your/csharp_project1.html" class="btn" target="_blank">查看成品</a>
+                        <img src="img\OIG2.jpg" alt="貪吃蛇遊戲範例縮圖" class="thumbnail">
+                        <h4>貪吃蛇遊戲 (C# 基礎開發)</h4>
+                        <p><strong>功能：</strong>這款遊戲是使用 C# 開發的經典貪吃蛇遊戲，旨在學習基本的 C#
+                            程式設計技能。玩家控制蛇的移動，吃取食物並增加長度，當蛇的長度超過限制或撞到自身時，遊戲結束。</p>
+                        <ul>
+                            <li><strong>控制蛇的移動：</strong>程式碼允許玩家使用 WASD 鍵來改變蛇的移動方向。`direction`
+                                變數用來決定蛇的移動路徑，確保蛇在正確的方向上移動。
+                            </li>
+                            <li><strong>更新蛇的身體：</strong>在 `FixedUpdate`
+                                方法中，蛇的每一節身體（除了頭部）會跟隨前一節的移動。這樣，蛇的身體會根據頭部的位置進行更新，形成一個連貫的蛇身。</li>
+                            <li><strong>碰撞處理：</strong>當蛇的頭部碰到食物或障礙物時，程式會處理相應的事件。碰到食物時，會增加蛇身並更新分數；碰到障礙物時，會重置遊戲狀態並播放音樂，提示遊戲結束。
+                            </li>
+                            <li><strong>重置遊戲：</strong>當遊戲結束時，蛇的位置會被重置到初始位置，身體會清空，分數也會重置。這樣可以讓玩家重新開始遊戲。</li>
+                        </ul>
+                        <p><strong>Food 類別功能：</strong>食物在遊戲中會在指定的區域內隨機生成位置。每當食物被吃掉時，食物的位置會重新隨機生成，保持遊戲的挑戰性和趣味性。</p>
+                        <p><strong>主要類別</strong>
+                        <ul>
+                            <li><strong>`direction`：</strong>控制蛇的移動方向，根據玩家的輸入進行調整。</li>
+                            <li><strong>`speed`：</strong>控制遊戲的速度，通過調整時間縮放來實現。</li>
+                            <li><strong>`bodyPrefab`：</strong>蛇身體的預製件，用於在吃到食物後生成新的蛇身。</li>
+                            <li><strong>`bodies`：</strong>存儲蛇身所有節點的列表，包括頭部和各節身體。</li>
+                            <li><strong>`foodAera`：</strong>定義食物可以生成的區域範圍，確保食物在有效的範圍內生成。</li>
+                        </ul>
+                        </p>
+                        <p><strong>結果：</strong>玩家控制蛇吃取食物並避免碰撞，遊戲提供了清晰的界面和流暢的操作體驗。遊戲的挑戰性和趣味性得到了有效提升。</p>
+                        <a href="https://tananis.itch.io/inake" class="profile-button" target="_blank">前往itch.io</a>
                     </div>
                 </div>
                 <!-- 其他模態視窗 -->
             </div>
+            </div>
+            <!-- 繪畫作品集 -->
 
+            <div id="paint-gallery" class="gallery" style="display: none;">
+                <h3>繪圖作品集</h3>
+                <div class="thumbnail-gallery">
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image1')">
+                        <img src="img/PIC (10).png" alt="作品1 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image2')">
+                        <img src="img/PIC (17).png" alt="作品2 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image3')">
+                        <img src="img/PIC (21).png" alt="作品3 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image4')">
+                        <img src="img/PIC (22).png" alt="作品4 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image5')">
+                        <img src="img/PIC (11).png" alt="作品5 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image6')">
+                        <img src="img/PIC (16).png" alt="作品6 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image7')">
+                        <img src="img/PIC (29).png" alt="作品7 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image8')">
+                        <img src="img/PIC (5).png" alt="作品8 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image9')">
+                        <img src="img/PIC (19).png" alt="作品9 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image10')">
+                        <img src="img/PIC (1).jpg" alt="作品10 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image11')">
+                        <img src="img/PIC (3).png" alt="作品11 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image12')">
+                        <img src="img/PIC.png" alt="作品12 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image13')">
+                        <img src="img/PIC (5).jpg" alt="作品13 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image14')">
+                        <img src="img/PIC (14).png" alt="作品14 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image15')">
+                        <img src="img/PIC (27).png" alt="作品15 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image16')">
+                        <img src="img/PIC (2).jpg" alt="作品16 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image17')">
+                        <img src="img/PIC (30).png" alt="作品17 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image18')">
+                        <img src="img/PIC (8).png" alt="作品18 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image19')">
+                        <img src="img/PIC (2).png" alt="作品19 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image20')">
+                        <img src="img/PIC.jpg" alt="作品20 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image21')">
+                        <img src="img/PIC (8).jpg" alt="作品21 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image22')">
+                        <img src="img/PIC (1).png" alt="作品22 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image23')">
+                        <img src="img/PIC (4).jpg" alt="作品23 Thumbnail" class="thumbnail">
+                    </div>
+                    <div class="thumbnail-item" onclick="openImageModal('paint-image24')">
+                        <img src="img/WaitUpdate.png" alt="等待上傳中 Thumbnail" class="thumbnail">
+                    </div>
+                </div>
+
+                <!-- 圖片模態視窗 -->
+                <div id="paint-image1" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (10).png" alt="作品1" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image2" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (17).png" alt="作品2" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image3" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (21).png" alt="作品3" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image4" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (22).png" alt="作品4" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image5" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (11).png" alt="作品5" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image6" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (16).png" alt="作品6" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image7" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (29).png" alt="作品7" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image8" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (5).png" alt="作品8" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image9" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (19).png" alt="作品9" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image10" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (1).jpg" alt="作品10" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image11" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (3).png" alt="作品11" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image12" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC.png" alt="作品12" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image13" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (5).jpg" alt="作品13" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image14" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (14).png" alt="作品14" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image15" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (27).png" alt="作品15" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image16" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (2).jpg" alt="作品16" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image17" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (30).png" alt="作品17" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image18" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (8).png" alt="作品18" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image19" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (2).png" alt="作品19" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image20" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC.jpg" alt="作品20" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image21" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (8).jpg" alt="作品21" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image22" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (1).png" alt="作品22" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image23" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/PIC (4).jpg" alt="作品23" class="image-modal-img">
+                    </div>
+                </div>
+                <div id="paint-image24" class="image-modal" style="display: none;">
+                    <div class="image-modal-content">
+                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+                        <img src="img/WaitUpdate.png" alt="等待上傳中" class="image-modal-img">
+                    </div>
+                </div>
+            </div>
             <!-- Unity 作品集 -->
             <div id="unity-gallery" class="gallery" style="display: none;">
                 <h3>Unity 案例研究</h3>
@@ -432,46 +844,18 @@
                 </div>
                 <!-- 其他模態視窗 -->
             </div>
-            <!-- 繪畫作品集 -->
-
-            <div id="paint-gallery" class="gallery" style="display: none;">
-                <h3>繪圖作品集</h3>
-                <div class="thumbnail-gallery">
-                    <div class="thumbnail-item" onclick="openImageModal('paint-image1')">
-                        <img src="img/WaitUpdate.png" alt="Paint Project 1 Thumbnail" class="thumbnail">
-                    </div>
-                    <div class="thumbnail-item" onclick="openImageModal('paint-image2')">
-                        <img src="img/WaitUpdate.png" alt="Paint Project 2 Thumbnail" class="thumbnail">
-                    </div>
-                    <!-- 添加更多縮圖 -->
-                </div>
-
-                <!-- 圖片模態視窗 -->
-                <div id="paint-image1" class="image-modal" style="display: none;">
-                    <div class="image-modal-content">
-                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
-                        <img src="img/WaitUpdate.png" alt="Paint Project 1" class="image-modal-img">
-                    </div>
-                </div>
-                <div id="paint-image2" class="image-modal" style="display: none;">
-                    <div class="image-modal-content">
-                        <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
-                        <img src="img/WaitUpdate.png" alt="Paint Project 2" class="image-modal-img">
-                    </div>
-                </div>
-                <!-- 添加更多圖片模態視窗 -->
             </div>
-            <section id="news" class="searchable-content">
-            </section>
-            <section id="featured" class="featured">
-            </section>
-
+        </section>
     </main>
-
 
     <footer class="footerBG searchable-content">
         <p class="footer-text">&copy; 2024 版權所有.</p>
     </footer>
+    </div>
+    <section id="news" class="searchable-content">
+    </section>
+    <section id="featured" class="featured">
+    </section>
 </body>
 
 </html>

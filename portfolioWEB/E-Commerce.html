@@ -6,179 +6,202 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>電子商務網站</title>
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            /* 淺灰色背景 */
-            color: #333;
-        }
+     body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #000000; /* 黑色背景 */
+    color: #ffffff;
+}
 
-        header {
-            background: #1e1e1e;
-            /* 深色背景 */
-            color: #ffffff;
-            /* 白色文字 */
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+header {
+    background: #ff5722; /* 橘色背景 */
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            font-weight: bold;
-        }
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: bold;
+}
 
-        nav {
-            margin-top: 10px;
-        }
+nav {
+    margin-top: 10px;
+}
 
-        nav a {
-            color: #00bcd4;
-            /* 藍色 */
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.1em;
-            transition: color 0.3s;
-        }
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
 
-        nav a:hover {
-            color: #0097a7;
-            /* 深藍色 */
-            text-decoration: underline;
-        }
+nav a:hover {
+    color: #ffeb3b; /* 高亮顏色 */
+    text-decoration: underline;
+}
 
-        main {
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .product-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+/* 商品展示區域樣式 */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
 
-        .product-item {
-            background: #ffffff;
-            /* 白色背景 */
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            text-align: center;
-            flex: 1;
-            max-width: calc(33.333% - 20px);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+.product-item {
+    background: #212121; /* 卡片背景色 */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    text-align: center;
+    flex: 1;
+    max-width: calc(33.333% - 20px);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    position: relative;
+}
 
-        .product-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            object-fit: cover;
-        }
+.product-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
 
-        .product-item h3 {
-            margin: 15px 0 5px;
-            font-size: 1.4em;
-            color: #333;
-        }
+.product-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
 
-        .product-item p {
-            margin: 0;
-            font-size: 1.2em;
-            color: #888;
-        }
+.product-item:hover::after {
+    display: block; /* 鼠標懸停時顯示 */
+}
 
-        .product-item button {
-            background-color: #00bcd4;
-            /* 藍色按鈕 */
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1em;
-            transition: background-color 0.3s, transform 0.2s;
-        }
+/* 商品詳細介紹區域樣式 */
+.product-details {
+    display: none;
+    padding: 20px;
+    background: #212121; /* 黑色背景 */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+}
 
-        .product-item button:hover {
-            background-color: #0097a7;
-            /* 深藍色 */
-            transform: scale(1.05);
-        }
+.product-details img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 5px;
+}
 
-        .cart,
-        .account {
-            background: #ffffff;
-            /* 白色背景 */
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            margin-top: 20px;
-        }
+.product-details p {
+    margin: 15px 0;
+}
 
-        .cart h2,
-        .account h2 {
-            margin-top: 0;
-            font-size: 1.8em;
-            color: #333;
-        }
+.product-details.active {
+    display: block;
+}
 
-        .account form {
-            display: flex;
-            flex-direction: column;
-        }
+/* 購物車區域樣式 */
+.cart {
+    padding: 20px;
+    background: #212121; /* 黑色背景 */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+}
 
-        .account label {
-            margin-top: 10px;
-            font-size: 1.1em;
-        }
+.cart button {
+    background: #ff5722; /* 橘色按鈕 */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
 
-        .account input {
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
-            background: #f9f9f9;
-            color: #333;
-        }
+.cart button:hover {
+    background: #e64a19; /* 橘色按鈕懸停效果 */
+}
 
-        .account button {
-            margin-top: 15px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1em;
-            background-color: #00bcd4;
-            /* 藍色按鈕 */
-            color: white;
-            transition: background-color 0.3s, transform 0.2s;
-        }
+/* 用戶賬戶管理區域樣式 */
+.account {
+    padding: 20px;
+    background: #212121; /* 黑色背景 */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+}
 
-        .account button:hover {
-            background-color: #0097a7;
-            /* 深藍色 */
-            transform: scale(1.05);
-        }
+.account form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
-        footer {
-            background: #1e1e1e;
-            /* 深色背景 */
-            color: #ffffff;
-            /* 白色文字 */
-            text-align: center;
-            padding: 15px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-        }
+.account label {
+    text-align: left;
+}
+
+.account input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    width: 100%;
+    background: #333;
+    color: #fff;
+}
+
+.account button {
+    background: #ff5722; /* 橘色按鈕 */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.account button:hover {
+    background: #e64a19; /* 橘色按鈕懸停效果 */
+}
+
+footer {
+    background: #000000; /* 黑色背景 */
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
     </style>
 </head>
 
@@ -192,30 +215,38 @@
             <a href="#account">賬戶</a>
         </nav>
     </header>
-
     <main>
         <!-- 商品展示區域 -->
         <section id="products" class="product-list">
             <h2>商品展示</h2>
-            <div class="product-item">
-                <img src="SAMPLE.jpg" alt="商品1">
-                <h3>商品名稱 1</h3>
-                <p>價格: NT$ 1000</p>
-                <button onclick="addToCart('商品名稱 1', 1000)">加入購物車</button>
+            <div class="product-item"
+                onclick="showProductDetails('高效能無線耳機', '這款高效能無線耳機具備出色的音質和舒適的佩戴體驗。配有先進的降噪技術，能有效阻隔外界噪音，提供沉浸式的音樂體驗。耳機的電池續航能力強大，支持長達 20 小時的播放時間，適合長時間使用。無論是在工作還是休閒時光，這款耳機都是您的理想選擇。', 'SAMPLE.jpg', 19000)">
+                <img src="SAMPLE.jpg" alt="高效能無線耳機">
+                <h3>高效能無線耳機</h3>
+                <p>價格: NT$ 19000</p>
             </div>
-            <div class="product-item">
-                <img src="SAMPLE.jpg" alt="商品2">
-                <h3>商品名稱 2</h3>
-                <p>價格: NT$ 2000</p>
-                <button onclick="addToCart('商品名稱 2', 2000)">加入購物車</button>
+            <div class="product-item"
+                onclick="showProductDetails('智能手錶', '這款智能手錶擁有時尚的設計和強大的功能。它可以監控您的心率、步數和睡眠質量，並且支持多種運動模式，幫助您更好地管理健康。手錶擁有清晰的顯示屏和長效電池，能夠輕鬆應對您的日常需求。無論是運動還是工作，它都能成為您可靠的伴侶。', 'SAMPLE.jpg', 20000)">
+                <img src="SAMPLE.jpg" alt="智能手錶">
+                <h3>智能手錶</h3>
+                <p>價格: NT$ 20000</p>
             </div>
-            <div class="product-item">
-                <img src="SAMPLE.jpg" alt="商品3">
-                <h3>商品名稱 3</h3>
-                <p>價格: NT$ 1832</p>
-                <button onclick="addToCart('商品名稱 3', 1832)">加入購物車</button>
+            <div class="product-item"
+                onclick="showProductDetails('多功能料理機', '這款多功能料理機適合各種烹飪需求。它具備攪拌、切割、打蛋等多種功能，讓您在家也能輕鬆製作各種美食。料理機的設計注重實用性和耐用性，方便清潔，操作簡單，是廚房必備的好幫手。無論是日常烹飪還是特別的料理，它都能滿足您的需求。', 'SAMPLE.jpg', 18320)">
+                <img src="SAMPLE.jpg" alt="多功能料理機">
+                <h3>多功能料理機</h3>
+                <p>價格: NT$ 18320</p>
             </div>
-            <!-- 更多商品項目... -->
+        </section>
+
+        <!-- 商品詳細介紹區域 -->
+        <section id="product-details" class="product-details">
+            <h2 id="product-title"></h2>
+            <img id="product-image" src="" alt="商品圖片">
+            <p id="product-description"></p>
+            <p id="product-price"></p>
+            <button onclick="addToCart()">加入購物車</button>
+            <button onclick="hideProductDetails()">關閉</button>
         </section>
 
         <!-- 購物車區域 -->
@@ -240,34 +271,59 @@
         </section>
     </main>
 
+
+
     <footer>
         <p>&copy; 2024 電子商務網站</p>
     </footer>
 
     <script>
-        // scripts.js
-
         let cart = [];
+        let currentProduct = {};
 
-        function addToCart(name, price) {
-            cart.push({ name, price });
+        function showProductDetails(name, description, image, price) {
+            currentProduct = { name, price };
+            document.getElementById('product-title').textContent = name;
+            document.getElementById('product-description').textContent = description;
+            document.getElementById('product-image').src = image;
+            document.getElementById('product-price').textContent = `價格: NT$ ${price}`;
+            document.getElementById('product-details').classList.add('active');
+        }
+
+        function hideProductDetails() {
+            document.getElementById('product-details').classList.remove('active');
+        }
+
+        function addToCart() {
+            cart.push(currentProduct);
             updateCart();
+            hideProductDetails();
         }
 
         function updateCart() {
             const cartItems = document.getElementById('cart-items');
-            const totalPriceElement = document.getElementById('total-price');
-            let totalPrice = 0;
             cartItems.innerHTML = '';
-
-            cart.forEach(item => {
+            let totalPrice = 0;
+            cart.forEach((item, index) => {
                 const cartItem = document.createElement('div');
                 cartItem.textContent = `${item.name} - NT$ ${item.price}`;
-                cartItems.appendChild(cartItem);
                 totalPrice += item.price;
-            });
 
-            totalPriceElement.textContent = `總價格: NT$ ${totalPrice}`;
+                const removeButton = document.createElement('button');
+                removeButton.textContent = '移除';
+                removeButton.onclick = () => {
+                    removeFromCart(index);
+                };
+                cartItem.appendChild(removeButton);
+
+                cartItems.appendChild(cartItem);
+            });
+            document.getElementById('total-price').textContent = `總價格: NT$ ${totalPrice}`;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
         }
 
         function checkout() {
@@ -277,7 +333,6 @@
         function register() {
             alert('註冊功能尚未實現！');
         }
-
     </script>
 </body>
 

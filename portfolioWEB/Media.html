@@ -10,12 +10,12 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #1e1e1e;
+            color: #e0e0e0;
         }
         .navbar {
-            background-color: #444;
-            color: white;
+            background-color: #121212;
+            color: #e0e0e0;
             padding: 10px 0;
             text-align: center;
             position: sticky;
@@ -24,26 +24,27 @@
             z-index: 1000;
         }
         .navbar a {
-            color: white;
+            color: #e0e0e0;
             text-decoration: none;
             padding: 14px 20px;
             display: inline-block;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .navbar a:hover {
-            background-color: #666;
+            background-color: #333;
+            color: #fff;
         }
         .container {
             display: flex;
             margin: 20px auto;
             max-width: 1200px;
+            gap: 20px;
         }
         .main-content {
             flex: 2;
-            margin-right: 20px;
-            background: #fff;
+            background: #282828;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             overflow: hidden;
         }
         .video-player {
@@ -63,16 +64,16 @@
             font-size: 28px;
             margin: 0;
             padding-bottom: 10px;
-            border-bottom: 2px solid #ddd;
+            border-bottom: 2px solid #444;
         }
         .video-info p {
             font-size: 18px;
-            color: #555;
+            color: #bbb;
         }
         .comments {
             margin-top: 20px;
             padding: 15px;
-            border-top: 1px solid #ddd;
+            border-top: 1px solid #444;
         }
         .comments h2 {
             font-size: 22px;
@@ -83,15 +84,15 @@
             padding: 0;
         }
         .comment-list li {
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #444;
             padding: 10px 0;
         }
         .recommendations {
             flex: 1;
-            background: #fff;
+            background: #282828;
             border-radius: 8px;
             padding: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         .recommendations h2 {
             font-size: 22px;
@@ -105,11 +106,11 @@
         }
         .recommendations img:hover {
             transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         .comment-form {
             margin-top: 20px;
-            border-top: 1px solid #ddd;
+            border-top: 1px solid #444;
             padding-top: 10px;
         }
         .comment-form textarea {
@@ -117,14 +118,16 @@
             height: 80px;
             padding: 10px;
             border-radius: 4px;
-            border: 1px solid #ddd;
+            border: 1px solid #444;
+            background: #333;
+            color: #e0e0e0;
             resize: none;
             box-sizing: border-box;
         }
         .comment-form button {
             padding: 10px 15px;
-            background-color: #333;
-            color: white;
+            background-color: #444;
+            color: #e0e0e0;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -132,7 +135,10 @@
             transition: background-color 0.3s ease;
         }
         .comment-form button:hover {
-            background-color: #575757;
+            background-color: #555;
+        }
+        .video-info p strong {
+            color: #ff8c00; /* 主題色 */
         }
     </style>
 </head>
@@ -148,7 +154,7 @@
     <div class="container">
         <div class="main-content">
             <div class="video-player">
-                <iframe width="1255" height="706" src="https://www.youtube.com/embed/k2Bz3uHiyhQ" title="#BestPhonesForever: Must Be Santa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/k2Bz3uHiyhQ" title="#BestPhonesForever: Must Be Santa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="video-info">
                 <h1>示範影片標題</h1>
@@ -175,9 +181,12 @@
 
         <div class="recommendations">
             <h2>推薦影片</h2>
-            <img src="https://via.placeholder.com/300x200" alt="推薦影片1">
-            <img src="https://via.placeholder.com/300x200" alt="推薦影片2">
-            <img src="https://via.placeholder.com/300x200" alt="推薦影片3">
+            <img src="SAMPLE.jpg" alt="推薦影片1">
+            <p>推薦影片01</p>
+            <img src="SAMPLE.jpg" alt="推薦影片2">
+            <p>推薦影片02</p>
+            <img src="SAMPLE.jpg" alt="推薦影片3">
+            <p>推薦影片03</p>
         </div>
     </div>
 </body>

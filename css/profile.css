@@ -11,6 +11,13 @@
 #featured.visible {
   opacity: 1;
 }
+.portfolioInfo {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  padding: 20px;
+  background-color: #1f1e31;
+  border-radius: 10px; /* 圓角效果 */
+}
 
 .portfolio-btn {
   background-color: #8d8faa; /* 按鈕背景色 */
@@ -33,6 +40,9 @@
 
 .gallery {
   margin-top: 20px;
+  background-color: #1f1e31;
+  padding: 10px; /* 添加內邊距以增加空間 */
+  overflow: hidden; /* 隱藏超出容器的內容 */
 }
 
 .thumbnail-gallery {
@@ -49,13 +59,12 @@
 .thumbnail-item:hover {
   transform: scale(1.05);
 }
-
 .thumbnail {
   width: 150px;
   height: auto;
   border-radius: 5px; /* 圓角效果 */
+  object-fit: cover; /* 保持正方形且不變形 */
 }
-
 .case-details {
   margin-top: 20px;
   padding: 15px;
@@ -159,18 +168,20 @@
   background-color: #3b333d; /* 背景顏色 */
   padding: 20px;
   border: 1px solid #292424; /* 邊框顏色 */
-  max-width: 80%;
-  max-height: 80%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); /* 垂直和水平居中 */
-  overflow: hidden; /* 隱藏超出範圍的內容 */
+  display: inline-block; /* 根據內容大小調整容器大小 */
+  max-width: 90vw; /* 最大寬度為視口的90% */
+  max-height: 90vh; /* 最大高度為視口的90% */
+  overflow: hidden; /* 隱藏超出容器的內容 */
+  box-sizing: border-box; /* 包含邊框和內邊距在容器的總寬度和高度中 */
 }
 
 .image-modal-img {
-  width: 100%; /* 使圖片自適應視窗 */
-  height: auto;
+  width: 100%; /* 使圖片填滿容器 */
+  height: auto; /* 根據圖片的寬度自動調整高度，保持比例 */
 }
 
 .image-modal-close {
@@ -184,4 +195,70 @@
 
 .image-modal-close:hover {
   color: #ff5c5c; /* 鼠標懸停顏色 */
+}
+
+/* 精選照片區域樣式 */
+#selectShowcase {
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #1b1b1b;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 1800px;
+  text-align: center;
+}
+
+#selectShowcase h2 {
+  color: #e0e0e0;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.selectShowcaseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.selectShowcaseItem {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.selectShowcaseItem img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.selectShowcaseItem:hover img {
+  transform: scale(1.05);
+}
+
+.selectShowcaseDescription {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #e0e0e0;
+  padding: 10px;
+  text-align: center;
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.selectShowcaseItem:hover .selectShowcaseDescription {
+  opacity: 1;
+}
+
+#about {
+  display: flex;
 }
