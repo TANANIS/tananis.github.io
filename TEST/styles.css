@@ -1,0 +1,81 @@
+/* 主內容區域 */
+main {
+    padding: 20px;
+    background: #fff;
+}
+
+/* 自我介紹區 */
+#about-me {
+    margin-bottom: 40px;
+}
+
+#about-me h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* 學習歷程區 */
+#learning-history {
+    margin-bottom: 40px;
+}
+
+#learning-history h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.learning-background, .learning-outcomes {
+    margin-bottom: 20px;
+}
+
+/* 技能圓餅圖區 */
+#skills {
+    margin-bottom: 40px;
+}
+
+.skill-chart {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 展示專區 */
+#showcase {
+    margin-bottom: 40px;
+}
+
+#showcase h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.showcase-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.showcase-item {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    width: calc(50% - 20px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.showcase-item h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.showcase-item p {
+    margin-bottom: 10px;
+}
+
+.view-project {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.view-project:hover {
+    text-decoration: underline;
+}

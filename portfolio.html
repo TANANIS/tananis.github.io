@@ -56,6 +56,8 @@
             </div>
         </div>
     </div>
+    <!-- 向下箭頭提示色塊 -->
+    <div class="arrow-indicator">⏑</div>
 
     <!-- 搜尋列 -->
     <div class="search-container">
@@ -95,14 +97,14 @@
 
         <!--  -->
         <section id="welcome">
-            <div class=" welcome-text searchable-content">
+            <div class=" welcome-text">
                 <h2 id="modal-title"></h2>
                 <p class="modal-text"></p>
                 <p>這便放置了我過去的作品，
                     <br>包含了JS功能組件，HTML/CSS效果美術，C#遊戲，
                     <br>以及其他一些平面設計作品。
                     <!-- 慶祝按鈕及其特效 -->
-                <div class="celebrate-container searchable-content">
+                <div class="celebrate-container">
                     <div class="celebrate"></div>
                     <button id="celebrate-btn" class="celebrate-btn">🎉</button>
                 </div>
@@ -116,7 +118,7 @@
         </section>
 
         <section id="about">
-            <div class="card-container searchable-content">
+            <div class="card-container">
                 <div class="card active" id="card-1">
                     <div class="card-content">
                         <div class="card-image">
@@ -139,7 +141,7 @@
                     </div>
                 </div>
 
-                <div class="card inactive searchable-content" id="card-2">
+                <div class="card inactive" id="card-2">
                     <div class="card-content">
                         <div class="card-image">
                             <img src="img/FIREWORK.gif" alt="Image 2">
@@ -157,7 +159,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card inactive searchable-content" id="card-3">
+                <div class="card inactive" id="card-3">
                     <div class="card-content">
                         <div class="card-image">
                             <img src="img\webShort.gif" alt="Image 3">
@@ -180,7 +182,7 @@
                     </div>
                 </div>
 
-                <div class="card inactive searchable-content" id="card-4">
+                <div class="card inactive" id="card-4">
                     <div class="card-content">
                         <div class="card-image">
                             <img src="img\artshot.gif" alt="額外平面美術作品">
@@ -200,7 +202,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="nav-buttons searchable-content">
+                <div class="nav-buttons">
                     <button class="nav-button" id="prev-button"></button>
                     <button class="nav-button" id="next-button"></button>
                 </div>
@@ -255,7 +257,7 @@
 
         </section>
 
-        <section id="portfolio" class="portfolioInfo">
+        <section id="portfolio" class="portfolioInfo searchable-content">
             <h2>前往我的作品</h2>
             <div class="button-group">
                 <button class="portfolio-btn" onclick="showGallery('html-gallery')">HTML</button>
@@ -592,7 +594,7 @@
                 </div>
                 <!-- 其他模態視窗 -->
             </div>
-            </div>
+            </>
             <!-- 繪畫作品集 -->
 
             <div id="paint-gallery" class="gallery" style="display: none;">
@@ -845,6 +847,21 @@
                 <!-- 其他模態視窗 -->
             </div>
             </div>
+        </section>
+        
+        <!-- NEWS -->
+        <section id="news" class="searchable-content">
+            <h2>What's New</h2>
+            <p>1. 2024年8月17日學習紀錄：個人網站創立</p>
+            <a href="MainPage.html">查看更多</a>
+            <p>2. 2024年8月16日學習紀錄：JavaScript基礎教學if-else與迴圈</p>
+            <a href="MainPage.html">查看更多</a>
+            <p>教育資源推薦：w3school</p>
+            <a href="https://www.w3school.com.cn/">前往</a>
+            <p>教育資源推薦：MDN Web Docs</p>
+            <a href="https://developer.mozilla.org/zh-TW/">前往</a>
+            <p>教育資源推薦：Codecademy</p>
+            <a href="https://www.codecademy.com/">前往</a>
         </section>
     </main>
 

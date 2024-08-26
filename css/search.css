@@ -1,4 +1,28 @@
-/* 搜尋列容器 */
+/* 向下箭頭提示色塊的樣式 */
+.arrow-indicator {
+    background-color: #2a3442; /* 背景色 */
+    padding: 10px; /* 內邊距 */
+    border-radius: 10px; /* 圓角 */
+    position: fixed; /* 固定位置 */
+    top: 0; /* 位於頁面頂部 */
+    height: 8px; /* 高度 */
+    width: 10px; /* 寬度 */
+    cursor: pointer; /* 鼠標指標 */
+    left: 50%; /* 水平居中 */
+    transform: translateX(-50%); /* 水平居中 */
+    font-size: 18px; /* 符號大小 */
+    color: #ffffff; /* 符號顏色 */
+    opacity: 1; /* 始終顯示 */
+    transition: opacity 0.5s ease-out, top 0.5s ease-out; /* 平滑的顯示效果與箭頭移動 */
+    z-index: 1001; /* 確保在搜尋列之上 */
+}
+
+/* 當搜尋欄顯示時，箭頭往下移動 */
+.search-bar-visible .arrow-indicator {
+    top: 60px; /* 將箭頭移到搜尋欄下方，根據搜尋欄的高度調整 */
+}
+
+/* 搜尋列容器的基本樣式 */
 .search-container {
     position: fixed; /* 固定位置 */
     top: 0;
@@ -11,6 +35,15 @@
     align-items: center;
     border-bottom: 1px solid #444; /* 底部邊框 */
     z-index: 1000; /* 確保在其他內容之上 */
+    transform: translateY(-100%); /* 初始位置在視窗外 */
+    opacity: 0; /* 初始完全透明 */
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* 添加滑順的顯示動畫 */
+}
+
+/* 顯示搜尋列 */
+.visible-search-bar {
+    transform: translateY(0); /* 將搜尋列移動到視窗內 */
+    opacity: 1; /* 使搜尋列顯示 */
 }
 
 /* 搜尋欄樣式 */
@@ -38,6 +71,16 @@
 
 #searchButton:hover {
     background-color: #5c3f58; /* 按鈕懸停顏色 */
+}
+
+/* 預設隱藏搜尋列 */
+.hidden-search-bar {
+    display: none;
+}
+
+/* 顯示搜尋列 */
+.visible-search-bar {
+    display: flex; /* 保持與 .search-container 一致的顯示方式 */
 }
 
 /* 當搜尋沒有結果時顯示的訊息 */
@@ -73,6 +116,7 @@
     z-index: 1000;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+
 @keyframes flash {
     0% {
         border-color: yellow;
@@ -96,4 +140,3 @@
     box-shadow: 0 0 10px rgba(255, 255, 0, 0.5); /* 輕微的陰影效果 */
     animation: flash 1s infinite; /* 添加閃爍動畫，1秒鐘閃爍一次 */
 }
-

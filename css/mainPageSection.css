@@ -1,0 +1,268 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url("../img/background.png") repeat center center fixed;
+  background-size: auto;
+  overflow-x: hidden;
+}
+
+/* 主頁面區域樣式 */
+.mainPageSectionStyled {
+  position: relative;
+  z-index: 10;
+  left: 50px;
+  display: flex;
+  width: 90%;
+  height: 80vh;
+  overflow: hidden;
+  border: 10px solid #1f2833;
+  border-radius: 20px;
+}
+
+/* 圖片容器樣式 */
+.image-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.image-item {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  transition: flex 0.5s ease;
+}
+
+.mainPageIMG {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.overlay {
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 2;
+}
+
+.bg-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.image-item.expanded {
+  flex: 4;
+}
+
+.image-item.expanded .overlay {
+  opacity: 1;
+}
+
+.image-item.expanded .bg-cover {
+  opacity: 1;
+}
+
+.btnMore {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ba54d3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: none;
+}
+
+.image-item.expanded .btnMore {
+  display: block;
+  z-index: 3;
+}
+
+.btnMore:hover {
+  background-color: #c997ce;
+}
+
+/* 技能圓餅圖區域 */
+.skillPieChartSection {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 卡片容器樣式 */
+.card-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 80%;
+  max-width: 1200px;
+  border: 2px solid #1f2833;
+  border-radius: 20px;
+  background-color: rgba(31, 40, 51, 0.8);
+  padding: 20px;
+}
+
+/* 卡片內容區域 */
+.card {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card.active {
+  display: flex;
+}
+
+.pie-chart {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+}
+
+.description {
+  color: #c5c6c7;
+}
+
+.btn-nav {
+  background-color: #45a29e;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 10px;
+  margin: 0 10px;
+}
+
+.btn-nav:hover {
+  background-color: #66fcf1;
+}
+
+/* 整體卡片區域 */
+.MainSkillCard {
+  width: 90%;
+  max-width: 1200px;
+  margin: 100px auto;
+  border: 20px solid #242438;
+  border-radius: 15px;
+  background-image: src("../img/background.png");
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  perspective: 1000px;
+}
+
+/* 卡片內容區域 */
+.MainCardContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.MainCardContent.flip {
+  transform: rotateY(180deg);
+}
+
+.MainCardContent > * {
+  backface-visibility: hidden;
+}
+
+/* 圓餅圖容器 */
+.MainPieChartContainer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+/* 圓餅圖 */
+.MainPieChart {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: conic-gradient(#6c45a0 0% 60%, #292424 60% 100%);
+  border: 6px solid #292424;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 技能名稱容器 */
+.MainSkillNameContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 技能名稱 */
+.MainSkillName {
+  color: #d1a7d6;
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* 技能百分比 */
+.MainSkillPercentage {
+  color: #66fcf1;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* 技能描述 */
+.MainSkillDescription {
+  color: #c5c6c7;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 320px;
+  margin-bottom: 20px;
+}
+
+/* 按鈕 */
+.MainNavBtn {
+  background-color: #45a29e;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 10px;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+}
+
+.MainNavBtn:hover {
+  background-color: #66fcf1;
+}

@@ -8,18 +8,20 @@
 
     <link id="mobileStyle" rel="stylesheet" href="css/mobileStyle.css">
 
+    <link id="nav-stylesheet" rel="stylesheet" href="css/navStyles.css">
     <link id="body-main-stylesheet" rel="stylesheet" href="css/bodyMain.css">
     <link id="welcome-featured-profile-highlight-stylesheet" rel="stylesheet" href="css/welcomeFeatured.css">
-    <link id="nav-stylesheet" rel="stylesheet" href="css/navStyles.css">
     <link id="news-stylesheet" rel="stylesheet" href="css/newsStyles.css">
     <link id="register-auth-modal-stylesheet" rel="stylesheet" href="css/registerModal.css">
     <link id="card-display-stylesheet" rel="stylesheet" href="css/card.css">
     <link id="footer-celebrate-btn-stylesheet" rel="stylesheet" href="css/footerStyles.css">
     <link id="search-stylesheet" rel="stylesheet" href="css/search.css">
+    <link id="main-page-section-stylesheet" rel="stylesheet" href="css/mainPageSection.css">
 
 
     <script src="JS/main.js" defer></script>
     <script src="JS/search.js" defer></script>
+    <script src="JS/mainPageSection.js" defer></script>
 </head>
 
 
@@ -55,6 +57,8 @@
             </div>
         </div>
     </div>
+    <!-- 向下箭頭提示色塊 -->
+    <div class="arrow-indicator">⏑</div>
 
     <!-- 搜尋列 -->
     <div class="search-container">
@@ -68,7 +72,6 @@
     <div id="searchingNotification" class="notification">
         <p>正在導向搜尋結果...</p>
     </div>
-
     <!-- 導航列 -->
     <nav>
         <img src="img\BACKBTN-01-01.png" alt="backBTN" class="backBTN">
@@ -92,24 +95,157 @@
 
     <main>
         <section id="welcome">
-            <div class=" welcome-text searchable-content">
+            <div class=" welcome-text">
                 <h2 id="modal-title"></h2>
                 <p class="modal-text"></p>
-                <p>這裡是我紀錄關於近期作品、分享學習資源
-                    <br>以及提供迷你遊戲的地方。如有任何需求或連繫，
-                    <br>請<a href="#contact">聯繫我</a>或者參考資訊分頁
-
-                    <!-- 慶祝按鈕及其特效 -->
-                <div class="celebrate-container searchable-content">
+                <!-- 慶祝按鈕及其特效 -->
+                <div class="celebrate-container">
                     <div class="celebrate"></div>
                     <button id="celebrate-btn" class="celebrate-btn">🎉</button>
                 </div>
                 <div id="celebrate" class="celebrate"></div>
                 </p>
             </div>
-            <!-- 歡迎區域 -->
-            <div class="welcome-image">
-                <img src="img/ME.jpg" alt="圓形圖片">
+        </section>
+        <section id="mainPageSection" class="mainPageSectionStyled">
+            <div class="image-container">
+                <div class="image-item" id="item1">
+                    <img src="img\CodeMonkey.png" alt="Intro 1" class="mainPageIMG">
+                    <div class="overlay">你好，我是梁之泰，<br>目前正在資策會學習。<br><br>我的學習目標是成為一名合格的程式設計師。</div>
+                    <div class="bg-cover"></div>
+                </div>
+                <div class="image-item" id="item2">
+                    <img src="img\PIC (10).png" alt="Intro 2" class="mainPageIMG">
+                    <div class="overlay">
+                        我過去的主要工作經驗集中在廣告行銷美編，<br>這段經歷讓我養成了設計思維和注重細節的習慣。<br><br>雖然過去沒有學習過程式語言，<br>但我已經逐漸適應並apply到學習中。
+                    </div>
+                    <div class="bg-cover"></div>
+                </div>
+                <div class="image-item" id="item3">
+                    <img src="img/WaitUpdate.png" alt="Intro 3" class="mainPageIMG">
+                    <div class="overlay">
+                        目前，<br>我正在學習SQL、HTML、JavaScript和C#等技術。<br>我希望能將這些技能應用到實際專案中，<br>進一步提升自己的開發能力。<br><br>完整作品細節請點選：
+                    </div>
+                    <div class="bg-cover"></div>
+                    <a href="portfolio.html" class="btnMore">前往查看更多</a>
+                </div>
+            </div>
+        </section>
+
+
+        <div id="MainSkillCard" class="MainSkillCard">
+            <button id="MainPrevBtn" class="MainNavBtn">往左</button>
+            <button id="MainNextBtn" class="MainNavBtn">往右</button>
+
+            <div class="MainCardContent">
+                <div id="MainSkillNameContainer" class="MainSkillNameContainer">
+                    <div id="MainSkillName" class="MainSkillName">
+                        <!-- 這裡會顯示技能名稱 -->
+                    </div>
+                    <div id="MainSkillPercentage" class="MainSkillPercentage">
+                        <!-- 這裡會顯示技能百分比 -->
+                    </div>
+                </div>
+                <div id="MainSkillDescription" class="MainSkillDescription">
+                    <!-- 這裡會顯示技能的描述 -->
+                </div>
+                <div id="MainPieChartContainer" class="MainPieChartContainer">
+                    <div id="MainPieChart" class="MainPieChart"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <section id="about">
+            <div class="card-container">
+                <div class="card active" id="card-1">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img src="img\inasnake.png" alt="C# 貪吃蛇遊戲">
+                        </div>
+                        <div class="card-text">
+                            <h2>貪吃蛇遊戲(C#基礎開發)</h2>
+                            <p>使用 C# 開發貪吃蛇遊戲，為首次接觸程式語言，學習基礎語法與控制流程。玩家控制蛇移動並吃食物，增加長度。長度過長會導致遊戲結束。</p>
+
+                            <h3>開發技術</h3>
+                            <ul>
+                                <li><strong>Victor3</strong> 引擎：實現重力效果與速度增長。</li>
+                                <li><strong>隨機食物生成</strong>：提升遊戲挑戰性。</li>
+                                <li><strong>視覺化介面</strong>：清晰展示遊戲狀態。</li>
+                                <li><strong>Inspector 與 Component</strong>：高效管理遊戲元素。</li>
+                                <a href="https://tananis.itch.io/inake" target="_blank"
+                                    class="profile-button">前往itch.io</a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card inactive" id="card-2">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img src="img/FIREWORK.gif" alt="Image 2">
+                        </div>
+                        <div class="card-text">
+                            <h2>煙火特效</h2>
+                            <p>展示了我如何用 HTML、CSS 和 JavaScript 創建動態煙火效果，點擊按鈕後會產生多彩的紙雪動畫。</p>
+                            <a href="portfolioWEB\firework.html" target="_blank" class="profile-button">前往效果頁</a>
+                            <ul>
+                                <h3>技術要點</h3 class="card-text">
+                                <li><strong>動態生成：</strong> 用 JS 創建數百個紙雪片，並設置其樣式。</li>
+                                <li><strong>動畫效果：</strong> 使用 CSS 實現煙火的擴散和下落。</li>
+                                <li><strong>效能考量：</strong> 透過限制 DOM 操作和優化動畫過渡，確保平滑的使用體驗。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card inactive" id="card-3">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img src="img\webShort.gif" alt="Image 3">
+                        </div>
+                        <div class="card-text">
+                            <h2>各式Web模板練習</h2>
+                            <p>實作了多種商用網站模板，如影音播放器、首頁、購物車、聯絡頁面等，並參加了資策會課程提升技能。</p>
+                            <h3>技術要點</h3>
+                            <ul>
+                                <li><strong>CSS3：</strong> 設計響應式和動態效果。</li>
+                                <li><strong>JavaScript：</strong> 增加互動功能。</li>
+                            </ul>
+                            <ul>
+                                <li><strong>增強前端技能：</strong> 精通 CSS 設計。</li>
+                                <li><strong>提升問題解決能力：</strong> 能夠應對技術挑戰。</li>
+                                <li><strong>實戰經驗：</strong> 在實際專案中應用所學。</li>
+                            </ul>
+                        </div>
+                        <a href="portfolioWEB\firework.html" target="_blank" class="profile-button">查看模板</a>
+                    </div>
+                </div>
+
+                <div class="card inactive" id="card-4">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img src="img\artshot.gif" alt="額外平面美術作品">
+                        </div>
+                        <div class="card-text">
+                            <h2>額外平面美術作品</h2>
+                            <p>展示 Adobe Illustrator 和數位繪圖的平面設計作品。</p>
+                            <h3>內容重點</h3>
+                            <ul>
+                                <li><strong>Adobe AI/PS：</strong> 標誌和視覺設計。</li>
+                                <li><strong>數位繪圖：</strong> 高品質平面繪圖。</li>
+                                <li><strong>多樣設計：</strong> 探索視覺風格。</li>
+                                <li><strong>設計技能提升：</strong> 加強設計能力。</li>
+                                <li><strong>視覺溝通：</strong> 改進作品效果。</li>
+                                <li><strong>專業經驗：</strong> 實際設計經驗。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-buttons">
+                    <button class="nav-button" id="prev-button"></button>
+                    <button class="nav-button" id="next-button"></button>
+                </div>
             </div>
         </section>
 
@@ -146,68 +282,6 @@
             - 用於展示網站的主要內容和更新信息 -->
         </section>
 
-        <!-- 關於我 -->
-        <section id="about">
-            <div class="card-container searchable-content">
-                <div class="card active" id="card-1">
-                    <div class="card-content">
-                        <div class="card-image">
-                            <img src="img/WaitUpdate.png" alt="Image 1">
-                        </div>
-                        <div class="card-text">
-                            <h2>梁之泰</h2>
-                            <p>出生於台中，23歲。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card inactive searchable-content" id="card-2">
-                    <div class="card-content">
-                        <div class="card-image">
-                            <img src="img/WaitUpdate.png" alt="Image 2">
-                        </div>
-                        <div class="card-text">
-                            <h2>學歷與經歷</h2>
-                            <p>文藻外語大學數位設計系，專注於平面設計與數位藝術。</p>
-                            <p>曾在上捷廣告擔任數位行銷與網站編輯，負責WIX與WordPress平台的內容更新與管理。<br>過去沒有coding與相關經驗。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card inactive searchable-content" id="card-3">
-                    <div class="card-content">
-                        <div class="card-image">
-                            <img src="img/WaitUpdate.png" alt="Image 3">
-                        </div>
-                        <div class="card-text">
-                            <h2>專業技能</h2>
-                            <p>音訊編輯：擁有兩年Podcast製作經驗，熟悉音訊編輯與影片剪輯。</p>
-                            <p>遊戲開發：經驗豐富於迷你遊戲的開發，掌握Unity、C#等技術，具備遊戲上架經驗。</p>
-                            <p>網頁設計：HTML、CSS、JavaScript的基礎知識，能夠進行基礎網頁設計與開發。</p>
-                            <p>平面設計：熟悉Adobe Photoshop與Illustrator，具備平面設計與文案撰寫能力。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card inactive searchable-content" id="card-4">
-                    <div class="card-content">
-                        <div class="card-image">
-                            <img src="img/WaitUpdate.png" alt="Image 4">
-                        </div>
-                        <div class="card-text">
-                            <h2>額外經歷</h2>
-                            <p>參與多次小型遊戲製作，擁有多人協作與獨立開發經驗。</p>
-                            <p>曾經經營個人Podcast一年，參與各種活動並與台北遊戲電玩展合作。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="nav-buttons searchable-content">
-                    <button class="nav-button" id="prev-button"></button>
-                    <button class="nav-button" id="next-button"></button>
-                </div>
-            </div>
-        </section>
-        <!-- - 顯示個人卡片，每張卡片包含圖片和文本
-        - nav-buttons 用於切換顯示的卡片 -->
-
-
 
         <!-- NEWS -->
         <section id="news" class="searchable-content">
@@ -223,9 +297,7 @@
             <p>教育資源推薦：Codecademy</p>
             <a href="https://www.codecademy.com/">前往</a>
         </section>
-
     </main>
-
 
     <footer class="footerBG searchable-content">
         <p class="footer-text">&copy; 2024 版權所有.</p>

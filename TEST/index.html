@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的學習記錄</title>
+    <title>個人作品集與學習平台</title>
+
+    <link id="mobileStyle" rel="stylesheet" href="css/mobileStyle.css">
+
     <link id="body-main-stylesheet" rel="stylesheet" href="css/bodyMain.css">
     <link id="welcome-featured-profile-highlight-stylesheet" rel="stylesheet" href="css/welcomeFeatured.css">
     <link id="nav-stylesheet" rel="stylesheet" href="css/navStyles.css">
@@ -14,9 +17,11 @@
     <link id="footer-celebrate-btn-stylesheet" rel="stylesheet" href="css/footerStyles.css">
     <link id="search-stylesheet" rel="stylesheet" href="css/search.css">
 
-    <script src="JS\main.JS" defer></script>
+
+    <script src="JS/main.js" defer></script>
     <script src="JS/search.js" defer></script>
 </head>
+
 
 <body>
     <!-- 懸浮視窗的 HTML 結構 -->
@@ -68,88 +73,30 @@
     <!-- 導航列 -->
     <nav>
         <img src="img\BACKBTN-01-01.png" alt="backBTN" class="backBTN">
-        <h1>學習日誌</h1>
+        <h1>主頁</h1>
         <ul>
-            <li><a href="index.html">首頁</a></li>
             <li><a href="portfolio.html">過去作品</a></li>
             <li><a href="LearningDiary.html">學習日誌</a></li>
             <li><a href="viewport.html">學習資源推薦</a></li>
             <li><a href="mini-games.html">迷你遊戲</a></li>
             <li><a href="contact.html">聯絡</a></li>
+            <a href="index.html" class="home-button">
+                <img src="img\homepage.png" class="home-icon">
+            </a>
         </ul>
+
         <!-- 顯示懸浮視窗的按鈕 -->
         <button id="openModalBtn" class="openModalBtn">註冊 | 登入</button>
-
     </nav>
     <!-- - 提供網站的主要導航連結
     - 包含返回按鈕、標題和不同的頁面連結 -->
 
-    <!-- 主要內容區域 -->
     <main>
-        <!-- 歡迎區域 -->
-        <section id="welcome">
-            <div class="welcome-text searchable-content">
-                <h2>歡迎來到我的學習記錄網站</h2>
-                <p>這裡是我在學習過程中的一些記錄與分享，希望對你有幫助。</p>
-            </div>
-            <div class="welcome-image">
-                <img src="img/LearningDiaryHEAD.png" alt="Profile Image">
-            </div>
-        </section>
-
-        <!-- 個人資訊區塊 -->
-        <section class="profile-info searchable-content">
-            <h2>學習記錄</h2>
-            <p>關於我的學習歷程，筆記/解釋/語法與註釋等等，都會在這裡更新。</p>
-            <a href="https://www.notion.so/d3c712265e744507b0f4fcabd235b345?pvs=4"
-                class="profile-button">前往NOTION查看更多</a>
-        </section>
-
-        <!-- 精選展示區域 -->
-        <section id="featured" class="featured">
-            <h2>分頁內容</h2>
-            <div class="highlight">
-                <button class="featured-btn searchable-content"
-                    onclick="location.href='LearningDiary/SQL.html'">SQL</button>
-                <button class="featured-btn searchable-content"
-                    onclick="location.href='LearningDiary/HTML.html'">HTML</button>
-                <button class="featured-btn searchable-content"
-                    onclick="location.href='LearningDiary/Python.html'">Python</button>
-                <button class="featured-btn searchable-content"
-                    onclick="location.href='LearningDiary/unity.html'">Unity</button>
-                <button class="featured-btn searchable-content"
-                    onclick="location.href='LearningDiary/csharp.html'">C#</button>
-            </div>
-        </section>
-
-        <!-- 最新消息區域 -->
-        <section id="news" class="news-section visible">
-            <h2>最新消息</h2>
-            <p>這裡是一些最新的筆記或更新。</p>
-            <a href="#">查看所有消息</a>
-            <div class="news-container searchable-content">
-                <div class="news-item">
-
-                    <h3>最新消息一</h3>
-                    <p>這是最新消息的介紹，這裡可以放一些有趣的內容。</p>
-                </div>
-                <div class="news-item">
-
-                    <h3>最新消息二</h3>
-                    <p>這是最新消息的介紹，這裡可以放一些有趣的內容。</p>
-                </div>
-                <div class="news-item">
-
-                    <h3>最新消息三</h3>
-                    <p>這是最新消息的介紹，這裡可以放一些有趣的內容。</p>
-                </div>
-            </div>
-        </section>
 
     </main>
 
-    <!-- 頁腳 -->
-    <footer class="footerBG">
+
+    <footer class="footerBG searchable-content">
         <p class="footer-text">&copy; 2024 版權所有.</p>
     </footer>
 </body>

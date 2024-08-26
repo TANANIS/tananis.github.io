@@ -371,3 +371,5 @@ function closeImageModal() {
     modal.style.display = "none";
   });
 }
+
+

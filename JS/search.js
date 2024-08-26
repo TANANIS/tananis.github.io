@@ -80,3 +80,49 @@ document.getElementById('searchInput').addEventListener('keyup', function(event)
         searchFunction();
     }
 });
+
+// 監聽滑鼠移動事件來顯示/隱藏搜尋欄和箭頭
+document.addEventListener('mousemove', function(event) {
+    var searchBar = document.querySelector('.search-container');
+    var arrowIndicator = document.querySelector('.arrow-indicator');
+    var arrowContainer = document.body; // 添加一個容器來控制整體狀態
+
+    if (event.clientY <= 50) { // 假設上方邊緣範圍為50px
+        searchBar.classList.add('visible-search-bar');
+        arrowContainer.classList.add('search-bar-visible'); // 當搜尋欄顯示時修改箭頭位置
+    } else {
+        searchBar.classList.remove('visible-search-bar');
+        arrowContainer.classList.remove('search-bar-visible'); // 當搜尋欄隱藏時重置箭頭位置
+    }
+});
+
+// 當頁面加載完成後初始化箭頭提示和搜尋欄顯示邏輯
+document.addEventListener("DOMContentLoaded", function() {
+    const arrowIndicator = document.querySelector(".arrow-indicator");
+    const searchContainer = document.querySelector(".search-container");
+
+    // 顯示搜尋欄和箭頭
+    function showSearchBar() {
+        searchContainer.classList.add("visible-search-bar");
+        document.body.classList.add("search-bar-visible");
+    }
+
+    // 隱藏搜尋欄和箭頭
+    function hideSearchBar() {
+        searchContainer.classList.remove("visible-search-bar");
+        document.body.classList.remove("search-bar-visible");
+    }
+
+    // 初次顯示箭頭提示
+    arrowIndicator.classList.add("visible-arrow");
+
+    // 點擊箭頭時顯示搜尋欄
+    arrowIndicator.addEventListener("click", showSearchBar);
+
+    // 點擊搜尋欄外部時隱藏搜尋欄
+    document.addEventListener("click", function(event) {
+        if (!searchContainer.contains(event.target) && !arrowIndicator.contains(event.target)) {
+            hideSearchBar();
+        }
+    });
+});
