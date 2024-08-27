@@ -1,3 +1,37 @@
+function createStars(numStars) {
+  const container = document.getElementById('star-container');
+  const containerWidth = container.offsetWidth;
+  const containerHeight = container.offsetHeight;
+
+  for (let i = 0; i < numStars; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+
+      const size = Math.random() * 3 + 1; // 星星大小 1px - 4px
+      const posX = Math.random() * containerWidth;
+      const posY = Math.random() * containerHeight;
+      const delay = Math.random() * 10; // 隨機延遲
+
+      // 隨機選擇移動終點，覆蓋整個頁面
+      const targetX = Math.random() * containerWidth - posX;
+      const targetY = Math.random() * containerHeight - posY;
+
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.left = `${posX}px`;
+      star.style.top = `${posY}px`;
+      star.style.setProperty('--star-delay', delay);
+      star.style.setProperty('--move-x', `${targetX}px`);
+      star.style.setProperty('--move-y', `${targetY}px`);
+
+      container.appendChild(star);
+  }
+}
+
+// 生成 100 顆星星
+createStars(100);
+
+
 // 開啟懸浮視窗
 document.getElementById("openModalBtn").addEventListener("click", () => {
   document.getElementById("authModal").style.display = "block";
