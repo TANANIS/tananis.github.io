@@ -1,3 +1,31 @@
+tananis.github.io - Cosmic Portfolio
+Project Description
+This is the new version of my personal portfolio website, themed around the cosmos. It showcases my graphic art, JavaScript effects, learning journey, and various practice exercises. The website combines artistic elements with interactive features, offering an engaging experience while presenting my creative works and technical skills.
+
+Installation and Usage
+Clone or download the project:
+
+git clone https://github.com/username/tananis.github.io.git
+After unzipping the files, open the folder which contains HTML, CSS, and JS files.
+
+Open the index.html file in a web browser to view the site.
+
+To modify styles or interactive features, edit the corresponding CSS and JS files.
+
+Features
+Cosmic Design: The website is visually themed around space and the universe.
+Artwork Showcase: Displays various personal art pieces and creative projects.
+Interactive Effects: JavaScript-driven space-themed animations and interactive elements.
+Learning Journey: Chronicles my personal development and learning process.
+Practice Exercises: Includes various coding challenges and practice tasks that helped build my skills.
+Technologies and Tools
+HTML: Used for building the structure of the website.
+CSS: Applied for styling, layout, and creative design elements.
+JavaScript: Implemented for interactive effects, animations, and technical practice exercises.
+
+
+
+--------------------------------------------
 # tananis.github.io
 
 # 20240820更新內容：
