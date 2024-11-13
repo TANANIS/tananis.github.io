@@ -5,7 +5,7 @@ This is the new version of my personal portfolio website, themed around the cosm
 Installation and Usage
 Clone or download the project:
 
-git clone https://github.com/username/tananis.github.io.git
+git clone https://github.com/TANANIS/tananis.github.io.git
 After unzipping the files, open the folder which contains HTML, CSS, and JS files.
 
 Open the index.html file in a web browser to view the site.
